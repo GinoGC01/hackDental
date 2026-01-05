@@ -1,0 +1,477 @@
+---
+import Image from "astro/components/Image.astro"
+import ArrowDown from "../Icons/ArrowDown.astro";
+import profileImage from '../assets/perfil.svg';
+import Verify from '../Icons/Verify.astro';
+---
+
+<!-- Header Fixed -->
+<header 
+    id="main-header"
+    class="py-4 fixed top-0 left-0 w-full z-50 border-b border-white/5 transition-all duration-300"
+>
+    <div class="absolute inset-0 bg-[#0a0a0a]/90 backdrop-blur-2xl"></div>
+    
+    <nav class="relative max-w-7xl mx-auto px-5 flex items-center justify-between">
+        
+        <!-- Logo con efecto glow -->
+        <div class="relative z-[60] group">
+            <a 
+                href="/" 
+                class="font-oswald text-2xl md:text-3xl font-bold hover:scale-105 transition-transform duration-300 inline-block relative"
+                aria-label="HackDental - Inicio"
+            >
+                <!-- Glow effect en hover -->
+                <span class="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></span>
+                <span class="relative">
+                    <span class="text-primary">Hack</span><span class="text-white">Dental</span>
+                </span>
+            </a>
+        </div>
+
+        <!-- Desktop Navigation - Mejorado -->
+        <div class="hidden lg:flex items-center gap-10">
+            <a 
+                href="#educacion" 
+                class="group relative text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/5"
+            >
+                <span class="font-medium">Educación para Odontólogos</span>
+                <span class="group-hover:translate-y-1 transition-transform duration-300 text-primary/60 group-hover:text-primary">
+                    <ArrowDown />
+                </span>
+                <!-- Underline effect -->
+                <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
+            </a>
+            
+            <a 
+                href="#contacto" 
+                class="group relative text-gray-300 hover:text-white transition-all duration-300 px-4 py-2 rounded-lg hover:bg-white/5 font-medium"
+            >
+                <span>Contacto</span>
+                <!-- Underline effect -->
+                <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
+            </a>
+        </div>
+
+        <!-- CTA Button Desktop - Ultra Premium -->
+        <div class="hidden lg:block">
+            <a 
+                href="#auditoria" 
+                class="group relative inline-flex items-center justify-center font-bold text-[15px] text-white transition-all duration-500 rounded-xl overflow-visible"
+                id="cta-desk-button"
+            >
+                <!-- Animated gradient background glow -->
+                <span class="absolute -inset-1 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] opacity-70 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition-all duration-500 animate-gradient"></span>
+                
+                <!-- Border gradient animado -->
+                <span class="absolute inset-0 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] rounded-xl opacity-80 animate-gradient"></span>
+                
+                <!-- Inner button con glassmorphism -->
+                <span class="relative z-10 flex items-center gap-2.5 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] px-7 py-3 rounded-[11px] m-[1.5px] backdrop-blur-xl group-hover:from-[#0f0f0f] group-hover:via-[#1f1f1f] group-hover:to-[#0f0f0f] transition-all duration-300">
+                    <span class="relative">
+                        Pedir Auditoría
+                        <!-- Texto con gradient en hover -->
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary to-[#00ffc6] bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Pedir Auditoría
+                        </span>
+                    </span>
+                    
+                    <!-- Arrow con animación -->
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button - Mejorado -->
+        <button 
+            id="mobile-menu-btn"
+            class="lg:hidden relative z-[60] w-11 h-11 flex flex-col items-center justify-center gap-1.5 group rounded-lg hover:bg-white/5 transition-colors duration-300"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+        >
+            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+        </button>
+    </nav>
+</header>
+
+<div 
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 translate-x-full transition-transform duration-500 ease-out z-[55]"
+    style="background: #000000;"
+>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#0a0a0a]"></div>
+    
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="absolute top-20 left-10 w-72 h-72 bg-primary/8 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-32 right-10 w-80 h-80 bg-[#00ffc6]/6 rounded-full blur-[140px] pointer-events-none"></div>
+    
+    <!-- Content Container -->
+    <div class="relative h-full flex items-center justify-center overflow-y-auto px-6">
+        
+        <!-- Close Button -->
+        <button
+            id="mobile-menu-close"
+            class="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 transition-all duration-300 group backdrop-blur-xl"
+            aria-label="Cerrar menú"
+        >
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+
+        <nav class="w-full flex flex-col gap-6 pb-24 pt-48">
+            <div class="flex flex-col gap-2 items-center justify-center border-b-1 border-white/10">
+                <div class="p-1 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] flex items-center justify-center">
+                    <Image 
+                        src={profileImage}
+                        alt="Jose Whittembury"
+                        class="w-[80px] h-[80px] rounded-full object-cover bg-white"
+                    />
+                </div>
+                <span class="text-lg md:text-2xl font-bold ml-[7px] flex items-center justify-center gap-2">
+                    <p>Jose Whittembury</p>
+                    <Verify width={30} height={30} />
+                </span>
+            </div>
+                 
+            
+            <div class="flex flex-col gap-3">
+
+                <a 
+                    href="#educacion" 
+                    class="mobile-link opacity-0 translate-y-8 group relative"
+                    style="transition-delay: 100ms;"
+                >
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 backdrop-blur-xl p-6 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative flex items-center justify-between">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">
+                                    Educación para Odontólogos
+                                </h3>
+                                <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300">
+                                    Programas y recursos
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-primary group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a 
+                    href="#contacto" 
+                    class="mobile-link opacity-0 translate-y-8 group relative"
+                    style="transition-delay: 200ms;"
+                >
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 backdrop-blur-xl p-6 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative flex items-center justify-between">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">
+                                    Contacto
+                                </h3>
+                                <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300">
+                                    Habla con nuestro equipo
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-primary group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mobile-link opacity-0 translate-y-8 mt-4" style="transition-delay: 300ms;"
+            >
+                <a href="#auditoria" class="group block">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary via-[#00ffc6] to-primary opacity-40 group-hover:opacity-70 blur-xl transition-all duration-500 rounded-2xl group-active:blur-2xl animate-pulse-glow"></div>
+                    
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-[#00ffc6] p-[2px] shadow-[0_0_40px_rgba(1,219,176,0.3)] group-hover:shadow-[0_0_60px_rgba(1,219,176,0.5)] transition-all duration-500 animate-border-flow">
+                        <div class="relative bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] rounded-[14px] px-8 py-6 group-active:scale-[0.98] transition-transform duration-200">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+                            
+                         
+                            
+                            <div class="relative flex items-center justify-center gap-3">
+                                <span class="text-2xl font-black bg-gradient-to-r from-white via-white to-primary bg-clip-text text-transparent animate-text-shimmer bg-[length:200%_100%]">
+                                    Pedir Auditoría
+                                </span>
+                                <svg class="w-6 h-6 text-primary group-hover:translate-x-2 transition-transform duration-300 animate-bounce-x" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mobile-link opacity-0 translate-y-8 mt-2" style="transition-delay: 400ms;">
+                <div class="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent backdrop-blur-xl p-6 shadow-lg">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(1,219,176,0.1),transparent_50%)]"></div>
+                    
+                    <div class="relative">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="flex gap-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse" style="animation-delay: 0.2s;"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary/40 animate-pulse" style="animation-delay: 0.4s;"></div>
+                            </div>
+                            <span class="text-xs font-bold text-primary/80 uppercase tracking-widest">Plazas Limitadas</span>
+                        </div>
+                        
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-5xl font-black bg-gradient-to-br from-primary via-primary to-[#00ffc6] bg-clip-text text-transparent leading-none">5</span>
+                            <span class="text-lg font-semibold text-gray-400">Spots disponibles</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
+                            <svg class="w-4 h-4 text-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-sm font-medium text-gray-400">Enero 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
+    const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement;
+    const mobileMenuClose = document.getElementById('mobile-menu-close') as HTMLButtonElement;
+    const header = document.getElementById('main-header') as HTMLDivElement;
+    const mobileLinks = document.querySelectorAll('.mobile-link') as NodeListOf<HTMLElement>;
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            // Abrir menú
+            mobileMenu.classList.remove('translate-x-full');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            menuBtn.setAttribute('aria-label', 'Cerrar menú');
+            document.body.style.overflow = 'hidden';
+            
+            // Animar hamburger a X
+            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLSpanElement>;
+            lines[0].style.transform = 'rotate(45deg) translateY(11px)';
+            lines[1].style.opacity = '0';
+            lines[2].style.transform = 'rotate(-45deg) translateY(-11px)';
+            
+            setTimeout(() => {
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.style.opacity = '1';
+                        link.style.transform = 'translateY(0)';
+                    }, index * 80);
+                });
+            }, 100);
+            
+        } else {
+            // Cerrar menú
+            mobileMenu.classList.add('translate-x-full');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Abrir menú');
+            document.body.style.overflow = '';
+            
+            // Reset hamburger
+            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLSpanElement>;
+            lines[0].style.transform = '';
+            lines[1].style.opacity = '';
+            lines[2].style.transform = '';
+            
+            // Reset animaciones de links
+            mobileLinks.forEach(link => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(2rem)';
+            });
+        }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    mobileMenuClose.addEventListener('click', toggleMenu);
+
+    // Cerrar menú al hacer click en links
+    mobileLinks.forEach(link => {
+        if (link.tagName === 'A') {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    setTimeout(() => toggleMenu(), 200);
+                }
+            });
+        } else {
+            const anchor = link.querySelector('a');
+            anchor?.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    setTimeout(() => toggleMenu(), 200);
+                }
+            });
+        }
+    });
+
+    // Cerrar menú con ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+            toggleMenu();
+        }
+    });
+
+    // Header scroll effect premium
+    let lastScroll = 0;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 100) {
+                    header.classList.add('shadow-on');
+                } else {
+                    header.classList.remove('shadow-on');
+                }
+                
+                lastScroll = currentScroll;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+
+</script>
+
+<style>
+    :global(body) {
+        padding-top: 80px;
+    }
+
+    @media (max-width: 1023px) {
+        :global(body) {
+            padding-top: 72px;
+        }
+    }
+    
+    .shadow-on {
+        padding-block: 10px;
+        box-shadow: 0 10px 40px rgba(1, 219, 176, 0.12);
+    }
+    
+    .shadow-on::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.98);
+        z-index: -1;
+    }
+
+    .mobile-link {
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes gradient {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    @keyframes pulse-slow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { 
+            opacity: 0.4;
+            transform: scale(1);
+        }
+        50% { 
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes border-flow {
+        0%, 100% { 
+            background-position: 0% 50%;
+            box-shadow: 0 0 40px rgba(1, 219, 176, 0.3);
+        }
+        50% { 
+            background-position: 100% 50%;
+            box-shadow: 0 0 60px rgba(1, 219, 176, 0.5);
+        }
+    }
+
+    @keyframes text-shimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    @keyframes bounce-x {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
+    }
+
+
+
+    .animate-gradient {
+        animation: gradient 3s ease infinite;
+    }
+
+    .animate-pulse-slow {
+        animation: pulse-slow 3s ease-in-out infinite;
+    }
+
+    .animate-pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .animate-border-flow {
+        background-size: 200% 200%;
+        animation: border-flow 3s ease infinite;
+    }
+
+    .animate-text-shimmer {
+        animation: text-shimmer 3s ease infinite;
+    }
+
+    .animate-bounce-x {
+        animation: bounce-x 2s ease-in-out infinite;
+    }
+
+
+
+    #mobile-menu {
+        will-change: transform;
+    }
+
+    .mobile-link {
+        will-change: opacity, transform;
+    }
+
+    /* Optimización para iOS */
+    #mobile-menu {
+        -webkit-overflow-scrolling: touch;
+    }
+</style>

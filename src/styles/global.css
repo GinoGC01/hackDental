@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+
+/* ========== COLORS ========== */
+/* Primary colors */
+.text-primary {
+  color: #01dbb0;
+}
+.bg-primary {
+  background-color: #01dbb0;
+}
+.border-primary {
+  border-color: #01dbb0;
+}
+
+.text-primary-light {
+  color: #00ffc8;
+}
+.bg-primary-light {
+  background-color: #00ffc8;
+}
+.border-primary-light {
+  border-color: #00ffc8;
+}
+
+/* Dark colors */
+.text-dark-100 {
+  color: #1a1a1a;
+}
+.bg-dark-100 {
+  background-color: #1a1a1a;
+}
+.border-dark-100 {
+  border-color: #1a1a1a;
+}
+
+.text-dark-200 {
+  color: #0a0a0a;
+}
+.bg-dark-200 {
+  background-color: #0a0a0a;
+}
+.border-dark-200 {
+  border-color: #0a0a0a;
+}
+
+/* ========== FONT FAMILIES ========== */
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* ========== FONT SIZES ========== */
+.text-header {
+    font-size: 15px;
+}
+
+.text-eyebrow {
+  font-size: 18px;
+}
+.text-hero-title {
+  font-size: 40px;
+}
+.text-hero-subtitle {
+  font-size: 20px;
+}
+.text-profile-name {
+  font-size: 22px;
+}
+.text-cta {
+  font-size: 24px;
+}
+
+/* ========== BOX SHADOWS ========== */
+.shadow-primary {
+  box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4);
+}
+.shadow-primary-hover:hover {
+  box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6);
+}
+.shadow-profile {
+  box-shadow: 0 0 20px rgba(1, 219, 176, 0.3);
+}
+
+/* ========== FILTER EFFECTS ========== */
+/* Drop shadow for glow effect */
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 30px rgba(1, 219, 176, 0.5));
+}
+
+/* Blur effect */
+.blur-120 {
+  filter: blur(120px);
+}
+
+/* ========== LETTER SPACING ========== */
+.tracking-wide {
+  letter-spacing: 1px;
+}
+
+/* ========== UTILITY CLASSES ========== */
+/* Hover states for primary colors */
+.hover\:bg-primary:hover {
+  background-color: #01dbb0;
+}
+.hover\:text-primary:hover {
+  color: #01dbb0;
+}
+
+/* Focus states */
+.focus\:ring-primary:focus {
+  --tw-ring-color: rgba(1, 219, 176, 0.5);
+  box-shadow: 0 0 0 3px rgba(1, 219, 176, 0.5);
+}
+
+/* Transition for hover effects */
+.transition-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+/* ========== COMPONENT CLASSES ========== */
+/* Button with primary styling */
+.btn-primary {
+  background-color: #01dbb0;
+  color: #0a0a0a;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background-color: #00ffc8;
+  box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6);
+}
+
+/* Profile card with shadow */
+.profile-card {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 20px rgba(1, 219, 176, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Hero section typography */
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Eyebrow text */
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #00ffc8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* CTA button */
+.cta-button {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  color: #0a0a0a;
+  background-color: #ffd60a;
+  border: 2px solid #ffb70091;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+.cta-button:hover {
+  background-color: #00ffc8;
+  box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6);
+}
