@@ -141,7 +141,7 @@ El botón de Call-To-Action incluye:
 
 ## 📄 Licencia
 
-[Tu licencia aquí]
+**CC BY-NC 4.0**
 
 ## 👨‍💻 Autor
 
