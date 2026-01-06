@@ -1,4 +1,5 @@
 ---
+import RedLine from "../Icons/RedLine.astro";
 import Spain from "../Icons/Spain.astro";
 import ProfileCard from "./Cards/ProfileCard.astro";
 ---
@@ -20,7 +21,14 @@ import ProfileCard from "./Cards/ProfileCard.astro";
     <p class="font-oswald text-[22px] md:text-[40px] font-bold uppercase">
         <span>Y APRENDE COMO CONVERTIR TU</span>
         <div class="flex items-center flex-col md:flex-row justify-center gap-2">
-            <p class="font-oswald text-[22px] md:text-[40px] font-bold uppercase">CONSULTORIO EN EL <span class="text-[#eb4423]">#1 DE ESPAÑA</span></p> 
+            <p class="font-oswald text-[22px] md:text-[40px] font-bold uppercase">CONSULTORIO EN EL 
+                <div class=" inline-block text-[22px] md:text-[40px] fond-bold uppercase relative font-oswald">
+                    #1 DE ESPAÑA 
+                    <figure class="absolute bottom-0 right-0 w-full">
+                        <RedLine />
+                    </figure>
+                </div>
+            </p> 
             <span class="rotate-[-8deg] inline-block">
              <Spain width="42" height="42"/> 
             </span>
@@ -114,6 +122,8 @@ import ProfileCard from "./Cards/ProfileCard.astro";
 
 
 <style>
+
+
 .mountain-footer-divider {
     position: absolute;
     left: 50%;
