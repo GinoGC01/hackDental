@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro"
+import { Image } from "astro:assets";
 import ArrowDown from "../Icons/ArrowDown.astro";
 import profileImage from '../assets/perfil.svg';
 import Verify from '../Icons/Verify.astro';
@@ -14,14 +14,11 @@ import Verify from '../Icons/Verify.astro';
     
     <nav class="relative max-w-7xl mx-auto px-5 flex items-center justify-between">
         
-        <!-- Logo con efecto glow -->
         <div class="relative z-[60] group">
             <a 
                 href="/" 
                 class="font-oswald text-2xl md:text-3xl font-bold hover:scale-105 transition-transform duration-300 inline-block relative"
-                aria-label="HackDental - Inicio"
             >
-                <!-- Glow effect en hover -->
                 <span class="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></span>
                 <span class="relative">
                     <span class="text-primary">Hack</span><span class="text-white">Dental</span>
@@ -29,7 +26,7 @@ import Verify from '../Icons/Verify.astro';
             </a>
         </div>
 
-        <!-- Desktop Navigation - Mejorado -->
+        <!-- Desktop Navigation -->
         <div class="hidden lg:flex items-center gap-10">
             <a 
                 href="#educacion" 
@@ -39,7 +36,6 @@ import Verify from '../Icons/Verify.astro';
                 <span class="group-hover:translate-y-1 transition-transform duration-300 text-primary/60 group-hover:text-primary">
                     <ArrowDown />
                 </span>
-                <!-- Underline effect -->
                 <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
             </a>
             
@@ -48,35 +44,27 @@ import Verify from '../Icons/Verify.astro';
                 class="group relative text-gray-300 hover:text-white transition-all duration-300 px-4 py-2 rounded-lg hover:bg-white/5 font-medium"
             >
                 <span>Contacto</span>
-                <!-- Underline effect -->
                 <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
             </a>
         </div>
 
-        <!-- CTA Button Desktop - Ultra Premium -->
+        <!-- CTA Button Desktop -->
         <div class="hidden lg:block">
             <a 
                 href="#auditoria" 
                 class="group relative inline-flex items-center justify-center font-bold text-[15px] text-white transition-all duration-500 rounded-xl overflow-visible"
-                id="cta-desk-button"
             >
-                <!-- Animated gradient background glow -->
                 <span class="absolute -inset-1 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] opacity-70 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition-all duration-500 animate-gradient"></span>
-                
-                <!-- Border gradient animado -->
                 <span class="absolute inset-0 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] rounded-xl opacity-80 animate-gradient"></span>
                 
-                <!-- Inner button con glassmorphism -->
                 <span class="relative z-10 flex items-center gap-2.5 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] px-7 py-3 rounded-[11px] m-[1.5px] backdrop-blur-xl group-hover:from-[#0f0f0f] group-hover:via-[#1f1f1f] group-hover:to-[#0f0f0f] transition-all duration-300">
                     <span class="relative">
                         Pedir Auditoría
-                        <!-- Texto con gradient en hover -->
                         <span class="absolute inset-0 bg-gradient-to-r from-primary to-[#00ffc6] bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             Pedir Auditoría
                         </span>
                     </span>
                     
-                    <!-- Arrow con animación -->
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
@@ -84,7 +72,7 @@ import Verify from '../Icons/Verify.astro';
             </a>
         </div>
 
-        <!-- Mobile Menu Button - Mejorado -->
+        <!-- Mobile Menu Button -->
         <button 
             id="mobile-menu-btn"
             class="lg:hidden relative z-[60] w-11 h-11 flex flex-col items-center justify-center gap-1.5 group rounded-lg hover:bg-white/5 transition-colors duration-300"
@@ -98,19 +86,16 @@ import Verify from '../Icons/Verify.astro';
     </nav>
 </header>
 
+<!-- Mobile Menu -->
 <div 
     id="mobile-menu"
-    class="lg:hidden fixed inset-0 translate-x-full transition-transform duration-500 ease-out z-[55]"
-    style="background: #000000;"
+    class="lg:hidden fixed inset-0 translate-x-full transition-transform duration-500 ease-out z-[55] bg-black"
 >
     <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#0a0a0a]"></div>
-    
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-    
     <div class="absolute top-20 left-10 w-72 h-72 bg-primary/8 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-32 right-10 w-80 h-80 bg-[#00ffc6]/6 rounded-full blur-[140px] pointer-events-none"></div>
     
-    <!-- Content Container -->
     <div class="relative h-full flex items-center justify-center overflow-y-auto px-6">
         
         <!-- Close Button -->
@@ -124,7 +109,6 @@ import Verify from '../Icons/Verify.astro';
             </svg>
         </button>
 
-
         <nav class="w-full flex flex-col gap-6 pb-24 pt-48">
             <div class="flex flex-col gap-2 items-center justify-center border-b-1 border-white/10">
                 <div class="p-1 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] flex items-center justify-center">
@@ -132,6 +116,9 @@ import Verify from '../Icons/Verify.astro';
                         src={profileImage}
                         alt="Jose Whittembury"
                         class="w-[80px] h-[80px] rounded-full object-cover bg-white"
+                        loading="eager"
+                        width={80}
+                        height={80}
                     />
                 </div>
                 <span class="text-lg md:text-2xl font-bold ml-[7px] flex items-center justify-center gap-2">
@@ -139,10 +126,8 @@ import Verify from '../Icons/Verify.astro';
                     <Verify width={30} height={30} />
                 </span>
             </div>
-                 
             
             <div class="flex flex-col gap-3">
-
                 <a 
                     href="#educacion" 
                     class="mobile-link opacity-0 translate-y-8 group relative"
@@ -198,17 +183,10 @@ import Verify from '../Icons/Verify.astro';
                 </a>
             </div>
 
-            <div class="mobile-link opacity-0 translate-y-8 mt-4" style="transition-delay: 300ms;"
-            >
+            <div class="mobile-link opacity-0 translate-y-8 mt-4 rounded-2xl overflow-hidden" >
                 <a href="#auditoria" class="group block">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-primary via-[#00ffc6] to-primary opacity-40 group-hover:opacity-70 blur-xl transition-all duration-500 rounded-2xl group-active:blur-2xl animate-pulse-glow"></div>
-                    
                     <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-[#00ffc6] p-[2px] shadow-[0_0_40px_rgba(1,219,176,0.3)] group-hover:shadow-[0_0_60px_rgba(1,219,176,0.5)] transition-all duration-500 animate-border-flow">
                         <div class="relative bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] rounded-[14px] px-8 py-6 group-active:scale-[0.98] transition-transform duration-200">
-                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
-                            
-                         
-                            
                             <div class="relative flex items-center justify-center gap-3">
                                 <span class="text-2xl font-black bg-gradient-to-r from-white via-white to-primary bg-clip-text text-transparent animate-text-shimmer bg-[length:200%_100%]">
                                     Pedir Auditoría
@@ -250,7 +228,6 @@ import Verify from '../Icons/Verify.astro';
                     </div>
                 </div>
             </div>
-
         </nav>
     </div>
 </div>
@@ -259,7 +236,7 @@ import Verify from '../Icons/Verify.astro';
     const menuBtn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
     const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement;
     const mobileMenuClose = document.getElementById('mobile-menu-close') as HTMLButtonElement;
-    const header = document.getElementById('main-header') as HTMLDivElement;
+    const header = document.getElementById('main-header') as HTMLElement;
     const mobileLinks = document.querySelectorAll('.mobile-link') as NodeListOf<HTMLElement>;
     let isMenuOpen = false;
 
@@ -267,41 +244,36 @@ import Verify from '../Icons/Verify.astro';
         isMenuOpen = !isMenuOpen;
         
         if (isMenuOpen) {
-            // Abrir menú
             mobileMenu.classList.remove('translate-x-full');
             menuBtn.setAttribute('aria-expanded', 'true');
             menuBtn.setAttribute('aria-label', 'Cerrar menú');
             document.body.style.overflow = 'hidden';
             
-            // Animar hamburger a X
-            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLSpanElement>;
+            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLElement>;
             lines[0].style.transform = 'rotate(45deg) translateY(11px)';
             lines[1].style.opacity = '0';
             lines[2].style.transform = 'rotate(-45deg) translateY(-11px)';
             
             setTimeout(() => {
-                mobileLinks.forEach((link, index) => {
+                mobileLinks.forEach((link, i) => {
                     setTimeout(() => {
                         link.style.opacity = '1';
                         link.style.transform = 'translateY(0)';
-                    }, index * 80);
+                    }, i * 80);
                 });
             }, 100);
             
         } else {
-            // Cerrar menú
             mobileMenu.classList.add('translate-x-full');
             menuBtn.setAttribute('aria-expanded', 'false');
             menuBtn.setAttribute('aria-label', 'Abrir menú');
             document.body.style.overflow = '';
             
-            // Reset hamburger
-            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLSpanElement>;
+            const lines = menuBtn.querySelectorAll('.hamburger-line') as NodeListOf<HTMLElement>;
             lines[0].style.transform = '';
             lines[1].style.opacity = '';
             lines[2].style.transform = '';
             
-            // Reset animaciones de links
             mobileLinks.forEach(link => {
                 link.style.opacity = '0';
                 link.style.transform = 'translateY(2rem)';
@@ -309,35 +281,21 @@ import Verify from '../Icons/Verify.astro';
         }
     }
 
-    menuBtn.addEventListener('click', toggleMenu);
-    mobileMenuClose.addEventListener('click', toggleMenu);
+    menuBtn?.addEventListener('click', toggleMenu);
+    mobileMenuClose?.addEventListener('click', toggleMenu);
 
-    // Cerrar menú al hacer click en links
     mobileLinks.forEach(link => {
-        if (link.tagName === 'A') {
-            link.addEventListener('click', () => {
-                if (isMenuOpen) {
-                    setTimeout(() => toggleMenu(), 200);
-                }
-            });
-        } else {
-            const anchor = link.querySelector('a');
-            anchor?.addEventListener('click', () => {
-                if (isMenuOpen) {
-                    setTimeout(() => toggleMenu(), 200);
-                }
-            });
-        }
+        const anchor = link.tagName === 'A' ? link : link.querySelector('a');
+        anchor?.addEventListener('click', () => {
+            if (isMenuOpen) setTimeout(() => toggleMenu(), 200);
+        });
     });
 
-    // Cerrar menú con ESC
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isMenuOpen) {
-            toggleMenu();
-        }
+        if (e.key === 'Escape' && isMenuOpen) toggleMenu();
     });
 
-    // Header scroll effect premium
+    // Header scroll optimizado con requestAnimationFrame
     let lastScroll = 0;
     let ticking = false;
 
@@ -347,9 +305,9 @@ import Verify from '../Icons/Verify.astro';
                 const currentScroll = window.pageYOffset;
                 
                 if (currentScroll > 100) {
-                    header.classList.add('shadow-on');
+                    header?.classList.add('shadow-on');
                 } else {
-                    header.classList.remove('shadow-on');
+                    header?.classList.remove('shadow-on');
                 }
                 
                 lastScroll = currentScroll;
@@ -358,8 +316,7 @@ import Verify from '../Icons/Verify.astro';
             
             ticking = true;
         }
-    });
-
+    }, { passive: true });
 </script>
 
 <style>
@@ -396,11 +353,6 @@ import Verify from '../Icons/Verify.astro';
         50% { background-position: 100% 50%; }
     }
 
-    @keyframes pulse-slow {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.6; }
-    }
-
     @keyframes pulse-glow {
         0%, 100% { 
             opacity: 0.4;
@@ -433,14 +385,8 @@ import Verify from '../Icons/Verify.astro';
         50% { transform: translateX(4px); }
     }
 
-
-
     .animate-gradient {
         animation: gradient 3s ease infinite;
-    }
-
-    .animate-pulse-slow {
-        animation: pulse-slow 3s ease-in-out infinite;
     }
 
     .animate-pulse-glow {
@@ -460,18 +406,23 @@ import Verify from '../Icons/Verify.astro';
         animation: bounce-x 2s ease-in-out infinite;
     }
 
-
-
     #mobile-menu {
         will-change: transform;
+        -webkit-overflow-scrolling: touch;
+        contain: layout style paint;
     }
 
     .mobile-link {
         will-change: opacity, transform;
+        contain: layout style paint;
     }
 
-    /* Optimización para iOS */
-    #mobile-menu {
-        -webkit-overflow-scrolling: touch;
+    /* Hardware acceleration */
+    #main-header,
+    .mobile-link,
+    .group {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
     }
 </style>
