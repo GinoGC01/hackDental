@@ -52,6 +52,15 @@
   font-family: 'Oswald', sans-serif;
 }
 
+.font-inter-black{
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+}
+
+.emoji {
+  font-family: 'sistem-ui'
+}
+
 /* ========== FONT SIZES ========== */
 .text-header {
     font-size: 15px;
@@ -168,4 +177,80 @@
   color: #00ffc8;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+
+/* ANIMATED */
+
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes border-flow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        box-shadow: 0 0 40px rgba(1, 219, 176, 0.3);
+    }
+    50% { 
+        background-position: 100% 50%;
+        box-shadow: 0 0 60px rgba(1, 219, 176, 0.5);
+    }
+}
+
+@keyframes text-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes bounce-x {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+}
+
+@keyframes bounce-y {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  /* caída */
+  50% {
+    transform: translateY(0);
+  }
+
+}
+
+.animate-bounce {
+  animation: bounce-y 1.6s infinite ease-in-out;
+}
+
+.animate-gradient {
+    animation: gradient 3s ease infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-border-flow {
+    background-size: 200% 200%;
+    animation: border-flow 3s ease infinite;
+}
+
+.animate-text-shimmer {
+    animation: text-shimmer 3s ease infinite;
+}
+
+.animate-bounce-x {
+    animation: bounce-x 2s ease-in-out infinite;
 }

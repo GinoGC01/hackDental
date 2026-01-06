@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import Verify from '../../Icons/Verify.astro';
+import profileImage from '../../assets/perfil.svg';
+---
+<div class="flex flex-col gap-2 items-center justify-center border-b-1 border-white/10">
+    <div class="p-1 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] flex items-center justify-center">
+        <Image 
+            src={profileImage}
+            alt="Jose Whittembury"
+            class="w-[80px] h-[80px] rounded-full object-cover bg-white"
+            loading="eager"
+            width={80}
+            height={80}
+        />
+    </div>
+    <span class="text-lg md:text-2xl font-bold ml-[7px] flex items-center justify-center gap-2">
+        <p>Jose Whittembury</p>
+        <Verify width={30} height={30} />
+    </span>
+</div>

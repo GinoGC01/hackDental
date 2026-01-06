@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import ArrowDown from "../Icons/ArrowDown.astro";
-import profileImage from '../assets/perfil.svg';
-import Verify from '../Icons/Verify.astro';
+import CardHeaderNav from "./Cards/CardHeaderNav.astro";
+import ButtonWppHeader from "./Buttons/ButtonWppHeader.astro";
+import ButtonWppHeaderDK from "./Buttons/ButtonWppHeader_DK.astro";
 ---
 
 <!-- Header Fixed -->
@@ -49,28 +49,7 @@ import Verify from '../Icons/Verify.astro';
         </div>
 
         <!-- CTA Button Desktop -->
-        <div class="hidden lg:block">
-            <a 
-                href="#auditoria" 
-                class="group relative inline-flex items-center justify-center font-bold text-[15px] text-white transition-all duration-500 rounded-xl overflow-visible"
-            >
-                <span class="absolute -inset-1 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] opacity-70 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition-all duration-500 animate-gradient"></span>
-                <span class="absolute inset-0 bg-gradient-to-r from-primary via-[#00ffc6] to-primary bg-[length:200%_100%] rounded-xl opacity-80 animate-gradient"></span>
-                
-                <span class="relative z-10 flex items-center gap-2.5 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] px-7 py-3 rounded-[11px] m-[1.5px] backdrop-blur-xl group-hover:from-[#0f0f0f] group-hover:via-[#1f1f1f] group-hover:to-[#0f0f0f] transition-all duration-300">
-                    <span class="relative">
-                        Pedir Auditoría
-                        <span class="absolute inset-0 bg-gradient-to-r from-primary to-[#00ffc6] bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Pedir Auditoría
-                        </span>
-                    </span>
-                    
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                </span>
-            </a>
-        </div>
+        <ButtonWppHeaderDK />
 
         <!-- Mobile Menu Button -->
         <button 
@@ -110,23 +89,7 @@ import Verify from '../Icons/Verify.astro';
         </button>
 
         <nav class="w-full flex flex-col gap-6 pb-24 pt-48">
-            <div class="flex flex-col gap-2 items-center justify-center border-b-1 border-white/10">
-                <div class="p-1 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] flex items-center justify-center">
-                    <Image 
-                        src={profileImage}
-                        alt="Jose Whittembury"
-                        class="w-[80px] h-[80px] rounded-full object-cover bg-white"
-                        loading="eager"
-                        width={80}
-                        height={80}
-                    />
-                </div>
-                <span class="text-lg md:text-2xl font-bold ml-[7px] flex items-center justify-center gap-2">
-                    <p>Jose Whittembury</p>
-                    <Verify width={30} height={30} />
-                </span>
-            </div>
-            
+            <CardHeaderNav />
             <div class="flex flex-col gap-3">
                 <a 
                     href="#educacion" 
@@ -183,22 +146,7 @@ import Verify from '../Icons/Verify.astro';
                 </a>
             </div>
 
-            <div class="mobile-link opacity-0 translate-y-8 mt-4 rounded-2xl overflow-hidden" >
-                <a href="#auditoria" class="group block">
-                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-[#00ffc6] p-[2px] shadow-[0_0_40px_rgba(1,219,176,0.3)] group-hover:shadow-[0_0_60px_rgba(1,219,176,0.5)] transition-all duration-500 animate-border-flow">
-                        <div class="relative bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] rounded-[14px] px-8 py-6 group-active:scale-[0.98] transition-transform duration-200">
-                            <div class="relative flex items-center justify-center gap-3">
-                                <span class="text-2xl font-black bg-gradient-to-r from-white via-white to-primary bg-clip-text text-transparent animate-text-shimmer bg-[length:200%_100%]">
-                                    Pedir Auditoría
-                                </span>
-                                <svg class="w-6 h-6 text-primary group-hover:translate-x-2 transition-transform duration-300 animate-bounce-x" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <ButtonWppHeader />
 
             <div class="mobile-link opacity-0 translate-y-8 mt-2" style="transition-delay: 400ms;">
                 <div class="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent backdrop-blur-xl p-6 shadow-lg">
@@ -319,7 +267,7 @@ import Verify from '../Icons/Verify.astro';
     }, { passive: true });
 </script>
 
-<style>
+<style >
     :global(body) {
         padding-top: 80px;
     }
@@ -348,63 +296,6 @@ import Verify from '../Icons/Verify.astro';
                     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes gradient {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
-
-    @keyframes pulse-glow {
-        0%, 100% { 
-            opacity: 0.4;
-            transform: scale(1);
-        }
-        50% { 
-            opacity: 0.7;
-            transform: scale(1.05);
-        }
-    }
-
-    @keyframes border-flow {
-        0%, 100% { 
-            background-position: 0% 50%;
-            box-shadow: 0 0 40px rgba(1, 219, 176, 0.3);
-        }
-        50% { 
-            background-position: 100% 50%;
-            box-shadow: 0 0 60px rgba(1, 219, 176, 0.5);
-        }
-    }
-
-    @keyframes text-shimmer {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
-
-    @keyframes bounce-x {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(4px); }
-    }
-
-    .animate-gradient {
-        animation: gradient 3s ease infinite;
-    }
-
-    .animate-pulse-glow {
-        animation: pulse-glow 2s ease-in-out infinite;
-    }
-
-    .animate-border-flow {
-        background-size: 200% 200%;
-        animation: border-flow 3s ease infinite;
-    }
-
-    .animate-text-shimmer {
-        animation: text-shimmer 3s ease infinite;
-    }
-
-    .animate-bounce-x {
-        animation: bounce-x 2s ease-in-out infinite;
-    }
 
     #mobile-menu {
         will-change: transform;
