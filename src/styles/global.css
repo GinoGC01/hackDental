@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* View Transitions */
+  @view-transition {
+    navigation: auto;
+  }
 
 /* ========== COLORS ========== */
 /* Primary colors */

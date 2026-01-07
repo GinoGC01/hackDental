@@ -1,0 +1,398 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RedLine from '../Icons/RedLine.astro';
+import Candado from '../Icons/Candado.astro';
+---
+
+<Layout>
+    <main class="py-10 md:py-15 flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 m-auto md:w-[90%] gap-10 md:gap-16 relative">
+        <div class="basis-1/2">
+            <div class="max-w-2xl mx-auto">
+                <!-- Heading -->
+                <div class=" mb-12">
+                    <h1 class="text-[24px] md:text-[40px] font-bold mb-4 font-oswald">
+                        <span class=" text-[#d9d9d9]">RECIBE UNA AUDITORÍA DE</span>
+                        <div>
+                            <div class="relative inline">
+                                MARKETING DENTAL
+                                 <!-- Subrayado -->
+                            <figure class="absolute bottom-[-5px] left-0 w-full">
+                                <RedLine />
+                            </figure>
+                            </div>
+                            <span class=" text-[#d9d9d9]">HECHA POR EL</span> 
+                        </div> 
+                        <span class=" text-[#d9d9d9]">FUNDADOR NUESTRA AGENCIA</span>
+                    </h1>
+                </div>
+                <!-- Pasos -->
+                <div class="mb-12 space-y-4">
+                    <h2 class="text-xl font-semibold mb-6">PASOS PARA APLICAR:</h2>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="grid items-center gap-1 grid-cols-[40px_1fr]">
+                            <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
+                                <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">1</span>
+                            </div>
+                            <p class="flex items-start">
+                                Llena tus datos en la forma.
+                            </p>
+                        </div>
+                        <div class="grid items-center gap-1 grid-cols-[40px_1fr]">
+                            <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
+                                <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">2</span>
+                            </div>
+                            <p class="flex items-start">
+                                Espera 24 horas
+                            </p>
+                        </div>
+                        <div class="grid items-center gap-1 grid-cols-[40px_1fr]">
+                            <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
+                                <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">3</span>
+                            </div>
+                            <p class="flex items-start">
+                                El fundador de Hackdental se contactará contigo para agendar una reunión.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-2 mt-[40px]">
+                            <p>Tabien aplicar por WhatsApp:</p>
+                            <strong class="text-primary">+51 903300422</strong>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-20 pb-8 px-8 md:pb-6 w-full shadow-lg basis-1/2 relative">
+            <div class="absolute w-full top-0 left-0 p-2 rounded-t-2xl bg-[#831022] border-b border-white/10 text-center">
+                <p class="text-center text-[10px] md:text-[15px]">Solo aplica si tu consultorio dental esta ubicado en España</p>
+            </div>
+            <!-- Progress Indicator -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm text-gray-400">Paso <span id="currentStep">1</span> de 3</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-2">
+                    <div id="progressBar" class="bg-primary h-2 rounded-full transition-all duration-300" style="width: 33.33%"></div>
+                </div>
+            </div>
+
+            <form id="contactForm" class="space-y-6 ">
+                <!-- Step 1 -->
+                <div id="step1" class="step-content">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium mb-2">
+                                Nombre y Apellido <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                required
+                                placeholder="Ej: Juan Pérez"
+                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="Ingresa un email válido"
+                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                            >
+                            <p class="text-xs text-gray-400 mt-2">Te enviaremos los detalles de la auditoría</p>
+                        </div>
+                    </div>
+
+                    <button 
+                        type="button"
+                        id="nextStep1"
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-6 cursor-pointer"
+                    >
+                        Continuar
+                    </button>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step2" class="step-content hidden">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="website" class="block text-sm font-medium mb-2">
+                                Sitio Web <span class="text-gray-400 text-xs">(opcional)</span>
+                            </label>
+                            <input 
+                                type="url" 
+                                id="website" 
+                                name="website" 
+                                placeholder="https://tuconsultorio.com"
+                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="telefono" class="block text-sm font-medium mb-2">
+                                Número de Teléfono (España) <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                required
+                                placeholder="+34 600 000 000"
+                                pattern="^(\+34|0034|34)?[6789]\d{8}$"
+                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                            >
+                            <p class="text-xs text-gray-400 mt-2">Formato: +34 seguido de 9 dígitos</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-6">
+                        <button 
+                            type="button"
+                            id="prevStep2"
+                            class="w-1/3 bg-white/10 hover:bg-white/20 text-white font-semibold py-4 rounded-lg transition-all duration-300"
+                        >
+                            Atrás
+                        </button>
+                        <button 
+                            type="button"
+                            id="nextStep2"
+                            class="w-2/3 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                        >
+                            Continuar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step3" class="step-content hidden">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-4">
+                                ¿Cuál es tu objetivo principal?<span class="text-red-500">*</span>
+                            </label>
+                            <div class="space-y-3">
+                                <label class="block cursor-pointer radio-option">
+                                    <input 
+                                        type="radio" 
+                                        name="objetivo" 
+                                        value="mas-pacientes" 
+                                        required
+                                        class="hidden"
+                                    >
+                                    <div class="radio-card border border-white/20 rounded-lg p-4 hover:border-white/40 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-white">Conseguir más pacientes</span>
+                                            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-white/40 flex items-center justify-center">
+                                                <div class="w-2 h-2 rounded-full bg-white hidden"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="block cursor-pointer radio-option">
+                                    <input 
+                                        type="radio" 
+                                        name="objetivo" 
+                                        value="alto-valor" 
+                                        required
+                                        class="hidden"
+                                    >
+                                    <div class="radio-card border border-white/20 rounded-lg p-4 hover:border-white/40 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-white">Atraer pacientes de alto valor</span>
+                                            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-white/40 flex items-center justify-center">
+                                                <div class="w-2 h-2 rounded-full bg-white hidden"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="block cursor-pointer radio-option">
+                                    <input 
+                                        type="radio" 
+                                        name="objetivo" 
+                                        value="presencia-marca" 
+                                        required
+                                        class="hidden"
+                                    >
+                                    <div class="radio-card border border-white/20 rounded-lg p-4 hover:border-white/40 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-white">Mejorar mi presencia de marca</span>
+                                            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-white/40 flex items-center justify-center">
+                                                <div class="w-2 h-2 rounded-full bg-white hidden"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-6">
+                        <button 
+                            type="button"
+                            id="prevStep3"
+                            class="w-1/3 bg-white/10 hover:bg-white/20 text-white font-semibold py-4 rounded-lg transition-all duration-300"
+                        >
+                            Atrás
+                        </button>
+                        <button 
+                            type="submit"
+                            class="w-2/3 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                        >
+                            Enviar Solicitud
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-400 text-center mt-6 flex items-center justify-center gap-2">
+                    <Candado size="16" color="#99A1AF"/>
+                    Tus datos están seguros y protegidos
+                </p>
+            </form>  
+        </div>
+
+    </main>
+</Layout>
+
+<script>
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function updateProgress() {
+        const progressBar = document.getElementById('progressBar');
+        const currentStepText = document.getElementById('currentStep');
+        if (progressBar && currentStepText) {
+            progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+            currentStepText.textContent = currentStep.toString();
+        }
+    }
+
+    function showStep(step: number) {
+        document.querySelectorAll('.step-content').forEach(el => {
+            el.classList.add('hidden');
+        });
+        const stepElement = document.getElementById(`step${step}`);
+        if (stepElement) {
+            stepElement.classList.remove('hidden');
+        }
+        currentStep = step;
+        updateProgress();
+    }
+
+    function validateStep1(): boolean {
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
+        const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+        
+        if (!nombre || !email) {
+            alert('Por favor completa todos los campos obligatorios');
+            return false;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Por favor ingresa un email válido');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function validateStep2(): boolean {
+        const telefono = (document.getElementById('telefono') as HTMLInputElement).value.trim();
+        
+        if (!telefono) {
+            alert('Por favor ingresa tu número de teléfono');
+            return false;
+        }
+        
+        const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$/;
+        if (!phoneRegex.test(telefono.replace(/\s/g, ''))) {
+            alert('Por favor ingresa un número de teléfono válido de España');
+            return false;
+        }
+        
+        return true;
+    }
+
+    document.getElementById('nextStep1')?.addEventListener('click', () => {
+        if (validateStep1()) {
+            showStep(2);
+        }
+    });
+
+    document.getElementById('nextStep2')?.addEventListener('click', () => {
+        if (validateStep2()) {
+            showStep(3);
+        }
+    });
+
+    document.getElementById('prevStep2')?.addEventListener('click', () => {
+        showStep(1);
+    });
+
+    document.getElementById('prevStep3')?.addEventListener('click', () => {
+        showStep(2);
+    });
+
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const objetivo = (document.querySelector('input[name="objetivo"]:checked') as HTMLInputElement)?.value;
+        
+        if (!objetivo) {
+            alert('Por favor selecciona tu objetivo principal');
+            return;
+        }
+        
+        const formData = {
+            nombre: (document.getElementById('nombre') as HTMLInputElement).value,
+            email: (document.getElementById('email') as HTMLInputElement).value,
+            website: (document.getElementById('website') as HTMLInputElement).value,
+            telefono: (document.getElementById('telefono') as HTMLInputElement).value,
+            objetivo: objetivo
+        };
+        
+        console.log('Datos del formulario:', formData);
+        alert('¡Gracias por tu interés! Te contactaremos en las próximas 24 horas.');
+        
+        // Reset form and return to step 1
+        (e.target as HTMLFormElement).reset();
+        showStep(1);
+    });
+
+    document.querySelectorAll('.radio-option').forEach(label => {
+        label.addEventListener('click', function(this: HTMLElement) {
+            const radioCards = document.querySelectorAll('.radio-card') as NodeListOf<HTMLElement>;
+            radioCards.forEach(card => {
+                card.classList.remove('border-primary', 'bg-primary/10');
+                card.classList.add('border-white/20');
+            });
+            const radioIndicators = document.querySelectorAll('.radio-indicator') as NodeListOf<HTMLElement>;
+            radioIndicators.forEach(indicator => {
+                indicator.classList.remove('border-primary', 'bg-primary');
+                indicator.classList.add('border-white/40');
+                indicator.querySelector('div')?.classList.add('hidden');
+            });
+            
+            const card = this.querySelector('.radio-card');
+            const indicator = this.querySelector('.radio-indicator');
+            const dot = indicator?.querySelector('div');
+            
+            card?.classList.remove('border-white/20');
+            card?.classList.add('border-primary', 'bg-primary/10');
+            indicator?.classList.remove('border-white/40');
+            indicator?.classList.add('border-primary', 'bg-primary');
+            dot?.classList.remove('hidden');
+        });
+    });
+</script>
