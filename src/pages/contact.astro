@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import RedLine from '../Icons/RedLine.astro';
 import Candado from '../Icons/Candado.astro';
+import ArrowDown from '../Icons/ArrowDown.astro';
 ---
 
 <Layout>
-    <main class="py-10 md:py-15 flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 m-auto md:w-[90%] gap-10 md:gap-16 relative">
-        <div class="basis-1/2">
+    <main class="flex flex-col md:flex-row items-center md:justify-center px-4 md:px-8 lg:px-16 m-auto pt-12 md:pt-0 md:w-[75%] lg:w-[90%]  md:gap-16 relative md:h-[100vh]">
+        <div class="md:basis-1/2 md:h-[60%] h-auto flex flex-col justify-center">
             <div class="max-w-2xl mx-auto">
                 <!-- Heading -->
                 <div class=" mb-12">
@@ -64,38 +65,25 @@ import Candado from '../Icons/Candado.astro';
             </div>
         </div>
         <!-- Form -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-20 pb-8 px-8 md:pb-6 w-full shadow-lg basis-1/2 relative">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-20 pb-8 px-4 md:pb-6 md:basis-1/3 relative md:h-[70%] flex flex-col justify-center w-full md:w-auto">
             <div class="absolute w-full top-0 left-0 p-2 rounded-t-2xl bg-[#831022] border-b border-white/10 text-center">
                 <p class="text-center text-[10px] md:text-[15px]">Solo aplica si tu consultorio dental esta ubicado en España</p>
             </div>
             <!-- Progress Indicator -->
             <div class="mb-8">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm text-gray-400">Paso <span id="currentStep">1</span> de 3</span>
+                <div class="flex items-center mb-2 gap-2 ">
+                    <span id="currentStep" class="text-sm text-gray-400 font-black text-[25px]">ÚLTIMO PASO</span>
+                    <span id="currentStepArrow" class="inline rotate-[-90deg] animate-bounce"><ArrowDown size="28" color="#99A1AF" /></span>
                 </div>
                 <div class="w-full bg-white/10 rounded-full h-2">
                     <div id="progressBar" class="bg-primary h-2 rounded-full transition-all duration-300" style="width: 33.33%"></div>
                 </div>
             </div>
 
-            <form id="contactForm" class="space-y-6 ">
+            <form id="contactForm" class=" flex flex-col justify-center items-center w-full h-full">
                 <!-- Step 1 -->
-                <div id="step1" class="step-content">
+                <div id="step1" class="step-content w-full ">
                     <div class="space-y-6">
-                        <div>
-                            <label for="nombre" class="block text-sm font-medium mb-2">
-                                Nombre y Apellido <span class="text-red-500">*</span>
-                            </label>
-                            <input 
-                                type="text" 
-                                id="nombre" 
-                                name="nombre" 
-                                required
-                                placeholder="Ej: Juan Pérez"
-                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                            >
-                        </div>
-
                         <div>
                             <label for="email" class="block text-sm font-medium mb-2">
                                 Email <span class="text-red-500">*</span>
@@ -122,8 +110,22 @@ import Candado from '../Icons/Candado.astro';
                 </div>
 
                 <!-- Step 2 -->
-                <div id="step2" class="step-content hidden">
+                <div id="step2" class="step-content hidden w-full ">
                     <div class="space-y-6">
+                         <div>
+                            <label for="nombre" class="block text-sm font-medium mb-2">
+                                Nombre y Apellido <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                required
+                                placeholder="Ej: Juan Pérez"
+                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                            >
+                        </div>
+
                         <div>
                             <label for="website" class="block text-sm font-medium mb-2">
                                 Sitio Web <span class="text-gray-400 text-xs">(opcional)</span>
@@ -173,11 +175,11 @@ import Candado from '../Icons/Candado.astro';
                 </div>
 
                 <!-- Step 3 -->
-                <div id="step3" class="step-content hidden">
+                <div id="step3" class="step-content hidden w-full ">
                     <div class="space-y-6">
                         <div>
                             <label class="block text-sm font-medium mb-4">
-                                ¿Cuál es tu objetivo principal?<span class="text-red-500">*</span>
+                                ¿Cuál es tu objetivo principal? <span class="text-red-500">*</span>
                             </label>
                             <div class="space-y-3">
                                 <label class="block cursor-pointer radio-option">
@@ -239,17 +241,11 @@ import Candado from '../Icons/Candado.astro';
 
                     <div class="flex gap-4 mt-6">
                         <button 
-                            type="button"
-                            id="prevStep3"
-                            class="w-1/3 bg-white/10 hover:bg-white/20 text-white font-semibold py-4 rounded-lg transition-all duration-300"
-                        >
-                            Atrás
-                        </button>
-                        <button 
                             type="submit"
-                            class="w-2/3 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                            class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                            id="submitBtn"
                         >
-                            Enviar Solicitud
+                            
                         </button>
                     </div>
                 </div>
@@ -260,7 +256,6 @@ import Candado from '../Icons/Candado.astro';
                 </p>
             </form>  
         </div>
-
     </main>
 </Layout>
 
@@ -271,9 +266,19 @@ import Candado from '../Icons/Candado.astro';
     function updateProgress() {
         const progressBar = document.getElementById('progressBar');
         const currentStepText = document.getElementById('currentStep');
+        const btnStep2 = document.getElementById('nextStep2');
+        const btnStep3 = document.getElementById('submitBtn');
+        
         if (progressBar && currentStepText) {
             progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
-            currentStepText.textContent = currentStep.toString();
+            if (currentStep === 2 && btnStep2) {
+                currentStepText.textContent = 'INGRESA TU INFORMACION AQUI PARA RECIBIR TU AUDITORIA';
+                btnStep2.innerText = 'Ir al ultimo paso';
+            } else if (currentStep === 3 && btnStep3) {
+                currentStepText.textContent = '¿LISTO PARA DISCUTIR EL FUTURO DE TU CONSULTORIO DENTAL?';
+                btnStep3.innerText = 'Si, quiero mi auditoria';
+            }
+            
         }
     }
 
@@ -290,10 +295,9 @@ import Candado from '../Icons/Candado.astro';
     }
 
     function validateStep1(): boolean {
-        const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
         const email = (document.getElementById('email') as HTMLInputElement).value.trim();
         
-        if (!nombre || !email) {
+        if (!email) {
             alert('Por favor completa todos los campos obligatorios');
             return false;
         }
@@ -308,6 +312,7 @@ import Candado from '../Icons/Candado.astro';
     }
 
     function validateStep2(): boolean {
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
         const telefono = (document.getElementById('telefono') as HTMLInputElement).value.trim();
         
         if (!telefono) {
@@ -318,6 +323,11 @@ import Candado from '../Icons/Candado.astro';
         const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$/;
         if (!phoneRegex.test(telefono.replace(/\s/g, ''))) {
             alert('Por favor ingresa un número de teléfono válido de España');
+            return false;
+        }
+
+        if(!nombre) {
+            alert('Por favor ingresa tu nombre y apellido');
             return false;
         }
         
