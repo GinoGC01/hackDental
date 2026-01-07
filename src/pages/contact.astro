@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import RedLine from '../Icons/RedLine.astro';
 import Candado from '../Icons/Candado.astro';
 import ArrowDown from '../Icons/ArrowDown.astro';
+import Spain from '../Icons/Spain.astro';
 ---
 
 <Layout>
@@ -65,7 +66,7 @@ import ArrowDown from '../Icons/ArrowDown.astro';
             </div>
         </div>
         <!-- Form -->
-<div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full md:w-auto md:h-[600px] shadow-[0_0_50px_rgba(3,150,131,0.15),0_20px_60px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full md:w-auto md:h-[600px] shadow-[0_0_50px_rgba(3,150,131,0.15),0_20px_60px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]">
             <div class="absolute w-full top-0 left-0 p-2 rounded-t-2xl bg-[#831022] border-b border-white/10 text-center">
                 <p class="text-center text-[10px] md:text-[13px]">Solo aplica si tu consultorio dental esta ubicado en España</p>
             </div>
@@ -138,21 +139,26 @@ import ArrowDown from '../Icons/ArrowDown.astro';
                                 class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                             >
                         </div>
-
                         <div>
                             <label for="telefono" class="block text-sm font-medium mb-2">
                                 Número de Teléfono (España) <span class="text-red-500">*</span>
                             </label>
-                            <input 
-                                type="tel" 
-                                id="telefono" 
-                                name="telefono" 
-                                required
-                                placeholder="+34 600 000 000"
-                                pattern="^(\+34|0034|34)?[6789]\d{8}$"
-                                class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                            >
-                            <p class="text-xs text-gray-400 mt-2">Formato: +34 seguido de 9 dígitos</p>
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none">
+                                    <Spain size="24" />
+                                    <span class="text-white text-sm">+34</span>
+                                    <span class="text-white/40">|</span>
+                                </div>
+                                <input 
+                                    type="tel" 
+                                    id="telefono" 
+                                    name="telefono" 
+                                    required
+                                    placeholder="600 000 000"
+                                    class="w-full pl-[100px] pr-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                >
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Ingresa tu número sin el código de área</p>
                         </div>
                     </div>
 
@@ -313,15 +319,15 @@ import ArrowDown from '../Icons/ArrowDown.astro';
 
     function validateStep2(): boolean {
         const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
-        const telefono = (document.getElementById('telefono') as HTMLInputElement).value.trim();
+        const telefono = '+34 '+ (document.getElementById('telefono') as HTMLInputElement).value.trim();
         
         if (!telefono) {
             alert('Por favor ingresa tu número de teléfono');
             return false;
         }
-        
-        const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$/;
-        if (!phoneRegex.test(telefono.replace(/\s/g, ''))) {
+        const phoneRegex = /^\+34\d{9}$/;
+        if (!phoneRegex.test(telefono.trim().replace(/\s/g, ''))) {
+            console.log('Telefono ingresado:', telefono.trim().replace(/\s/g, ''));
             alert('Por favor ingresa un número de teléfono válido de España');
             return false;
         }
