@@ -3,6 +3,8 @@ import ArrowDown from "../Icons/ArrowDown.astro";
 import CardHeaderNav from "./Cards/CardHeaderNav.astro";
 import ButtonWppHeader from "./Buttons/ButtonWppHeader.astro";
 import ButtonWppHeaderDK from "./Buttons/ButtonWppHeader_DK.astro";
+import { Image } from "astro:assets";
+import Logo from "../assets/logo.svg";
 ---
 
 <!-- Header Fixed -->
@@ -19,10 +21,11 @@ import ButtonWppHeaderDK from "./Buttons/ButtonWppHeader_DK.astro";
                 href="/" 
                 class="font-oswald text-2xl md:text-3xl font-bold hover:scale-105 transition-transform duration-300 inline-block relative"
             >
-                <span class="absolute -inset-2 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></span>
-                <span class="relative">
-                    <span class="text-primary">Hack</span><span class="text-white">Dental</span>
-                </span>
+                    <Image 
+                        src={Logo}
+                        alt="HackDental Logo" 
+                        class="inline-block w-8 h-8 md:w-10 md:h-10 object-contain scale-300"
+                    />
             </a>
         </div>
 

@@ -9,16 +9,17 @@ import Spain from '../Icons/Spain.astro';
 <Layout>
     <main class="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] md:gap-16 relative md:min-h-[100vh] py-12 md:py-0">
         <div class="md:basis-1/2 w-full">
+            <span id="warning1" class="text-sm text-yellow-500 mb-[20px] block p-2 bg-[#fef9c2]/10 rounded-xl text-center border-b-[1px] border-yelloy-500 hidden">⚠ Email registrado! revise nuevamente sus datos, quizas ya solicito la auditoria!</span>
             <div class="max-w-2xl">
                 <!-- Heading -->
                 <div class="mb-12">
-                    <h1 class="text-[24px] md:text-[40px] font-bold mb-4 font-oswald">
+                    <h1 class="text-[24px] md:text-[36px] leading-[1.2] font-bold mb-4 font-oswald">
                         <span class=" text-[#d9d9d9]">RECIBE UNA AUDITORÍA DE</span>
                         <div>
                             <div class="relative inline">
                                 MARKETING DENTAL
                                  <!-- Subrayado -->
-                            <figure class="absolute bottom-[-5px] left-0 w-full">
+                            <figure class="absolute bottom-[-2px] left-0 w-full">
                                 <RedLine />
                             </figure>
                             </div>
@@ -29,13 +30,13 @@ import Spain from '../Icons/Spain.astro';
                 </div>
                 <!-- Pasos -->
                 <div class="mb-12 space-y-4">
-                    <h2 class="text-xl font-semibold mb-6">PASOS PARA APLICAR:</h2>
+                    <h2 class="text-[18px] font-semibold mb-6 text-[#d9d9d9]">PASOS PARA APLICAR:</h2>
                     <div class="space-y-3 text-gray-300">
                         <div class="grid items-center gap-1 grid-cols-[40px_1fr]">
                             <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
                                 <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">1</span>
                             </div>
-                            <p class="flex items-start">
+                            <p class="flex items-start text-[17px]">
                                 Llena tus datos en la forma.
                             </p>
                         </div>
@@ -43,7 +44,7 @@ import Spain from '../Icons/Spain.astro';
                             <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
                                 <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">2</span>
                             </div>
-                            <p class="flex items-start">
+                            <p class="flex items-start text-[17px]">
                                 Espera 24 horas
                             </p>
                         </div>
@@ -51,7 +52,7 @@ import Spain from '../Icons/Spain.astro';
                             <div class="flex items-center justify-center w-[30px] h-[30px] bg-[#039683]/10 rounded-lg">
                                 <span class="text-[#0B665A] text-[12px] font-black text-center w-[20px] h-[20px] bg-[#039683] flex items-center justify-center rounded-full">3</span>
                             </div>
-                            <p class="flex items-start">
+                            <p class="flex items-start text-[17px]">
                                 El fundador de Hackdental se contactará contigo para agendar una reunión.
                             </p>
                         </div>
@@ -66,22 +67,21 @@ import Spain from '../Icons/Spain.astro';
             </div>
         </div>
         <!-- Form -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full md:w-auto md:h-[600px] shadow-[0_0_50px_rgba(3,150,131,0.15),0_20px_60px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]">
-            <div class="absolute w-full top-0 left-0 p-2 rounded-t-2xl bg-[#831022] border-b border-white/10 text-center">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full md:w-auto md:h-[600px] shadow-[0_0_50px_rgba(3,150,131,0.15),0_20px_60px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] flex justify-center flex-col">
+            <div class="absolute w-full top-0 left-0 p-2 rounded-t-2xl bg-[#831022]/60 border-b border-white/10 text-center">
                 <p class="text-center text-[10px] md:text-[13px]">Solo aplica si tu consultorio dental esta ubicado en España</p>
             </div>
             <!-- Progress Indicator -->
-            <div class="mb-8">
-                <div class="flex items-center mb-2 gap-2 ">
-                    <span id="currentStep" class="text-sm text-gray-400 font-black text-[16px] md:text-[18px] leading-tight">ÚLTIMO PASO</span>
-                    <span id="currentStepArrow" class="inline rotate-[-90deg] animate-bounce"><ArrowDown size="28" color="#99A1AF" /></span>
-                </div>
-                <div class="w-full bg-white/10 rounded-full h-2">
-                    <div id="progressBar" class="bg-primary h-2 rounded-full transition-all duration-300" style="width: 33.33%"></div>
+            <div class="mb-2">
+                <div id='currentSetpConainer' class="flex items-center gap-2 justify-center relative w-[70%] m-auto mb-2">
+                    <span id="currentStep" class="text-sm text-[#d9d9d9] font-black text-[16px] md:text-[40px] leading-tight">ÚLTIMO PASO</span>
+                     <div class="absolute bottom-[-10px] left-0" id="redLine">
+                        <RedLine />
+                     </div>
                 </div>
             </div>
 
-            <form id="contactForm" class="flex flex-col justify-center items-center w-full">
+            <form id="contactForm" class="flex flex-col justify-center items-center w-full h-[60%]">
                 <!-- Step 1 -->
                 <div id="step1" class="step-content w-full ">
                     <div class="space-y-6">
@@ -175,7 +175,7 @@ import Spain from '../Icons/Spain.astro';
                             id="nextStep2"
                             class="w-2/3 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                         >
-                            Continuar
+                            ir al ultimo paso
                         </button>
                     </div>
                 </div>
@@ -248,9 +248,14 @@ import Spain from '../Icons/Spain.astro';
                     <div class="flex gap-4 mt-6">
                         <button 
                             type="submit"
-                            class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                            class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer grid place-items-center"
                             id="submitBtn"
                         >
+                        <span id="text_submitBtn">Si, quiero mi auditoria</span>
+                        <span
+                            id="loader"
+                            class="block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white hidden"
+                        ></span>
                             
                         </button>
                     </div>
@@ -266,23 +271,31 @@ import Spain from '../Icons/Spain.astro';
 </Layout>
 
 <script>
+    import {ApiService} from '../api/service.js';
     let currentStep = 1;
-    const totalSteps = 3;
 
     function updateProgress() {
-        const progressBar = document.getElementById('progressBar');
+        const currentSetpContainer = document.getElementById('currentSetpConainer');
+        const redLine = document.getElementById('redLine');
         const currentStepText = document.getElementById('currentStep');
-        const btnStep2 = document.getElementById('nextStep2');
-        const btnStep3 = document.getElementById('submitBtn');
+        const contactForm = document.getElementById('contactForm');
+
         
-        if (progressBar && currentStepText) {
-            progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
-            if (currentStep === 2 && btnStep2) {
-                currentStepText.textContent = 'INGRESA TU INFORMACION AQUI PARA RECIBIR TU AUDITORIA';
-                btnStep2.innerText = 'Ir al ultimo paso';
-            } else if (currentStep === 3 && btnStep3) {
-                currentStepText.textContent = '¿LISTO PARA DISCUTIR EL FUTURO DE TU CONSULTORIO DENTAL?';
-                btnStep3.innerText = 'Si, quiero mi auditoria';
+        if ( currentStepText && currentSetpContainer && redLine && contactForm ) {
+            if (currentStep === 1) {
+                currentStepText.innerText = 'ÚLTIMO PASO';
+                currentStepText.className = 'text-sm text-[#d9d9d9] font-black text-[16px] md:text-[40px] leading-tight';
+                currentSetpContainer.className = 'flex items-center gap-2 justify-center relative w-[70%] m-auto mb-2';
+                redLine.classList.remove('hidden');
+                contactForm.className = 'flex flex-col justify-center items-center w-full h-[60%]';
+            } else if (currentStep === 2) {
+                currentStepText.innerText = 'INGRESA TU INFORMACION AQUI PARA RECIBIR TU AUDITORIA';
+                currentStepText.className = 'text-[28px] text-[#d9d9d9] font-black text-[16px] md:text-[25px] leading-tight';
+                currentSetpContainer.className = 'flex items-center gap-2 justify-center relative w-full m-auto mb-2';
+                redLine.classList.add('hidden')
+                contactForm.className = 'flex flex-col justify-center items-center w-full h-[90%]';
+            } else if (currentStep === 3) {
+                currentStepText.innerText = '¿LISTO PARA DISCUTIR EL FUTURO DE TU CONSULTORIO DENTAL?';
             }
             
         }
@@ -360,31 +373,74 @@ import Spain from '../Icons/Spain.astro';
         showStep(2);
     });
 
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const objetivo = (document.querySelector('input[name="objetivo"]:checked') as HTMLInputElement)?.value;
-        
-        if (!objetivo) {
-            alert('Por favor selecciona tu objetivo principal');
-            return;
+  document.getElementById("contactForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
+    const loader = document.getElementById("loader") as HTMLElement;
+    const text_submitBtn = document.getElementById("text_submitBtn") as HTMLElement;
+    const warning1 = document.getElementById("warning1") as HTMLElement;
+
+    try {
+      const objetivo = (
+        document.querySelector(
+          'input[name="objetivo"]:checked'
+        ) as HTMLInputElement | null
+      )?.value;
+
+      if (!objetivo) {
+        alert("Por favor selecciona tu objetivo principal");
+        return;
+      }
+
+      if (submitBtn && loader) {
+        submitBtn.disabled = true;
+        loader.classList.remove("hidden");
+        text_submitBtn.classList.add("hidden");
+      }
+
+      const formData = {
+        nombre: (document.getElementById("nombre") as HTMLInputElement)?.value,
+        email: (document.getElementById("email") as HTMLInputElement)?.value,
+        website: (document.getElementById("website") as HTMLInputElement)?.value,
+        telefono:
+          "+34" +
+          (document.getElementById("telefono") as HTMLInputElement)?.value,
+        objetivo,
+      };
+
+      const response = await ApiService.sendData(formData);
+
+      console.log("Respuesta del servidor:", response);
+
+      if (response?.success) {
+
+        if(response.warning === 'email-registered') {
+            if(warning1) warning1.classList.remove('hidden');
+            setTimeout(() => {
+                if(warning1) warning1.classList.add('hidden');
+            }, 5000);
+        } else {
+            if(warning1) warning1.classList.add('hidden');
         }
-        
-        const formData = {
-            nombre: (document.getElementById('nombre') as HTMLInputElement).value,
-            email: (document.getElementById('email') as HTMLInputElement).value,
-            website: (document.getElementById('website') as HTMLInputElement).value,
-            telefono: (document.getElementById('telefono') as HTMLInputElement).value,
-            objetivo: objetivo
-        };
-        
-        console.log('Datos del formulario:', formData);
-        alert('¡Gracias por tu interés! Te contactaremos en las próximas 24 horas.');
-        
-        // Reset form and return to step 1
+
         (e.target as HTMLFormElement).reset();
         showStep(1);
-    });
+      } else {
+        alert("Hubo un error al enviar el formulario.");
+      }
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert("Hubo un error al enviar el formulario.");
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+      if (loader) loader.classList.add("hidden");
+      if (text_submitBtn) text_submitBtn.classList.remove("hidden");
+    }
+  });
+
+
+
 
     document.querySelectorAll('.radio-option').forEach(label => {
         label.addEventListener('click', function(this: HTMLElement) {

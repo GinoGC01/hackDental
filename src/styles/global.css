@@ -202,6 +202,12 @@
     }
 }
 
+@keyframes spin {
+  0% { box-shadow: 8px 0 #fff, -8px 0 rgba(255,255,255,.3); }
+  50% { box-shadow: 8px 0 rgba(255,255,255,.3), -8px 0 #fff; }
+  100% { box-shadow: 8px 0 #fff, -8px 0 rgba(255,255,255,.3); }
+}
+
 @keyframes border-flow {
     0%, 100% { 
         background-position: 0% 50%;
