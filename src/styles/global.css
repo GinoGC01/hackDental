@@ -202,6 +202,29 @@
     }
 }
 
+@keyframes alert-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
 @keyframes spin {
   0% { box-shadow: 8px 0 #fff, -8px 0 rgba(255,255,255,.3); }
   50% { box-shadow: 8px 0 rgba(255,255,255,.3), -8px 0 #fff; }
@@ -264,3 +287,8 @@
 .animate-bounce-x {
     animation: bounce-x 2s ease-in-out infinite;
 }
+
+.animate-alert-top {
+    animation: alert-top 7s;
+}
+
