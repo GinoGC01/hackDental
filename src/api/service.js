@@ -3,7 +3,7 @@ import { apiRoutes } from './api.routes.js';
 export class ApiService {
     static async sendData(info) { 
         try{
-            const response = await fetch(apiRoutes.sendDataTest , {
+            const response = await fetch(apiRoutes.sendData , {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
