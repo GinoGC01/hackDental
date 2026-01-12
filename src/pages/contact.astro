@@ -3,14 +3,33 @@ import Layout from '../layouts/Layout.astro';
 import RedLine from '../Icons/RedLine.astro';
 import Candado from '../Icons/Candado.astro';
 import Spain from '../Icons/Spain.astro';
+import Alert from '../components/Alerts/Alert.astro';
 ---
 
 <Layout>
     <main class="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] md:gap-16 relative md:min-h-[100vh] py-12 md:py-0">
         <div class="md:basis-1/2 w-full relative">
-            <span id="warning1" class="block text-sm text-yellow-500 mb-[20px] block p-2 bg-[#fef9c2]/10 rounded-sm text-center border-l-[2px] border-yelloy-500 fixed top-[30px]  left-1/2 -translate-x-1/2 z-[100] font-black backdrop-blur-md animate-alert-top w-[90%] hidden md:w-[400px] md:top-[120px]">⚠ Email registrado! revise nuevamente sus datos, quizas ya solicito la auditoria!</span>
-            <span id="error1" class="text-sm text-red-500 mb-[20px] block p-2 bg-[#ffe2e2]/10 rounded-sm text-center border-l-[2px] border-yelloy-500  fixed top-[30px] md:top-[120px]  left-1/2 -translate-x-1/2 z-[100] font-black backdrop-blur-md animate-alert-top hidden w-[90%] md:w-[400px]">✖ Error al enviar el formulario, intentelo mas tarde</span>
-            <span id="success1" class="text-sm text-green-500 mb-[20px] block p-2 bg-green-100/10 rounded-sm text-center border-l-[2px] border-yelloy-500 fixed top-[30px]  left-1/2 -translate-x-1/2 z-[100] font-black backdrop-blur-md animate-alert-top hidden w-[90%] md:w-[400px] md:top-[120px]">✔ Solicitud enviada con exito! Nos estaremos comunicando con usted a la brevedad</span>
+            <Alert 
+                id="warning1"
+                color="#fdc700"
+                widthMD="400px"
+                width="120px"
+                message="⚠ Email registrado! revise nuevamente sus datos, quizas ya solicito la auditoria!"
+            />
+            <Alert 
+                id="error1"
+                color="#ff4d4f"
+                widthMD="400px"
+                width="120px"
+                message="✖ Error al enviar el formulario, intentelo mas tarde"
+            />
+            <Alert 
+                id="success1"
+                color="#52c41a"
+                widthMD="400px"
+                width="120px"
+                message="✔ Solicitud enviada con exito! Nos estaremos comunicando con usted a la brevedad"
+            />
             <div class="max-w-2xl">
                 <!-- Heading -->
                 <div class="mb-12">

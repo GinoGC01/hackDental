@@ -1,0 +1,11 @@
+---
+const { width, widthMD, id, color, message } = Astro.props;
+---
+
+<span
+  id={id}
+  style={`color:${color}; background-color:${color}1A; border-color:${color}; width:${widthMD}; top:${width};`}
+  class="block text-sm mb-[20px] block p-2 rounded-sm text-center border-l-[2px] fixed left-1/2 -translate-x-1/2 z-[100] font-black backdrop-blur-md animate-alert-top w-[90%] md:w-auto md:top-auto hidden"
+>
+  {message}
+</span>
