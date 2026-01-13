@@ -8,6 +8,7 @@ import DollarSign from '../../Icons/Ebook/Dollar.astro';
 import Frown from '../../Icons/Ebook/Frown.astro';
 import Smile from '../../Icons/Ebook/Smile.astro';
 import Button from './Button.astro';
+import ArrowRight from '../../Icons/Ebook/ArrowRight.astro';
 
 const beforeSlides = [
   {
@@ -39,7 +40,7 @@ const afterSlides = [
     title: "Anuncios Virales",
     desc: "Casos de éxito reales que generan deseo y confianza inmediata.",
     icon: "heart",
-    stats: "🔥 124 Pacientes interesados"
+    stats: "+124 Pacientes interesados"
   },
   {
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
@@ -57,14 +58,6 @@ const afterSlides = [
   }
 ];
 
-const features = [
-  { title: "El Sistema 'Pacientes a Demanda'", icon: "🗓️", text: "Llena huecos libres en menos de 7 días." },
-  { title: "Adiós Agencias Caras", icon: "👋", text: "Tus fotos con móvil venden 10x más que diseños caros." },
-  { title: "Guion Anti-Curiosos", icon: "📞", text: "Qué decir para que pregunten precio y reserven cita." },
-  { title: "De Limpieza a Implante", icon: "💎", text: "Psicología para cerrar presupuestos de +3.000€." },
-  { title: "Estrategia 'Océano Azul'", icon: "🌊", text: "Deja de competir por precio con franquicias." },
-  { title: "Bonus: Checklist Recepción", icon: "🎁", text: "Evita que se fuguen pacientes en la llamada." },
-];
 ---
 
 <section class="py-12 md:py-24 bg-white relative overflow-hidden">
@@ -128,18 +121,18 @@ const features = [
                         </div>
                      </div>
 
-                     <div class="p-3 border-t border-gray-100 bg-gray-50 flex justify-between items-center text-xs text-gray-400 shrink-0">
+                     <div class="pt-2 pb-[20px] w-[95%] m-auto border-t border-gray-100 bg-gray-50 flex justify-between items-center text-xs text-gray-400 shrink-0">
                         <div class="flex items-center gap-2">
-                          {slide.icon === 'frown' && <Frown className="w-4 h-4 text-blue-300" />}
-                          {slide.icon === 'calendar' && <Calendar className="w-4 h-4 text-gray-400" />}
-                          {slide.icon === 'dollar' && <DollarSign className="w-4 h-4 text-red-400" />}
+                          {slide.icon === 'frown' && <Frown color="#d92027" />}
+                          {slide.icon === 'calendar' && <Calendar color="#787878" />}
+                          {slide.icon === 'dollar' && <DollarSign color="#d92027" />}
                           {slide.stats}
                         </div>
                      </div>
                    </div>
                  ))}
                  
-                 <div class="absolute bottom-0 left-0 w-full flex p-1 gap-1 z-20">
+                 <div class="absolute bottom-[4px] left-[50%] w-[95%] -translate-x-[50%] flex p-1 gap-1 z-20">
                     {beforeSlides.map((_, idx) => (
                        <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-red-500' : 'bg-gray-200'}`} data-index={idx} />
                     ))}
@@ -151,14 +144,17 @@ const features = [
              <h3 class="text-2xl md:text-4xl font-black font-heading text-gray-400 uppercase tracking-widest animate-pulse">
                 HACIA...
              </h3>
+             <!-- <h3 class="tracking-widest animate-pulse grid place-items-center">
+                <ArrowRight color="grey" size="65">
+             </h3> -->
           </div>
 
-          <div class="md:col-span-5 relative group">
+          <div class="md:col-span-5 relative group ">
               <div class="hidden md:flex absolute -top-6 right-4 z-20 bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full border border-red-700 shadow-lg items-center gap-2 transform rotate-2 group-hover:rotate-0 transition-transform">
                  A esto 💋
               </div>
 
-              <div class="bg-white rounded-xl shadow-2xl border border-brand-red/20 overflow-hidden relative h-[320px] md:h-[380px] flex flex-col ring-4 ring-brand-red/5 transform scale-105 hover:scale-[1.07] transition-all duration-500 z-10 carousel-after">
+              <div class="bg-white rounded-xl shadow-2xl border border-[#D92027]/60 overflow-hidden relative h-[320px] md:h-[380px] flex flex-col ring-4 ring-[#D92027]/20 transform scale-105 hover:scale-[1.07] transition-all duration-500 z-10 carousel-after">
                  {afterSlides.map((slide, index) => (
                    <div 
                      class={`carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out flex flex-col ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
@@ -175,28 +171,28 @@ const features = [
 
                      <div class="flex-1 relative overflow-hidden bg-gray-900">
                         <img src={slide.image} alt={slide.title} class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-red/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#D92027]/90 via-transparent to-transparent flex flex-col justify-end p-4">
                             <div class="flex items-center gap-1 mb-2">
-                               {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />)}
+                               {[1,2,3,4,5].map(i => <Star color="#FFD700" size="15" />)}
                             </div>
                             <h4 class="text-white font-heading font-bold text-xl uppercase leading-none mb-1">{slide.title}</h4>
                             <p class="text-white/90 text-xs font-medium">{slide.desc}</p>
                         </div>
                      </div>
 
-                     <div class="p-2 border-t border-gray-100 bg-white flex justify-between items-center text-xs shrink-0">
+                     <div class="pt-2 pb-[20px] border-t border-gray-100 bg-white flex justify-between items-center text-xs shrink-0 w-[95%] m-auto">
                         <div class="flex items-center gap-2 font-bold text-gray-800">
-                           {slide.icon === 'heart' && <Heart className="w-4 h-4 text-red-500 fill-current" />}
-                           {slide.icon === 'calendar-green' && <Calendar className="w-4 h-4 text-green-500" />}
-                           {slide.icon === 'smile' && <Smile className="w-4 h-4 text-yellow-500" />}
-                           <span>{slide.stats}</span>
+                           {slide.icon === 'heart' && <Heart color="#d92027" />}
+                           {slide.icon === 'calendar-green' && <Calendar color="#169946" />}
+                           {slide.icon === 'smile' && <Smile color="#169946" />}
+                           <span>{slide.icon === 'heart' ? <span> {slide.stats} <span class="text-[#169946]">⬆</span></span> : slide.stats}</span>
                         </div>
                         <div class="bg-brand-red text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Ver Estrategia</div>
                      </div>
                    </div>
                  ))}
 
-                 <div class="absolute bottom-0 left-0 w-full flex p-1 gap-1 z-20">
+                 <div class="absolute bottom-[4px] left-[50%] w-[95%] -translate-x-[50%] flex p-1 gap-1 z-20">
                     {afterSlides.map((_, idx) => (
                        <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-brand-red' : 'bg-gray-200'}`} data-index={idx} />
                     ))}
@@ -214,8 +210,8 @@ const features = [
                QUIERO ESTA TRANSFORMACIÓN GRATIS
             </Button>
         </div>
-        <p class="mt-4 text-xs text-gray-400 uppercase tracking-widest">
-           <Candado className="w-3 h-3 inline mr-1" /> Estrategia probada en +500 clínicas
+        <p class="mt-4 text-xs text-gray-400 uppercase tracking-widest block flex items-center justify-center">
+           <Candado size="18" color="#949aa5" className="-translate-y-[1px]" /> Estrategia probada en +500 clínicas
         </p>
     </div>
 

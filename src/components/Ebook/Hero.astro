@@ -5,6 +5,8 @@ import Star from '../../Icons/Ebook/Star.astro';
 import AlertTriangle from '../../Icons/Ebook/AlertTriangle.astro';
 import Button from './Button.astro';
 import AlertTriangle1 from '../../Icons/Ebook/AlertTriangle1.astro';
+import { Image } from 'astro:assets';
+import Ebook from '../../assets/Ebook/ebook (3).svg'
 ---
 
 <section class="relative text-white overflow-hidden pb-20 md:pb-40">
@@ -42,44 +44,13 @@ import AlertTriangle1 from '../../Icons/Ebook/AlertTriangle1.astro';
 
   <div class="max-w-7xl mx-auto px-4 pt-8 md:pt-16 relative z-10 mb-8 md:mb-12">
     <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <figure class="order-1 md:col-span-5 w-full book-cover relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 cursor-pointer">
+        <div class="relative ">
+          <Image src={Ebook} alt={''} />
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-brand-red/20 blur-[40px] md:blur-[80px] rounded-full animate-pulse -z-1"></div>
+      </figure>
       
-      <div class="md:col-span-5 relative order-1 md:order-1 flex justify-center perspective-1000 group mt-4 md:mt-0">
-         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-brand-red/20 blur-[40px] md:blur-[80px] rounded-full animate-pulse"></div>
-         
-
-         <div 
-           class="book-cover relative w-40 md:w-80 aspect-[2/3] bg-neutral-900 rounded-r-lg shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 cursor-pointer border-l-2 md:border-l-4 border-l-gray-800"
-           style="box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.7), inset 2px 0 5px rgba(255,255,255,0.1)"
-           data-popup-trigger
-         >
-            <div class="absolute inset-0 flex flex-col items-center p-3 md:p-6 text-center border-t border-r border-b border-white/10 bg-[#111]">
-              <div class="w-full flex justify-between items-center border-b-2 border-brand-red pb-2 md:pb-4 mb-2 md:mb-4">
-                 <span class="text-[8px] md:text-[10px] text-gray-400 uppercase tracking-widest">Hackdental</span>
-                 <div class="flex gap-1">
-                   {[1,2,3,4,5].map(i => <Star size="11" color="#FFD700" />)}
-                 </div>
-              </div>
-              
-              <div class="flex-1 flex flex-col justify-center w-full">
-                <p class="font-heading text-gray-500 text-[10px] md:text-xs uppercase tracking-[0.2em] mb-1">Secretos Millonarios</p>
-                <h1 class="font-heading font-bold text-2xl md:text-5xl uppercase leading-[0.85] mb-1 md:mb-2 text-white drop-shadow-lg">
-                  MARKETING<br/>
-                  <span class="text-brand-red text-3xl md:text-6xl">DENTAL</span>
-                </h1>
-                <div class="w-full h-0.5 md:h-1 bg-gradient-to-r from-transparent via-gray-700 to-transparent my-2 md:my-4"></div>
-                <p class="font-heading text-[8px] md:text-xs text-white bg-brand-red inline-block px-2 py-0.5 mx-auto uppercase tracking-widest">Para Clínicas Independientes</p>
-              </div>
-
-              <div class="w-full mt-auto pt-2 md:pt-4 border-t border-gray-800">
-                 <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest mb-0.5 md:mb-1">Autor</p>
-                 <p class="text-xs md:text-sm font-bold text-white">Jose Whittembury</p>
-              </div>
-
-              <div class="absolute left-0 top-0 bottom-0 w-1 md:w-2 bg-gradient-to-r from-white/20 to-transparent opacity-30"></div>
-              <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none"></div>
-            </div>
-         </div>
-      </div>
 
       <div class="md:col-span-7 space-y-6 md:space-y-8 order-1 md:order-2 text-center md:text-left">
         <div>
@@ -103,7 +74,7 @@ import AlertTriangle1 from '../../Icons/Ebook/AlertTriangle1.astro';
           ].map((item) => (
             <li class="flex items-start gap-3">
               <div class="mt-0.5 md:mt-1 min-w-[20px] md:min-w-[24px]">
-                 <Check className="w-5 h-5 md:w-6 md:h-6 text-[#16a34a]" strokeWidth={3} />
+                 <Check color="#16a34a" strokeWidth={3} />
               </div>
               <span class="font-medium text-sm md:text-lg text-gray-100">{item}</span>
             </li>
