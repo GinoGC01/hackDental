@@ -1,0 +1,279 @@
+---
+// src/components/Features.astro
+import Candado from '../../Icons/Candado.astro';
+import Star from '../../Icons/Ebook/Star.astro';
+import Heart from '../../Icons/Ebook/Heart.astro';
+import Calendar from '../../Icons/Ebook/Calendar.astro';
+import DollarSign from '../../Icons/Ebook/Dollar.astro';
+import Frown from '../../Icons/Ebook/Frown.astro';
+import Smile from '../../Icons/Ebook/Smile.astro';
+import Button from './Button.astro';
+
+const beforeSlides = [
+  {
+    image: "https://images.unsplash.com/photo-1516733968668-dbdce39c4651?auto=format&fit=crop&q=80&w=800",
+    title: "Posteos Genéricos",
+    desc: "Fotos de stock aburridas que nadie comenta. 'Ofrecemos calidad y servicio'.",
+    icon: "frown",
+    stats: "0 likes • 0 citas"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1590559795764-15c00e16eb88?auto=format&fit=crop&q=80&w=800",
+    title: "Sillones Vacíos",
+    desc: "Huecos en la agenda y personal parado mirando el móvil.",
+    icon: "calendar",
+    stats: "Perdiendo dinero/hora"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1580820267682-426da823b514?auto=format&fit=crop&q=80&w=800",
+    title: "Estrés Constante",
+    desc: "Preocupado por pagar las nóminas y compitiendo por precio.",
+    icon: "dollar",
+    stats: "Burnout total"
+  }
+];
+
+const afterSlides = [
+  {
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
+    title: "Anuncios Virales",
+    desc: "Casos de éxito reales que generan deseo y confianza inmediata.",
+    icon: "heart",
+    stats: "🔥 124 Pacientes interesados"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
+    title: "Agenda Colapsada",
+    desc: "Lista de espera para tratamientos de alto valor (Implantes/Ortodoncia).",
+    icon: "calendar-green",
+    stats: "Rentabilidad Máxima"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800",
+    title: "Libertad Real",
+    desc: "Tu clínica funciona como un reloj suizo sin que tú estés presente 24/7.",
+    icon: "smile",
+    stats: "Vida de Dueño"
+  }
+];
+
+const features = [
+  { title: "El Sistema 'Pacientes a Demanda'", icon: "🗓️", text: "Llena huecos libres en menos de 7 días." },
+  { title: "Adiós Agencias Caras", icon: "👋", text: "Tus fotos con móvil venden 10x más que diseños caros." },
+  { title: "Guion Anti-Curiosos", icon: "📞", text: "Qué decir para que pregunten precio y reserven cita." },
+  { title: "De Limpieza a Implante", icon: "💎", text: "Psicología para cerrar presupuestos de +3.000€." },
+  { title: "Estrategia 'Océano Azul'", icon: "🌊", text: "Deja de competir por precio con franquicias." },
+  { title: "Bonus: Checklist Recepción", icon: "🎁", text: "Evita que se fuguen pacientes en la llamada." },
+];
+---
+
+<section class="py-12 md:py-24 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] opacity-5 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    
+    <div class="text-center mb-10 md:mb-16 max-w-4xl mx-auto">
+      <div class="inline-block bg-brand-red/10 text-brand-red px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3 border border-brand-red/20">
+        📖 Transformación Real
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 uppercase leading-[0.9] mb-3">
+        He transformado completamente <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 italic pr-2">mi clínica dental.</span>
+      </h2>
+      <p class="text-sm md:text-lg text-gray-600 font-medium max-w-2xl mx-auto mt-4">
+         De perseguir pacientes regateadores a tener lista de espera para tratamientos de alto valor. <br/>
+         <span class="text-brand-red font-bold">No fue suerte... tú también puedes hacerlo.</span>
+      </p>
+    </div>
+
+    <div class="bg-gray-100 rounded-2xl md:rounded-[2rem] p-4 md:p-12 mb-16 border border-gray-200 shadow-inner relative overflow-hidden">
+       
+       <div class="flex md:hidden justify-between mb-4 gap-2">
+          <span class="bg-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-300">
+             Haciendo esto 😭
+          </span>
+          <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full border border-green-200">
+             A esto 🚀
+          </span>
+       </div>
+
+       <div class="grid md:grid-cols-12 gap-6 items-center">
+          
+          <div class="md:col-span-5 relative group">
+              <div class="hidden md:flex absolute -top-6 left-4 z-20 bg-gray-200 text-gray-600 text-xs font-bold px-4 py-2 rounded-full border border-gray-300 shadow-sm items-center gap-2 transform -rotate-2 group-hover:rotate-0 transition-transform">
+                 Literalmente hacía esto 😭
+              </div>
+
+              <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden relative h-[320px] md:h-[380px] flex flex-col carousel-before">
+                 {beforeSlides.map((slide, index) => (
+                   <div 
+                     class={`carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out flex flex-col ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                     data-slide={index}
+                   >
+                     <div class="p-3 flex items-center gap-2 border-b border-gray-100 bg-white shrink-0">
+                        <div class="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center grayscale opacity-50">🦷</div>
+                        <div class="flex-1">
+                           <div class="h-2 w-24 bg-gray-100 rounded mb-1"></div>
+                           <div class="h-1.5 w-12 bg-gray-50 rounded"></div>
+                        </div>
+                     </div>
+
+                     <div class="flex-1 relative overflow-hidden bg-gray-100 group-hover:grayscale-0 transition-all duration-500 grayscale-[30%]">
+                        <img src={slide.image} alt={slide.title} class="absolute inset-0 w-full h-full object-cover opacity-90" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+                            <div class="bg-red-900/80 backdrop-blur-sm text-red-100 text-xs font-bold px-2 py-1 rounded w-fit mb-2 border border-red-500/30">
+                               ❌ {slide.title}
+                            </div>
+                            <p class="text-white text-sm leading-tight opacity-90">{slide.desc}</p>
+                        </div>
+                     </div>
+
+                     <div class="p-3 border-t border-gray-100 bg-gray-50 flex justify-between items-center text-xs text-gray-400 shrink-0">
+                        <div class="flex items-center gap-2">
+                          {slide.icon === 'frown' && <Frown className="w-4 h-4 text-blue-300" />}
+                          {slide.icon === 'calendar' && <Calendar className="w-4 h-4 text-gray-400" />}
+                          {slide.icon === 'dollar' && <DollarSign className="w-4 h-4 text-red-400" />}
+                          {slide.stats}
+                        </div>
+                     </div>
+                   </div>
+                 ))}
+                 
+                 <div class="absolute bottom-0 left-0 w-full flex p-1 gap-1 z-20">
+                    {beforeSlides.map((_, idx) => (
+                       <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-red-500' : 'bg-gray-200'}`} data-index={idx} />
+                    ))}
+                 </div>
+              </div>
+          </div>
+
+          <div class="md:col-span-2 text-center py-4 md:py-0">
+             <h3 class="text-2xl md:text-4xl font-black font-heading text-gray-400 uppercase tracking-widest animate-pulse">
+                HACIA...
+             </h3>
+          </div>
+
+          <div class="md:col-span-5 relative group">
+              <div class="hidden md:flex absolute -top-6 right-4 z-20 bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full border border-red-700 shadow-lg items-center gap-2 transform rotate-2 group-hover:rotate-0 transition-transform">
+                 A esto 💋
+              </div>
+
+              <div class="bg-white rounded-xl shadow-2xl border border-brand-red/20 overflow-hidden relative h-[320px] md:h-[380px] flex flex-col ring-4 ring-brand-red/5 transform scale-105 hover:scale-[1.07] transition-all duration-500 z-10 carousel-after">
+                 {afterSlides.map((slide, index) => (
+                   <div 
+                     class={`carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out flex flex-col ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                     data-slide={index}
+                   >
+                     <div class="p-3 flex items-center gap-2 border-b border-gray-100 bg-white shrink-0">
+                        <div class="w-8 h-8 bg-brand-red text-white rounded-full flex items-center justify-center font-bold text-xs">HD</div>
+                        <div class="flex-1">
+                           <div class="font-bold text-xs text-gray-900">Tu Clínica Top 1%</div>
+                           <div class="text-[10px] text-gray-500 flex items-center gap-1">Publicidad <span class="w-1 h-1 bg-gray-400 rounded-full"></span> 🌍</div>
+                        </div>
+                        <div class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider">Éxito</div>
+                     </div>
+
+                     <div class="flex-1 relative overflow-hidden bg-gray-900">
+                        <img src={slide.image} alt={slide.title} class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-red/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                            <div class="flex items-center gap-1 mb-2">
+                               {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />)}
+                            </div>
+                            <h4 class="text-white font-heading font-bold text-xl uppercase leading-none mb-1">{slide.title}</h4>
+                            <p class="text-white/90 text-xs font-medium">{slide.desc}</p>
+                        </div>
+                     </div>
+
+                     <div class="p-2 border-t border-gray-100 bg-white flex justify-between items-center text-xs shrink-0">
+                        <div class="flex items-center gap-2 font-bold text-gray-800">
+                           {slide.icon === 'heart' && <Heart className="w-4 h-4 text-red-500 fill-current" />}
+                           {slide.icon === 'calendar-green' && <Calendar className="w-4 h-4 text-green-500" />}
+                           {slide.icon === 'smile' && <Smile className="w-4 h-4 text-yellow-500" />}
+                           <span>{slide.stats}</span>
+                        </div>
+                        <div class="bg-brand-red text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Ver Estrategia</div>
+                     </div>
+                   </div>
+                 ))}
+
+                 <div class="absolute bottom-0 left-0 w-full flex p-1 gap-1 z-20">
+                    {afterSlides.map((_, idx) => (
+                       <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-brand-red' : 'bg-gray-200'}`} data-index={idx} />
+                    ))}
+                 </div>
+              </div>
+          </div>
+
+       </div>
+    </div>
+
+    <div class="mt-12 text-center">
+        <div class="inline-block relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-orange-600 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-200"></div>
+            <Button className="px-12 py-4 text-xl">
+               QUIERO ESTA TRANSFORMACIÓN GRATIS
+            </Button>
+        </div>
+        <p class="mt-4 text-xs text-gray-400 uppercase tracking-widest">
+           <Candado className="w-3 h-3 inline mr-1" /> Estrategia probada en +500 clínicas
+        </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slideCount = 3;
+
+  function updateCarousels() {
+    const beforeSlides = document.querySelectorAll('.carousel-before .carousel-slide');
+    const afterSlides = document.querySelectorAll('.carousel-after .carousel-slide');
+    const beforeIndicators = document.querySelectorAll('.carousel-before .carousel-indicator');
+    const afterIndicators = document.querySelectorAll('.carousel-after .carousel-indicator');
+
+    beforeSlides.forEach((slide, idx) => {
+      if (idx === currentSlide) {
+        slide.classList.remove('opacity-0', 'z-0');
+        slide.classList.add('opacity-100', 'z-10');
+      } else {
+        slide.classList.remove('opacity-100', 'z-10');
+        slide.classList.add('opacity-0', 'z-0');
+      }
+    });
+
+    afterSlides.forEach((slide, idx) => {
+      if (idx === currentSlide) {
+        slide.classList.remove('opacity-0', 'z-0');
+        slide.classList.add('opacity-100', 'z-10');
+      } else {
+        slide.classList.remove('opacity-100', 'z-10');
+        slide.classList.add('opacity-0', 'z-0');
+      }
+    });
+
+    beforeIndicators.forEach((indicator, idx) => {
+      if (idx === currentSlide) {
+        indicator.classList.remove('bg-gray-200');
+        indicator.classList.add('bg-red-500');
+      } else {
+        indicator.classList.remove('bg-red-500');
+        indicator.classList.add('bg-gray-200');
+      }
+    });
+
+    afterIndicators.forEach((indicator, idx) => {
+      if (idx === currentSlide) {
+        indicator.classList.remove('bg-gray-200');
+        indicator.classList.add('bg-brand-red');
+      } else {
+        indicator.classList.remove('bg-brand-red');
+        indicator.classList.add('bg-gray-200');
+      }
+    });
+
+    currentSlide = (currentSlide + 1) % slideCount;
+  }
+
+  setInterval(updateCarousels, 3500);
+</script>

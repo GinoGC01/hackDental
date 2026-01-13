@@ -1,0 +1,55 @@
+---
+// src/components/Author.astro
+import Quote from "../../Icons/Ebook/Quote.astro"
+import Trophy from "../../Icons/Ebook/Trophy.astro"
+---
+
+<section class="py-12 md:py-24 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      
+      <div class="w-3/4 md:w-1/3 relative group mx-auto">
+        <div class="absolute inset-0 bg-brand-red transform rotate-3 rounded-lg shadow-xl group-hover:rotate-1 transition-transform"></div>
+        <img 
+          src="https://picsum.photos/seed/jose_whittembury/400/500" 
+          alt="Jose Whittembury" 
+          class="relative w-full rounded-lg shadow-2xl border-4 border-white grayscale hover:grayscale-0 transition-all duration-500 object-cover"
+        />
+        <div class="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 bg-white p-2 md:p-3 rounded shadow-lg border-l-4 border-brand-red flex items-center gap-2 md:gap-3">
+          <Trophy className="w-6 h-6 md:w-8 md:h-8 text-yellow-500" />
+          <div>
+            <p class="text-[8px] md:text-[10px] text-gray-400 uppercase font-bold leading-none">Inversión Gestionada</p>
+            <p class="font-bold text-sm md:text-base text-gray-900 leading-none mt-1">+1.5M€</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-2/3 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-2 mb-3 md:mb-4">
+          <span class="bg-brand-red text-white text-[10px] md:text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-sm">El Autor ✍️</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold font-heading text-gray-900 mb-4 md:mb-6 uppercase">
+          Hola, soy Jose Whittembury 👋
+        </h2>
+        <div class="space-y-3 md:space-y-4 text-base md:text-lg text-gray-700 leading-relaxed text-justify md:text-left">
+          <p>
+            Soy el fundador de <strong class="text-brand-red">Hackdental</strong>, y tengo una misión clara: nivelar el campo de juego para las clínicas dentales independientes. ⚖️
+          </p>
+          <p>
+            He visto demasiados odontólogos talentosos ser <span class="underline decoration-red-400 decoration-wavy">aplastados</span> por grandes franquicias. <strong>Eso no es justo.</strong> 🚫
+          </p>
+          <p>
+            He gestionado más de <strong>1.5M€ en publicidad</strong> 💸 para el sector dental. Sé lo que funciona ahora mismo.
+          </p>
+          <div class="bg-white p-5 md:p-8 rounded-lg shadow-xl border border-gray-100 mt-6 md:mt-8 relative text-left">
+            <Quote className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-100 w-10 h-10 md:w-16 md:h-16" />
+            <p class="italic font-medium text-sm md:text-base text-gray-800 relative z-10">
+              "Este libro contiene el plan exacto que usaría si tuviera que abrir una clínica desde cero mañana y quisiera llenarla en 30 días sin arruinarme." 🚀
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

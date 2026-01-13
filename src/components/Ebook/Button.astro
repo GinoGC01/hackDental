@@ -1,0 +1,50 @@
+---
+// src/components/Button.astro
+import ArrowRight from '../../Icons/Ebook/ArrowRight.astro';
+
+interface Props {
+  className?: string;
+  subtext?: string;
+  width?:string
+}
+
+const { className = '', subtext, width = '100%' } = Astro.props;
+---
+
+<button
+  class={`group relative w-full flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#16a34a] to-[#15803d] hover:from-[#15803d] hover:to-[#14532d] text-white font-bold py-3 px-4 md:py-4 md:px-8 rounded-lg shadow-[0_4px_0_#064e3b,0_10px_15px_rgba(0,0,0,0.3)] md:shadow-[0_6px_0_#064e3b,0_15px_20px_rgba(0,0,0,0.4)] active:shadow-[0_2px_0_#064e3b] active:translate-y-[4px] transition-all duration-150 border-t border-[#4ade80]/30 cursor-pointer ${className}`}
+  style={`width:${width}`}
+  data-popup-trigger
+>
+  <div class="relative z-10 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase tracking-wide font-heading text-shadow-sm whitespace-nowrap">
+    <slot />
+    <div class="arrow">
+      <ArrowRight/>
+    </div>
+  </div>
+  {subtext && (
+    <span class="relative z-10 text-[10px] md:text-sm font-medium text-green-100 mt-0.5 md:mt-1 block uppercase tracking-wide opacity-90 whitespace-normal text-center">
+      {subtext}
+    </span>
+  )}
+  
+  <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-10 group-hover:animate-shine" />
+</button>
+
+<style>
+  .group:hover .group-hover\:animate-shine {
+    animation: shine 0.75s ease-out;
+  }
+
+  .arrow {
+    transition: transform .2s;
+  }
+
+  .group:hover .arrow {
+    transform: translateX(0.25rem);
+  }
+
+
+  
+</style>
+

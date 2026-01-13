@@ -1,0 +1,25 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-black text-gray-600 py-6 border-t border-gray-900/50 font-medium">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+    
+    <p class="text-center md:text-left order-2 md:order-1">
+      © {currentYear} Hackdental. Madrid, España.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 md:gap-6 order-1 md:order-2">
+      <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+      <a href="#" class="hover:text-white transition-colors">Términos</a>
+      <a href="#" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 mt-4 text-center">
+    <p class="text-[9px] text-gray-800 leading-tight">
+      Este sitio no es parte de Facebook/Meta Inc. Ni está respaldado por Facebook. FACEBOOK es una marca registrada de FACEBOOK, Inc.
+    </p>
+  </div>
+</footer>
