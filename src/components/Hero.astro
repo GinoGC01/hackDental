@@ -1,53 +1,51 @@
 ---
-import ButtonCTAHero from "./Buttons/ButtonCTAHero.astro";
-import ProfileCard from "./Cards/ProfileCard.astro";
 import Mountains from "./Decorations/Mountains.astro";
 import TopSpainFlag from "./TopSpainFlag.astro";
+import Button from "./Ebook/Button.astro";
+import AlertTriangle1 from "../Icons/Ebook/AlertTriangle1.astro";
 ---
 
-<main class="text-center pt-10 md:pt-10 md:max-w-4xl mx-auto px-[16px] md:px-4 h-[100vh]">
-    <p class="hero-subtitle uppercase ">
-        <span class="text-[#eb4423] md:text-lg text-[14px]">ATENCIÓN</span> <span class="md:text-lg text-[14px]">DUEÑO DE CLÍNICA DENTAL</span>
+<main class="text-center pt-10 md:pt-20 md:max-w-4xl mx-auto px-[16px] md:px-4 h-[100vh]">
+    <p class="hero-subtitle uppercase flex items-center justify-center text-sm gap-2 mb-3 text-brand-red font-bold">
+        <span><AlertTriangle1 size="18" color="#D92027"/></span> SOLO PARA DUEÑOS DE CLÍNICA DENTALES
     </p>
     
-    <h1 class="mb-2 w-full">
-        <span class="font-oswald block text-[24px] md:text-[32px] font-bold uppercase tracking-tighter text-[#d9d9d9]">
-            RECIBE UNA
-        </span>
-        <span class="font-oswald text-[24px] md:text-[40px] font-bold uppercase  bg-[#039683]/10 px-2 rounded-md inline-block border-1 border-[#01dbb0]/10 tracking-tighter w-full md:w-auto">
-            AUDITORÍA DE MARKETING  <span class="">GRATUITA</span>
-        </span>
+    <h1 class="title-hero text-[f6f9fc]">
+            RECIBE UNA AUDITORÍA DE MARKETING GRATUITA
     </h1>
-    <p class="font-oswald text-[22px] md:text-[32px] font-bold uppercase text-[#d9d9d9]">Y APRENDE COMO CONVERTIR TU</p>
 
-    <div class="flex gap-1 items-center justify-center">
-    <p class="font-oswald text-[22px] md:text-[32px] font-bold uppercase text-[#d9d9d9]">CONSULTORIO EN EL</p>
-    <TopSpainFlag />
+    <p class="title-hero uppercase text-[#9ca3af]">Y CONVIERTE TU CONSULTORIO DENTAL</p>
+
+    <div class="flex gap-1 items-center justify-center mt-[10px]">
+        <p class="title-hero uppercase text-[#9ca3af]">EN EL</p>
+        <TopSpainFlag />
     </div>
 
     <!-- CTA Section -->
     <div class="max-w-2xl mx-auto">
-        <!-- Profile Section -->
-            
-        <div class="flex flex-col items-center justify-center gap-1 mb-8">
-            <div class="flex gap-3 items-center flex-row mt-3">
-                <p class="text-base md:text-xl text-gray-400">Trabaja con</p>
-                <ProfileCard />
-            </div>
-               
-            <p class="text-base md:text-xl text-gray-400">
-                para potenciar el marketing de tu consultorio.
-            </p>
-        </div>
+        <div class="flex flex-col items-center justify-center gap-1 mb-8 mt-8">
+            <p class="text-[#9ca3af] text-xl">Trabaja directamente con el fundador de <span class="text-[#f6f9fc]">Hackdental</span> </p>
+            <p class="text-[#9ca3af] text-xl ">en tu estrategia de marketing.</p>
         </div>
 
         <!-- CTA Button -->
-        <ButtonCTAHero />
+        <!-- <ButtonCTAHero /> -->
+        <Button
+            subtext="Reunete con Jose Whittembury"
+            useBounce={true}
+            useArrow={false}
+            width="w-full"
+            mdWidth="md:w-[85%]"
+            button={false}
+            image={true}
+            >
+            QUIERO APLICAR A UNA AUDITORÍA
+        </Button>
+
         <strong class="font-light text-sm mt-4 block text-[#9e9e9e]">
-            sin tarjeta de crédito requerida.
+            Sin compromiso de compra. Análisis 100% personalizado.
         </strong>
     </div>
     <Mountains />
    
 </main>
-

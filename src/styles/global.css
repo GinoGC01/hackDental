@@ -1,294 +1,155 @@
-/* View Transitions */
-/* @view-transition {
-  navigation: auto;
-} */
-
 @import "tailwindcss";
 
-/* ========== COLORS ========== */
-/* Primary colors */
-.text-primary {
-  color: #01dbb0;
-}
-.bg-primary {
-  background-color: #01dbb0;
-}
-.border-primary {
-  border-color: #01dbb0;
-}
+/* ============================================================
+   1. VARIABLES Y TOKENS (Unificación de Temas)
+   ============================================================ */
+@layer base {
+  :root {
+    /* Brand Colors (Set 1) */
+    --brand-red: #D92027;
+    --brand-dark: #111111;
+    --brand-gold: #FFD700;
 
-.text-primary-light {
-  color: #00ffc8;
-}
-.bg-primary-light {
-  background-color: #00ffc8;
-}
-.border-primary-light {
-  border-color: #00ffc8;
-}
+    /* Primary Colors (Set 2 - Greenish) */
+    --primary: #01dbb0;
+    --primary-light: #00ffc8;
+    --dark-100: #1a1a1a;
+    --dark-200: #0a0a0a;
 
-/* Dark colors */
-.text-dark-100 {
-  color: #1a1a1a;
-}
-.bg-dark-100 {
-  background-color: #1a1a1a;
-}
-.border-dark-100 {
-  border-color: #1a1a1a;
-}
-
-.text-dark-200 {
-  color: #0a0a0a;
-}
-.bg-dark-200 {
-  background-color: #0a0a0a;
-}
-.border-dark-200 {
-  border-color: #0a0a0a;
-}
-
-/* ========== FONT FAMILIES ========== */
-.font-inter {
-  font-family: 'Inter', sans-serif;
-}
-.font-oswald {
-  font-family: 'Oswald', sans-serif;
-}
-
-.font-inter-black{
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-}
-
-.emoji {
-  font-family: 'sistem-ui'
-}
-
-/* ========== FONT SIZES ========== */
-.text-header {
-    font-size: 15px;
-}
-
-.text-eyebrow {
-  font-size: 18px;
-}
-.text-hero-title {
-  font-size: 40px;
-}
-.text-hero-subtitle {
-  font-size: 20px;
-}
-.text-profile-name {
-  font-size: 22px;
-}
-.text-cta {
-  font-size: 24px;
-}
-
-/* ========== BOX SHADOWS ========== */
-.shadow-primary {
-  box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4);
-}
-.shadow-primary-hover:hover {
-  box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6);
-}
-.shadow-profile {
-  box-shadow: 0 0 20px rgba(1, 219, 176, 0.3);
-}
-
-/* ========== FILTER EFFECTS ========== */
-/* Drop shadow for glow effect */
-.drop-shadow-glow {
-  filter: drop-shadow(0 0 30px rgba(1, 219, 176, 0.5));
-}
-
-/* Blur effect */
-.blur-120 {
-  filter: blur(120px);
-}
-
-/* ========== LETTER SPACING ========== */
-.tracking-wide {
-  letter-spacing: 1px;
-}
-
-/* ========== UTILITY CLASSES ========== */
-/* Hover states for primary colors */
-.hover\:bg-primary:hover {
-  background-color: #01dbb0;
-}
-.hover\:text-primary:hover {
-  color: #01dbb0;
-}
-
-/* Focus states */
-.focus\:ring-primary:focus {
-  --tw-ring-color: rgba(1, 219, 176, 0.5);
-  box-shadow: 0 0 0 3px rgba(1, 219, 176, 0.5);
-}
-
-/* Transition for hover effects */
-.transition-shadow {
-  transition: box-shadow 0.3s ease-in-out;
-}
-.transition-all {
-  transition: all 0.3s ease-in-out;
-}
-
-/* ========== COMPONENT CLASSES ========== */
-/* Button with primary styling */
-.btn-primary {
-  background-color: #01dbb0;
-  color: #0a0a0a;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-.btn-primary:hover {
-  background-color: #00ffc8;
-  box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6);
-}
-
-/* Profile card with shadow */
-.profile-card {
-  background-color: #1a1a1a;
-  box-shadow: 0 0 20px rgba(1, 219, 176, 0.3);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Hero section typography */
-.hero-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 40px;
-  letter-spacing: 1px;
-}
-
-.hero-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* Eyebrow text */
-.eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: #00ffc8;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-
-/* ANIMATED */
-
-@keyframes gradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes pulse-glow {
-    0%, 100% { 
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% { 
-        opacity: 1;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes alert-top {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
+    /* Fonts */
+    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
   }
 
-  10% {
-    opacity: 1;
-    transform: translateY(0);
+  body {
+    font-family: var(--font-sans);
   }
 
-  70% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
+  h1, h2, h3, h4, .font-heading, .font-oswald {
+    font-family: var(--font-heading);
   }
 }
 
-
-@keyframes spin {
-  0% { box-shadow: 8px 0 #fff, -8px 0 rgba(255,255,255,.3); }
-  50% { box-shadow: 8px 0 rgba(255,255,255,.3), -8px 0 #fff; }
-  100% { box-shadow: 8px 0 #fff, -8px 0 rgba(255,255,255,.3); }
+.title-hero {
+  /* Propiedades base (Mobile) */
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 0.95;    /* leading-[0.95] */
+  font-weight: 700;    /* font-bold */
+  font-family: var(--font-heading); /* font-heading (asegúrate de tener definida esta variable) */
+  /* margin-bottom: 0; */
+  text-transform: uppercase; /* uppercase */
+  letter-spacing: -0.025em;  /* tracking-tight */
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); /* drop-shadow-2xl */
 }
 
-@keyframes border-flow {
-    0%, 100% { 
-        background-position: 0% 50%;
-        box-shadow: 0 0 40px rgba(1, 219, 176, 0.3);
-    }
-    50% { 
-        background-position: 100% 50%;
-        box-shadow: 0 0 60px rgba(1, 219, 176, 0.5);
-    }
+/* Desktop (Tablet en adelante) */
+@media (min-width: 768px) {
+  .title-hero {
+    font-size: 3.6rem;   /* md:text-6xl */
+    /* margin-bottom: 1.5rem; */
+  }
 }
 
-@keyframes text-shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+/* ============================================================
+   2. UTILITIES (Clases de utilidad personalizadas)
+   ============================================================ */
+@layer utilities {
+  /* --- Typography --- */
+  .font-inter { font-family: var(--font-sans); }
+  .font-inter-black { font-family: var(--font-sans); font-weight: 900; }
+  .emoji { font-family: 'system-ui'; }
+
+  /* Font Sizes */
+  .text-header { font-size: 15px; }
+  .text-eyebrow { font-size: 18px; }
+  .text-hero-title { font-size: 40px; }
+  .text-hero-subtitle { font-size: 20px; }
+  .text-profile-name { font-size: 22px; }
+  .text-cta { font-size: 24px; }
+  
+  .text-shadow-sm { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+  .tracking-wide { letter-spacing: 1px; }
+
+  /* --- Colors & Backgrounds --- */
+  /* Red/Gold Set */
+  .bg-brand-red { background-color: var(--brand-red); }
+  .bg-brand-gold { background-color: var(--brand-gold); }
+  .bg-brand-dark { background-color: var(--brand-dark); }
+
+  .text-brand-red {
+    color: var(--brand-red);
+  }
+  
+  /* Primary/Dark Set */
+  .text-primary { color: var(--primary); }
+  .bg-primary { background-color: var(--primary); }
+  .border-primary { border-color: var(--primary); }
+  .text-dark-100 { color: var(--dark-100); }
+  .bg-dark-100 { background-color: var(--dark-100); }
+  .bg-dark-200 { background-color: var(--dark-200); }
+
+  /* --- Effects & Shadows --- */
+  .shadow-primary { box-shadow: 0 4px 20px rgba(1, 219, 176, 0.4); }
+  .shadow-primary-hover:hover { box-shadow: 0 6px 30px rgba(1, 219, 176, 0.6); }
+  .drop-shadow-glow { filter: drop-shadow(0 0 30px rgba(1, 219, 176, 0.5)); }
+  .blur-120 { filter: blur(120px); }
+  .perspective-1000 { perspective: 1000px; }
+
+  /* Opacity variants usando color-mix */
+  .bg-brand-red\/10 { background-color: color-mix(in srgb, var(--brand-red) 10%, transparent); }
+  .bg-brand-red\/80 { background-color: color-mix(in srgb, var(--brand-red) 80%, transparent); }
 }
 
-@keyframes bounce-x {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(4px); }
+/* ============================================================
+   3. ANIMATIONS & KEYFRAMES
+   ============================================================ */
+@layer utilities {
+  .animate-shine { animation: shine 1s forwards; }
+  .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+  .animate-gradient-xy { animation: gradient-xy 3s ease infinite; }
+  .animate-bounce { animation: bounce-y 1.6s infinite ease-in-out; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  .animate-border-flow { background-size: 200% 200%; animation: border-flow 3s ease infinite; }
+  .animate-bounce-x { animation: bounce-x 2s ease-in-out infinite; }
+  .animate-alert-top { animation: alert-top 7s; }
+}
+
+@keyframes shine {
+  100% { left: 125%; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gradient-xy {
+  0%, 100% { background-size: 200% 200%; background-position: left center; }
+  50% { background-size: 200% 200%; background-position: right center; }
 }
 
 @keyframes bounce-y {
-  0%, 100% {
-    transform: translateY(-8px);
-  }
-  /* caída */
-  50% {
-    transform: translateY(0);
-  }
-
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(0); }
 }
 
-.animate-bounce {
-  animation: bounce-y 1.6s infinite ease-in-out;
+@keyframes bounce-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
 }
 
-.animate-gradient {
-    animation: gradient 3s ease infinite;
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
-.animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+@keyframes alert-top {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10%, 70% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
 }
 
-.animate-border-flow {
-    background-size: 200% 200%;
-    animation: border-flow 3s ease infinite;
+@keyframes border-flow {
+  0%, 100% { background-position: 0% 50%; box-shadow: 0 0 40px rgba(1, 219, 176, 0.3); }
+  50% { background-position: 100% 50%; box-shadow: 0 0 60px rgba(1, 219, 176, 0.5); }
 }
-
-.animate-text-shimmer {
-    animation: text-shimmer 3s ease infinite;
-}
-
-.animate-bounce-x {
-    animation: bounce-x 2s ease-in-out infinite;
-}
-
-.animate-alert-top {
-    animation: alert-top 7s;
-}
-
