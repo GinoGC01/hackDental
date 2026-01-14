@@ -21,14 +21,14 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
       <div id="progress-bar" class="bg-gradient-to-r from-brand-red to-orange-500 h-1 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(217,32,39,0.5)]" style="width: 20%" />
     </div>
     
-    <div class="p-8 relative z-10">
-      <form id="multi-step-form" class="space-y-5" novalidate>
+    <div class="p-6 relative z-10">
+      <form id="multi-step-form"  novalidate>
         <!-- STEP 1: Email -->
         <div id="step-1" class="form-step">
           <div class="text-center mb-6">
             <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
               <Sparkles size="20" color="#bd9d33"/>
-              Paso 1 de 4
+              Paso 1 de 2
             </span>
             <h3 class="text-2xl font-bold font-heading text-white mt-4 leading-tight">
               ¿A dónde enviamos tu copia <span class="text-brand-red">GRATUITA?</span> 🎁
@@ -84,7 +84,7 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
           <div class="text-center mb-6">
             <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
               <Sparkles size="20" color="#bd9d33"/>
-              Paso 2 de 4
+              Paso 2 de 2
             </span>
             <h3 class="text-2xl font-bold font-heading text-white mt-4 leading-tight">
               Cuéntanos sobre <span class="text-brand-red">ti</span> 👤
@@ -107,17 +107,6 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Sitio Web <span class="text-gray-600 text-[9px] normal-case">(Opcional)</span></label>
-              <!-- CAMBIO AQUÍ: type="text" en lugar de "url" -->
-              <input 
-                type="text" 
-                name="website" 
-                id="input-website" 
-                placeholder="https://tuclinica.com"
-                class="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700 text-white placeholder-gray-600 focus:border-brand-red focus:ring-1 focus:ring-brand-red/50 outline-none transition-all"
-              />
-            </div>
-            <div>
               <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Teléfono (WhatsApp)</label>
               <input 
                 required 
@@ -131,129 +120,12 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
           </div>
           
           <button type="button" data-next-step="3" class="btn-next w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer">
-            CONTINUAR
+            DESCARGAR PDF AHORA
             <ArrowRight size="20" color="#000000" />
           </button>
-        </div>
-        
-        <!-- STEP 3: Ingresos Anuales -->
-        <div id="step-3" class="form-step hidden">
-          <div class="text-center mb-6">
-            <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
-              <Sparkles size="20" color="#bd9d33"/>
-              Paso 3 de 4
-            </span>
-            <h3 class="text-2xl font-bold font-heading text-white mt-4 leading-tight">
-              Sobre tu <span class="text-brand-red">clínica</span> 🦷
-            </h3>
-            <p class="text-gray-400 text-sm mt-2">
-              Esto nos ayuda a enviarte contenido más relevante.
-            </p>
-          </div>
-          
-          <div class="space-y-5">
-            <div>
-              <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Ingresos Anuales (Euros)</label>
-              <select 
-                required 
-                name="ingresos" 
-                id="input-revenue" 
-                class="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700 text-white focus:border-brand-red focus:ring-1 focus:ring-brand-red/50 outline-none transition-all"
-              >
-                <option value="">Selecciona un rango...</option>
-                <option value="0-50k">Menos de 50.000€</option>
-                <option value="50k-100k">50.000€ - 100.000€</option>
-                <option value="100k-250k">100.000€ - 250.000€</option>
-                <option value="250k-500k">250.000€ - 500.000€</option>
-                <option value="500k-1m">500.000€ - 1.000.000€</option>
-                <option value="1m+">Más de 1.000.000€</option>
-              </select>
-            </div>
-          </div>
-          
-          <button type="button" data-next-step="4" class="btn-next w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer">
-            CONTINUAR
-            <ArrowRight size="20" color="#000000" />
-          </button>
-        </div>
-        
-        <!-- STEP 4: Objetivo Principal -->
-        <div id="step-4" class="form-step hidden">
-          <div class="text-center mb-6">
-            <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
-              <Sparkles size="20" color="#bd9d33"/>
-              Paso Final
-            </span>
-            <h3 class="text-2xl font-bold font-heading text-white mt-4 leading-tight">
-              ¿Cuál es tu <span class="text-brand-red">objetivo principal?</span> 🎯
-            </h3>
-            <p class="text-gray-400 text-sm mt-2">
-              Selecciona la opción que mejor describa tu situación actual.
-            </p>
-          </div>
-          
-          <div class="space-y-3" id="goals-container">
-            <label class="block cursor-pointer goal-option">
-              <input 
-                required 
-                type="radio" 
-                name="goal" 
-                value="more-patients" 
-                id="goal-more-patients" 
-                class="peer sr-only"
-              />
-              <div class="goal-box p-4 rounded-lg border-2 border-gray-700 bg-[#1a1a1a] peer-checked:border-brand-red peer-checked:bg-brand-red/10 transition-all hover:border-gray-500">
-                <div class="flex items-center gap-3">
-                  <div class="goal-circle w-5 h-5 rounded-full border-2 border-gray-600 peer-checked:border-[#16a34a] peer-checked:bg-[#16a34a] flex items-center justify-center shrink-0 transition-all">
-                    <div class="w-2.5 h-2.5 rounded-full bg-white scale-0 peer-checked:scale-100 transition-transform"></div>
-                  </div>
-                  <span class="text-white font-medium">Conseguir más pacientes</span>
-                </div>
-              </div>
-            </label>
-            <label class="block cursor-pointer goal-option">
-              <input 
-                type="radio" 
-                name="goal" 
-                value="high-value-patients" 
-                id="goal-high-value" 
-                class="peer sr-only"
-              />
-              <div class="goal-box p-4 rounded-lg border-2 border-gray-700 bg-[#1a1a1a] peer-checked:border-brand-red peer-checked:bg-brand-red/10 transition-all hover:border-gray-500">
-                <div class="flex items-center gap-3">
-                  <div class="goal-circle w-5 h-5 rounded-full border-2 border-gray-600 peer-checked:border-[#16a34a] peer-checked:bg-[#16a34a] flex items-center justify-center shrink-0 transition-all">
-                    <div class="w-2.5 h-2.5 rounded-full bg-white scale-0 peer-checked:scale-100 transition-transform"></div>
-                  </div>
-                  <span class="text-white font-medium">Atraer pacientes de alto valor</span>
-                </div>
-              </div>
-            </label>
-            <label class="block cursor-pointer goal-option">
-              <input 
-                type="radio" 
-                name="goal" 
-                value="brand-presence" 
-                id="goal-brand" 
-                class="peer sr-only"
-              />
-              <div class="goal-box p-4 rounded-lg border-2 border-gray-700 bg-[#1a1a1a] peer-checked:border-brand-red peer-checked:bg-brand-red/10 transition-all hover:border-gray-500">
-                <div class="flex items-center gap-3">
-                  <div class="goal-circle w-5 h-5 rounded-full border-2 border-gray-600 peer-checked:border-[#16a34a] peer-checked:bg-[#16a34a] flex items-center justify-center shrink-0 transition-all">
-                    <div class="w-2.5 h-2.5 rounded-full bg-white scale-0 peer-checked:scale-100 transition-transform"></div>
-                  </div>
-                  <span class="text-white font-medium">Mejorar mi presencia de marca</span>
-                </div>
-              </div>
-            </label>
-            <div id="goal-error" class="text-red-500 text-sm mt-2 hidden">
-              Por favor, selecciona una opción
-            </div>
-          </div>
-          
-          <button type="submit" class="w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer group">
-            DESCARGAR AHORA GRATIS
-            <span class="group-hover:translate-x-1 transition-transform">🚀</span>
-          </button>
+
+          <p class="py-3 text-xs text-gray-600 mt-5">Tu privacidad es importante para nosotros. HackDental utiliza la información que proporcionas para ponerse en contacto contigo en relación con contenido, productos y servicios relevantes para ti. Puedes darte de baja para dejar de recibir este tipo de comunicaciones en cualquier momento. Si deseas obtener más información sobre la protección de tus datos en HackDental, consulta nuestra <a href="/politicas" class="text-blue-500 underline">Política de Privacidad.</a></p>
+
         </div>
         
         <!-- SUCCESS STEP -->
@@ -288,14 +160,11 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
 
 <script>
   let currentStep = 1;
-  const totalSteps = 4;
+  const totalSteps = 2;
   const formData = {
     email: '',
     nombre: '',
-    website: '',
     telefono: '',
-    ingresos: '',
-    objetivo: ''
   };
 
 

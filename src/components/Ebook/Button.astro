@@ -1,59 +1,174 @@
 ---
 // src/components/Button.astro
+import Image from 'astro/components/Image.astro';
 import ArrowRight from '../../Icons/Ebook/ArrowRight.astro';
+import ProfileImage from '../../assets/perfil.svg'
 
 interface Props {
   className?: string;
   subtext?: string;
+  fromColor?: string;
+  toColor?: string;
+  shadowColor?: string;
+  textColor?: string;
+  useBounce?: boolean;
+  useArrow?: boolean;
+  colorArrow?: string;
+  width?: string;
+  mdWidth?: string;
+  button?: boolean;
+  image?:boolean
 }
 
-const { className = '', subtext } = Astro.props;
+const { 
+  className = '', 
+  subtext,
+  fromColor = "from-[#16a34a]", 
+  toColor = "to-[#15803d]",     
+  shadowColor = "shadow-[#064e3b]", 
+  textColor = "text-white",
+  useBounce = false,
+  useArrow = true,
+  colorArrow = '#ffffff',
+  width = 'w-full max-w-[22em]',
+  mdWidth = 'md:max-w-[27em]',
+  button = true,
+  image = false
+} = Astro.props;
+
+const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
 ---
 
-<button
-  class={`group relative
-    w-[22em] md:w-[27em]
-    flex flex-col items-center justify-center overflow-hidden
-    bg-gradient-to-b from-[#16a34a] to-[#15803d]
-    hover:from-[#15803d] hover:to-[#14532d]
-    text-white font-bold py-3 px-4 md:py-4 md:px-8
+{button ? <button
+  class={`group relative overflow-hidden
+    ${width} ${mdWidth}
+    flex flex-col items-center justify-center
+    bg-gradient-to-b ${fromColor} ${toColor}
+    ${textColor} py-4 px-8
     rounded-lg
-    shadow-[0_4px_0_#064e3b,0_10px_15px_rgba(0,0,0,0.3)]
-    md:shadow-[0_6px_0_#064e3b,0_15px_20px_rgba(0,0,0,0.4)]
-    active:shadow-[0_2px_0_#064e3b]
-    active:translate-y-[4px]
-    transition-all duration-150
-    border-t border-[#4ade80]/30
+    
+    /* Tipografía Unificada */
+    font-heading tracking-wide
+    
+    /* Sombras */
+    shadow-[0_4px_0_var(--shadow-color),0_10px_15px_rgba(0,0,0,0.3)]
+    md:shadow-[0_6px_0_var(--shadow-color),0_15px_20px_rgba(0,0,0,0.4)]
+    
+    /* Interacciones */
+    transition-all duration-300 ease-out
+    hover:scale-105 hover:brightness-110
+    active:scale-95 active:translate-y-[2px]
+    active:shadow-[0_2px_0_var(--shadow-color)]
+    
+    border-t border-white/20
     cursor-pointer
+    m-auto
+    ${useBounce ? 'animate-bounce' : ''}
     ${className}`}
+  style={`--shadow-color: ${pureShadowColor};`}
   data-popup-trigger
 >
-  <div class="relative z-10 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase tracking-wide font-heading text-shadow-sm whitespace-nowrap">
+  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
+
+  <div class="shine-element"></div>
+
+  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none">
     <slot />
-    <div class="arrow">
-      <ArrowRight />
-    </div>
+    {useArrow && (
+      <div class="transition-transform duration-300 group-hover:translate-x-1.5 flex items-center">
+        <ArrowRight color={colorArrow} />
+      </div>
+    )}
   </div>
 
   {subtext && (
-    <span class="relative z-10 text-[10px] md:text-sm font-medium text-green-100 mt-0.5 md:mt-1 block uppercase tracking-wide opacity-90 text-center">
-      {subtext}
+    <span class="relative z-30 text-[10px] md:text-sm font-medium opacity-90 mt-0.5 md:mt-1 block uppercase text-center pointer-events-none flex items-center justify-center gap-2">
+      {subtext} {image && <Image src={ProfileImage} alt={''} />}
     </span>
   )}
+</button>:
+<a href="/contacto"
+  class={`group relative overflow-hidden
+    ${width} ${mdWidth}
+    flex flex-col items-center justify-center
+    bg-gradient-to-b ${fromColor} ${toColor}
+    ${textColor} py-4 px-8
+    rounded-lg
+    
+    /* Tipografía Unificada */
+    font-heading tracking-wide
+    
+    /* Sombras */
+    shadow-[0_4px_0_var(--shadow-color),0_10px_15px_rgba(0,0,0,0.3)]
+    md:shadow-[0_6px_0_var(--shadow-color),0_15px_20px_rgba(0,0,0,0.4)]
+    
+    /* Interacciones */
+    transition-all duration-300 ease-out
+    hover:scale-105 hover:brightness-110
+    active:scale-95 active:translate-y-[2px]
+    active:shadow-[0_2px_0_var(--shadow-color)]
+    
+    border-t border-white/20
+    cursor-pointer
+    m-auto
+    ${useBounce ? 'animate-bounce' : ''}
+    ${className}`}
+  style={`--shadow-color: ${pureShadowColor};`}
+  data-popup-trigger
+>
+  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
 
-  <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-10 group-hover:animate-shine" />
-</button>
+  <div class="shine-element"></div>
+
+  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none">
+    <slot />
+    {useArrow && (
+      <div class="transition-transform duration-300 group-hover:translate-x-1.5 flex items-center">
+        <ArrowRight color={colorArrow} /> 
+      </div>
+    )}
+  </div>
+
+  {subtext && (
+    <span class="relative z-30 text-[10px] md:text-sm font-medium opacity-90 mt-0.5 md:mt-1 block uppercase text-center pointer-events-none flex items-center justify-center gap-2">
+      {subtext} {image && <span class="w-8 h-8 rounded-full overflow-hidden"><Image src={ProfileImage} alt={'Imagen de perfil CEO HackDental'} /></span> }
+    </span>
+  )}
+</a>
+}
+
+
 
 <style>
-  .group:hover .group-hover\:animate-shine {
-    animation: shine 0.75s ease-out;
+  /* Animación Shine Garantizada */
+  .shine-element {
+    position: absolute;
+    top: 0;
+    left: -150%;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
   }
 
-  .arrow {
-    transition: transform .2s;
+  .group:hover .shine-element {
+    animation: shine-effect 0.75s forwards;
   }
 
-  .group:hover .arrow {
-    transform: translateX(0.25rem);
+  @keyframes shine-effect {
+    0% { left: -150%; }
+    100% { left: 150%; }
+  }
+
+  /* Forzamos que la fuente sea la del token de Oswald */
+  .font-heading {
+    font-family: 'Oswald', sans-serif !important;
   }
 </style>
