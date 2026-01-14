@@ -13,47 +13,24 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
     <main class="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] md:gap-16 relative md:min-h-[100vh] py-12 md:py-0">
         
         <div class="md:basis-1/2 w-full relative">
-            <Alert 
-                id="warning1"
-                color="#fdc700"
-                widthMD="400px"
-                width="120px"
-                message="⚠ Email registrado! revise nuevamente sus datos, quizas ya solicito la auditoria!"
-            />
-            <Alert 
-                id="error1"
-                color="#ff4d4f"
-                widthMD="400px"
-                width="120px"
-                message="✖ Error al enviar el formulario, intentelo mas tarde"
-            />
-            <Alert 
-                id="success1"
-                color="#52c41a"
-                widthMD="400px"
-                width="120px"
-                message="✔ Solicitud enviada con exito! Nos estaremos comunicando con usted a la brevedad"
-            />
+            <Alert id="warning1" color="#fdc700" widthMD="400px" width="120px" message="⚠ Email registrado! revise nuevamente sus datos." />
+            <Alert id="error1" color="#ff4d4f" widthMD="400px" width="120px" message="✖ Error al enviar el formulario." />
+            <Alert id="success1" color="#52c41a" widthMD="400px" width="120px" message="✔ Solicitud enviada con éxito!" />
             
             <div class="max-w-2xl">
                 <div class="mb-12">
                     <h1 class="text-[24px] md:text-[36px] leading-[1.2] font-bold mb-4 font-oswald uppercase">
                         <span class="text-[#d9d9d9]">Recibe una auditoría de</span>
-                        <div>
-                            <div class="relative inline-block">
-                                <span class="text-white">Marketing Dental</span>
-                                <figure class="absolute bottom-[-2px] left-0 w-full">
-                                    <RedLine />
-                                </figure>
-                            </div>
-                            <span class="text-[#d9d9d9]"> hecha por el</span> 
-                        </div> 
-                        <span class="text-[#d9d9d9]">fundador de nuestra agencia</span>
+                        <div class="relative inline-block">
+                            <span class="text-white">Marketing Dental</span>
+                            <figure class="absolute bottom-[-2px] left-0 w-full"><RedLine /></figure>
+                        </div>
+                        <span class="text-[#d9d9d9]"> hecha por el fundador</span>
                     </h1>
                 </div>
 
                 <div class="mb-12 space-y-4">
-                    <h2 class="text-[18px] font-semibold mb-6 text-[#d9d9d9] tracking-wider">PASOS PARA APLICAR:</h2>
+                    <h2 class="text-[18px] font-semibold mb-6 text-[#d9d9d9]">PASOS PARA APLICAR:</h2>
                     <div class="space-y-4 text-gray-300">
                         <div class="grid items-center gap-4 grid-cols-[40px_1fr]">
                             <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#039683]/10 rounded-lg border border-[#039683]/30">
@@ -71,34 +48,24 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
                             <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#039683]/10 rounded-lg border border-[#039683]/30">
                                 <span class="text-white text-[14px] font-black w-[24px] h-[24px] bg-[#039683] flex items-center justify-center rounded-full">3</span>
                             </div>
-                            <p class="text-[17px]">El fundador de Hackdental se contactará contigo para agendar una reunión.</p>
-                        </div>
-
-                        <div class="flex items-center gap-2 mt-[40px] pt-6 border-t border-white/5">
-                            <p class="text-sm text-gray-400">También puedes aplicar por WhatsApp:</p>
-                            <strong class="text-[#039683] text-lg">+51 903300422</strong>
+                            <p class="text-[17px]">Agendaremos una reunión contigo.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-[#111] rounded-2xl border border-white/10 pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full shadow-[0_0_50px_rgba(3,150,131,0.15)] overflow-hidden min-h-[600px] flex flex-col justify-center">
+        <div class="bg-[#111] rounded-2xl border border-white/10 pt-16 pb-8 px-6 md:px-8 md:basis-[45%] lg:basis-[40%] relative w-full shadow-[0_0_50px_rgba(3,150,131,0.15)] overflow-hidden min-h-[620px] flex flex-col justify-center">
             
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#039683] to-transparent opacity-70"></div>
-            
-            <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#039683]/10 rounded-full blur-[80px] pointer-events-none"></div>
-
             <div class="absolute w-full top-0 left-0 p-2 bg-[#831022]/60 border-b border-white/10 text-center z-20">
-                <p class="text-center text-[10px] md:text-[12px] text-white font-medium uppercase tracking-wider">Solo aplica si tu consultorio está en España</p>
+                <p class="text-[10px] md:text-[12px] text-white font-medium uppercase tracking-wider">Solo aplica si tu consultorio está en España</p>
             </div>
 
             <div class="mb-8 text-center relative z-10">
-                <div id='currentSetpConainer' class="flex flex-col items-center gap-2 justify-center relative w-full m-auto mb-2">
+                <div id='currentSetpConainer' class="flex flex-col items-center gap-2 justify-center relative w-full m-auto">
                     <span id="currentStep" class="text-[#d9d9d9] font-black text-[22px] md:text-[32px] leading-tight uppercase tracking-tighter">ÚLTIMO PASO</span>
-                     <div class="w-24 mt-1" id="redLine">
-                        <RedLine />
-                     </div>
+                    <div class="w-40 " id="redLine"><RedLine /></div>
                 </div>
             </div>
 
@@ -108,134 +75,98 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
                     <div class="space-y-6">
                         <div class="group/field">
                             <div class="flex justify-between items-end mb-2">
-                                <label for="email" class="block text-xs font-bold text-gray-500 uppercase tracking-widest group-focus-within/field:text-[#039683] transition-colors">
-                                    Tu Email Profesional <span class="text-red-500">*</span>
-                                </label>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest">Tu Email Profesional *</label>
                                 <div class="text-[10px] font-bold text-[#039683] flex items-center gap-1 animate-pulse">
                                     Empieza aquí <CornerRightDown color="#039683" />
                                 </div>
                             </div>
                             <div class="relative">
-                                <div class="absolute -inset-0.5 bg-gradient-to-r from-[#039683] to-emerald-600 rounded-lg blur opacity-30 group-focus-within/field:opacity-100 transition duration-500"></div>
+                                <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
                                 <input 
                                     type="email" id="email" name="email" required placeholder="ejemplo@clinicadental.com"
-                                    class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-[#039683] transition-all z-10"
+                                    class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-white/10 rounded-lg text-white focus:outline-none transition-all z-10"
+                                    data-order="1"
                                 >
                             </div>
-                            <p class="text-[10px] text-gray-500 mt-3 text-center italic">Te enviaremos los detalles de la auditoría por correo.</p>
                         </div>
                     </div>
-
-                    <button 
-                        type="button" id="nextStep1"
-                        class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] bg-[length:200%_auto] hover:bg-right text-white font-black text-lg py-4 rounded-lg shadow-[0_4px_0_#064e3b] hover:scale-[1.02] active:translate-y-1 transition-all duration-300 mt-8 uppercase tracking-widest cursor-pointer border-t border-white/20"
-                    >
-                        Continuar
-                    </button>
+                    <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-lg py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase tracking-widest cursor-pointer border-t border-white/20 active:translate-y-1 transition-all">Continuar</button>
                 </div>
 
                 <div id="step2" class="step-content hidden w-full animate-fadeIn">
-                    <div class="space-y-5">
-                         <div>
-                            <label for="nombre" class="block text-xs font-bold text-gray-500 uppercase mb-2">Nombre y Apellido *</label>
-                            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Dr. Juan Pérez" class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#039683] outline-none transition-all">
-                        </div>
-
-                        <div>
-                            <label for="website" class="block text-xs font-bold text-gray-500 uppercase mb-2">Sitio Web <span class="opacity-50">(opcional)</span></label>
-                            <input type="url" id="website" name="website" placeholder="https://tuconsultorio.com" class="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#039683] outline-none transition-all">
-                        </div>
-
-                        <div>
-                            <label for="telefono" class="block text-xs font-bold text-gray-500 uppercase mb-2">Número de Teléfono *</label>
+                    <div class="space-y-6">
+                        <div class="group/field">
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nombre y Apellido *</label>
                             <div class="relative">
-                                <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none border-r border-white/10 pr-3">
-                                    <Spain size="20" />
-                                    <span class="text-white text-sm font-bold">+34</span>
+                                <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
+                                <input type="text" id="nombre" name="nombre" required class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="2">
+                            </div>
+                        </div>
+                        <div class="group/field">
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Sitio Web (opcional)</label>
+                            <div class="relative">
+                                <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
+                                <input type="url" id="website" name="website" class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="3">
+                            </div>
+                        </div>
+                        <div class="group/field">
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Teléfono *</label>
+                            <div class="relative">
+                                <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
+                                <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 z-20 border-r border-white/10 pr-2">
+                                    <Spain size="20" /><span class="text-white text-sm font-bold">+34</span>
                                 </div>
-                                <input type="tel" id="telefono" name="telefono" required placeholder="600 000 000" class="w-full pl-24 pr-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:border-[#039683] outline-none transition-all">
+                                <input type="tel" id="telefono" name="telefono" required class="relative w-full pl-24 pr-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="4">
                             </div>
                         </div>
                     </div>
-
                     <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep2" class="w-1/3 bg-white/5 hover:bg-white/10 text-gray-400 font-bold py-4 rounded-lg transition-all border border-white/5">Atrás</button>
-                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] hover:scale-[1.02] active:translate-y-1 transition-all uppercase tracking-tight">Continuar</button>
+                        <button type="button" id="prevStep2" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
+                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase">Continuar</button>
                     </div>
                 </div>
 
                 <div id="step3" class="step-content hidden w-full animate-fadeIn">
-                    <div class="space-y-6">
-                        <div class="text-center">
-                             <span class="inline-flex items-center gap-1.5 bg-[#039683]/10 text-[#039683] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-[#039683]/20 mb-4">
-                                <Sparkles size="16" color="#039683"/>
-                                Facturación estimada
-                            </span>
-                            <label for="ingresos" class="block text-xs font-bold text-gray-500 uppercase mb-4">Ingresos Anuales Aproximados (€) *</label>
-                            <input type="number" id="ingresos" name="ingresos" min="0" step="1000" placeholder="Ej: 250000" class="w-full px-4 py-4 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white text-center text-xl focus:border-[#039683] outline-none">
+                    <div class="text-center">
+                        <span class="inline-flex items-center gap-1.5 bg-[#039683]/10 text-[#039683] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-[#039683]/20 mb-4">
+                            <Sparkles size="16" color="#039683"/> Facturación estimada
+                        </span>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4 tracking-widest">Ingresos Anuales Aproximados (€) *</label>
+                        <div class="relative">
+                            <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
+                            <input type="number" id="ingresos" name="ingresos" class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white text-center text-xl focus:outline-none z-10" data-order="5">
                         </div>
                     </div>
-
                     <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 hover:bg-white/10 text-gray-400 font-bold py-4 rounded-lg transition-all border border-white/5">Atrás</button>
-                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] hover:scale-[1.02] active:translate-y-1 transition-all uppercase tracking-tight">Ir al último paso</button>
+                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
+                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase">Siguiente</button>
                     </div>
                 </div>
 
                 <div id="step4" class="step-content hidden w-full animate-fadeIn">
-                    <div class="space-y-4">
-                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4 text-center tracking-widest">¿Cuál es tu objetivo principal? *</label>
-                        <div class="space-y-3">
+                    <div class="space-y-3">
+                        {['mas-pacientes', 'alto-valor', 'presencia-marca'].map((val, i) => (
                             <label class="block cursor-pointer radio-option group">
-                                <input type="radio" name="objetivo" value="mas-pacientes" class="hidden">
+                                <input type="radio" name="objetivo" value={val} class="hidden"/>
                                 <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
                                     <div class="flex items-center justify-between">
-                                        <span class="text-gray-300 font-medium group-hover:text-white">Conseguir más pacientes</span>
-                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center group-hover:border-[#039683]">
+                                        <span class="text-gray-300 font-medium">{i === 0 ? 'Conseguir más pacientes' : i === 1 ? 'Atraer pacientes de alto valor' : 'Mejorar marca'}</span>
+                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center">
                                             <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
                                         </div>
                                     </div>
                                 </div>
                             </label>
-
-                            <label class="block cursor-pointer radio-option group">
-                                <input type="radio" name="objetivo" value="alto-valor" class="hidden">
-                                <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300 font-medium group-hover:text-white">Atraer pacientes de alto valor</span>
-                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center group-hover:border-[#039683]">
-                                            <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-
-                            <label class="block cursor-pointer radio-option group">
-                                <input type="radio" name="objetivo" value="presencia-marca" class="hidden">
-                                <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300 font-medium group-hover:text-white">Mejorar presencia de marca</span>
-                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center group-hover:border-[#039683]">
-                                            <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
+                        ))}
                     </div>
-
-                    <button 
-                        type="submit" id="submitBtn"
-                        class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] bg-[length:200%_auto] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] mt-8 hover:scale-[1.02] active:translate-y-1 transition-all uppercase tracking-widest flex items-center justify-center gap-3"
-                    >
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] mt-8 uppercase tracking-widest flex items-center justify-center gap-3">
                         <span id="text_submitBtn">Si, quiero mi auditoría</span>
                         <span id="loader" class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white hidden"></span>
                     </button>
                 </div>
 
-                <p class="text-[10px] text-gray-600 text-center mt-8 flex items-center justify-center gap-2 uppercase font-bold tracking-widest">
-                    <Candado size="14" color="#4B5563"/>
-                    Privacidad garantizada y encriptada
+                <p class="text-[10px] text-gray-600 text-center mt-8 uppercase font-bold tracking-widest flex items-center gap-2">
+                    <Candado size="14" color="#4B5563"/> Privacidad garantizada y encriptada
                 </p>
             </form>  
         </div>
@@ -243,15 +174,26 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
 </Layout>
 
 <style>
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+    
+    /* Clases de utilidad para la lógica de sombras */
+    .glow-red { 
+        background-color: #831022 !important; 
+        opacity: 0.6 !important; 
+        filter: blur(10px) !important;
+        animation: pulseShadow 2s infinite;
     }
-    .animate-fadeIn {
-        animation: fadeIn 0.4s ease-out forwards;
+    .glow-green { 
+        background-color: #039683 !important; 
+        opacity: 0.8 !important; 
+        filter: blur(14px) !important;
     }
-    .bg-gradient-to-r {
-        background-size: 200% auto;
+    .glow-none { opacity: 0 !important; }
+
+    @keyframes pulseShadow {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.7; }
     }
 </style>
 
@@ -259,156 +201,138 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
     import {ApiService} from '../api/service.js';
     let currentStep = 1;
 
-    function updateProgress() {
-        const currentSetpContainer = document.getElementById('currentSetpConainer');
-        const redLine = document.getElementById('redLine');
-        const currentStepText = document.getElementById('currentStep');
-        const contactForm = document.getElementById('contactForm');
-
-        if ( currentStepText && currentSetpContainer && redLine && contactForm ) {
-            if (currentStep === 1) {
-                currentStepText.innerText = 'ÚLTIMO PASO';
-                currentStepText.className = 'text-[#d9d9d9] font-black text-[22px] md:text-[32px] leading-tight uppercase tracking-tighter';
-                currentSetpContainer.className = 'flex flex-col items-center gap-2 justify-center relative w-full m-auto mb-2';
-                redLine.classList.remove('hidden');
-            } else if (currentStep === 2) {
-                currentStepText.innerText = 'TU INFORMACIÓN PERSONAL';
-                currentStepText.className = 'text-[#d9d9d9] font-black text-[18px] md:text-[22px] leading-tight uppercase text-center';
-                currentSetpContainer.className = 'flex flex-col items-center gap-2 justify-center relative w-full m-auto mb-2';
-                redLine.classList.add('hidden');
-            } else if (currentStep === 3) {
-                currentStepText.innerText = 'SOBRE TU CONSULTORIO';
-                currentStepText.className = 'text-[#d9d9d9] font-black text-[18px] md:text-[22px] leading-tight uppercase text-center';
-                currentSetpContainer.className = 'flex flex-col items-center gap-2 justify-center relative w-full m-auto mb-2';
-                redLine.classList.add('hidden');
-            } else if (currentStep === 4) {
-                currentStepText.innerText = '¿CUÁL ES TU META?';
-                currentStepText.className = 'text-[#d9d9d9] font-black text-[18px] md:text-[22px] leading-tight uppercase text-center';
-                currentSetpContainer.className = 'flex flex-col items-center gap-2 justify-center relative w-full m-auto mb-2';
-                redLine.classList.add('hidden');
-            }
+    // --- LÓGICA DE SOMBRAS SECUENCIALES ---
+    function refreshShadows() {
+        const step = document.getElementById(`step${currentStep}`);
+        if (!step || currentStep === 4) {
+            // Limpiar sombras en el paso de objetivos
+            document.querySelectorAll('.input-shadow-logic').forEach(s => s.className = 'input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500');
+            return;
         }
+
+        const inputs = Array.from(step.querySelectorAll('input:not([type="radio"])')) as HTMLInputElement[];
+        let foundFirstEmpty = false;
+
+        inputs.forEach((input) => {
+            const shadow = input.parentElement?.querySelector('.input-shadow-logic');
+            if (!shadow) return;
+
+            const isFocused = document.activeElement === input;
+            const isEmpty = input.value.trim() === "";
+
+            // Reset inicial
+            shadow.classList.remove('glow-red', 'glow-green', 'glow-none');
+
+            if (isFocused) {
+                shadow.classList.add('glow-green');
+                foundFirstEmpty = true; // Si está enfocado, bloqueamos la roja para los siguientes
+            } else if (!foundFirstEmpty && isEmpty) {
+                shadow.classList.add('glow-red');
+                foundFirstEmpty = true; // Solo el primer vacío del orden secuencial es rojo
+            } else {
+                shadow.classList.add('glow-none');
+            }
+        });
+    }
+
+    function setupShadowListeners() {
+        const allInputs = document.querySelectorAll('input:not([type="radio"])');
+        allInputs.forEach(input => {
+            input.addEventListener('focus', refreshShadows);
+            input.addEventListener('blur', refreshShadows);
+            input.addEventListener('input', refreshShadows);
+        });
+    }
+
+    // --- NAVEGACIÓN Y UI ---
+    function updateProgress() {
+        const currentStepText = document.getElementById('currentStep');
+        const redLine = document.getElementById('redLine');
+        if (currentStepText && redLine) {
+            if (currentStep === 1) { currentStepText.innerText = 'ÚLTIMO PASO'; redLine.classList.remove('hidden'); }
+            else { redLine.classList.add('hidden'); }
+            if (currentStep === 2) currentStepText.innerText = 'INGRESA TU INFORMACION AQUI PARA RECIBIR TU AUDITORIA';
+            if (currentStep === 3) currentStepText.innerText = 'TU CLÍNICA';
+            if (currentStep === 4) currentStepText.innerText = '¿LISTO PARA DISCUTIR EL FUTURO DE TU CONSULTORIO DENTAL?';
+        }
+        refreshShadows();
     }
 
     function showStep(step: number) {
-        document.querySelectorAll('.step-content').forEach(el => {
-            el.classList.add('hidden');
-        });
-        const stepElement = document.getElementById(`step${step}`);
-        if (stepElement) {
-            stepElement.classList.remove('hidden');
-        }
+        document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`step${step}`)?.classList.remove('hidden');
         currentStep = step;
         updateProgress();
     }
 
-    // Validaciones (Se mantienen exactas a tu original)
-    function validateStep1(): boolean {
-        const email = (document.getElementById('email') as HTMLInputElement).value.trim();
-        if (!email) { alert('Por favor completa todos los campos obligatorios'); return false; }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) { alert('Por favor ingresa un email válido'); return false; }
-        return true;
-    }
+    // --- VALIDACIONES ---
+    const validateStep1 = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((document.getElementById('email') as HTMLInputElement).value);
+    const validateStep2 = () => {
+        const n = (document.getElementById('nombre') as HTMLInputElement).value;
+        const t = (document.getElementById('telefono') as HTMLInputElement).value;
+        return n.length > 2 && t.length > 7;
+    };
+    const validateStep3 = () => (document.getElementById('ingresos') as HTMLInputElement).value !== "";
 
-    function validateStep2(): boolean {
-        const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
-        const telefono = '+34 '+ (document.getElementById('telefono') as HTMLInputElement).value.trim();
-        if (!telefono) { alert('Por favor ingresa tu número de teléfono'); return false; }
-        const phoneRegex = /^\+34\d{9}$/;
-        if (!phoneRegex.test(telefono.trim().replace(/\s/g, ''))) { alert('Por favor ingresa un número de teléfono válido de España'); return false; }
-        if(!nombre) { alert('Por favor ingresa tu nombre y apellido'); return false; }
-        return true;
-    }
-
-    function validateStep3(): boolean {
-        const ingresos = (document.getElementById('ingresos') as HTMLInputElement).value.trim();
-        if (!ingresos) { alert('Por favor ingresa los ingresos anuales aproximados'); return false; }
-        const ingresosNum = parseInt(ingresos);
-        if (isNaN(ingresosNum) || ingresosNum < 0) { alert('Por favor ingresa un valor válido para los ingresos'); return false; }
-        return true;
-    }
-
-    // Event Listeners Navegación
-    document.getElementById('nextStep1')?.addEventListener('click', () => { if (validateStep1()) showStep(2); });
-    document.getElementById('nextStep2')?.addEventListener('click', () => { if (validateStep2()) showStep(3); });
-    document.getElementById('nextStep3')?.addEventListener('click', () => { if (validateStep3()) showStep(4); });
+    // --- EVENT LISTENERS ---
+    document.getElementById('nextStep1')?.addEventListener('click', () => validateStep1() ? showStep(2) : alert("Email inválido"));
+    document.getElementById('nextStep2')?.addEventListener('click', () => validateStep2() ? showStep(3) : alert("Completa los datos"));
+    document.getElementById('nextStep3')?.addEventListener('click', () => validateStep3() ? showStep(4) : alert("Ingresa un valor"));
     document.getElementById('prevStep2')?.addEventListener('click', () => showStep(1));
     document.getElementById('prevStep3')?.addEventListener('click', () => showStep(2));
 
-    // Submit Logic
+    // --- FORM SUBMIT ---
     document.getElementById("contactForm")?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
-        const loader = document.getElementById("loader") as HTMLElement;
-        const text_submitBtn = document.getElementById("text_submitBtn") as HTMLElement;
-        const warning1 = document.getElementById("warning1") as HTMLElement;
-        const success1 = document.getElementById("success1") as HTMLElement;
-        const error1 = document.getElementById("error1") as HTMLElement;
+        const loader = document.getElementById("loader");
+        const textBtn = document.getElementById("text_submitBtn");
+        
+        const objetivo = (document.querySelector('input[name="objetivo"]:checked') as HTMLInputElement)?.value;
+        if(!objetivo) return alert("Selecciona un objetivo");
 
         try {
-            const objetivo = (document.querySelector('input[name="objetivo"]:checked') as HTMLInputElement | null)?.value;
-            if (!objetivo) { alert("Por favor selecciona tu objetivo principal"); return; }
-
-            if (submitBtn && loader) {
-                submitBtn.disabled = true;
-                submitBtn.classList.add("opacity-50");
-                loader.classList.remove("hidden");
-                text_submitBtn.classList.add("hidden");
-            }
+            submitBtn.disabled = true;
+            loader?.classList.remove("hidden");
+            textBtn?.classList.add("hidden");
 
             const formData = {
-                nombre: (document.getElementById("nombre") as HTMLInputElement)?.value,
-                email: (document.getElementById("email") as HTMLInputElement)?.value,
-                website: (document.getElementById("website") as HTMLInputElement)?.value,
-                telefono: "+34" + (document.getElementById("telefono") as HTMLInputElement)?.value,
-                ingresos: (document.getElementById("ingresos") as HTMLInputElement)?.value,
-                objetivo,
+                nombre: (document.getElementById("nombre") as HTMLInputElement).value,
+                email: (document.getElementById("email") as HTMLInputElement).value,
+                website: (document.getElementById("website") as HTMLInputElement).value,
+                telefono: "+34" + (document.getElementById("telefono") as HTMLInputElement).value,
+                ingresos: (document.getElementById("ingresos") as HTMLInputElement).value,
+                objetivo
             };
 
-            const response = await ApiService.sendData(formData);
-
-            if (response) {
-                if(response.success) {
-                    success1.classList.remove('hidden');
-                    setTimeout(() => success1.classList.add('hidden'), 7000);
-                } 
-                if(response.warning === 'email-registered') {
-                    warning1.classList.remove('hidden');
-                    setTimeout(() => warning1.classList.add('hidden'), 7000);
-                }
+            const res = await ApiService.sendData(formData);
+            if(res && (res.success || res.warning === 'email-registered')) {
+                if(res.success) document.getElementById("success1")?.classList.remove("hidden");
+                if(res.warning) document.getElementById("warning1")?.classList.remove("hidden");
                 (e.target as HTMLFormElement).reset();
                 showStep(1);
             } else {
-                error1.classList.remove('hidden');
-                setTimeout(() => error1.classList.add('hidden'), 7000);
+                document.getElementById("error1")?.classList.remove("hidden");
             }
-        } catch (error) {
-            error1.classList.remove('hidden');
-            setTimeout(() => error1.classList.add('hidden'), 5000);
+        } catch (err) {
+            document.getElementById("error1")?.classList.remove("hidden");
         } finally {
-            if (submitBtn){ submitBtn.disabled = false; submitBtn.classList.remove("opacity-50"); }
-            if (loader) loader.classList.add("hidden");
-            if (text_submitBtn) text_submitBtn.classList.remove("hidden");
+            submitBtn.disabled = false;
+            loader?.classList.add("hidden");
+            textBtn?.classList.remove("hidden");
         }
     });
 
-    // Radio styles (Selección visual de objetivos)
+    // --- INICIALIZACIÓN ---
+    setupShadowListeners();
+    refreshShadows();
+
     document.querySelectorAll('.radio-option').forEach(label => {
         label.addEventListener('click', function(this: HTMLElement) {
-            const radioCards = document.querySelectorAll('.radio-card');
-            radioCards.forEach(card => card.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
-            
-            const indicators = document.querySelectorAll('.radio-indicator');
-            indicators.forEach(ind => {
-                ind.classList.remove('border-[#039683]');
-                ind.querySelector('div')?.classList.add('hidden');
-            });
-
+            document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
+            document.querySelectorAll('.radio-indicator div').forEach(d => d.classList.add('hidden'));
             this.querySelector('.radio-card')?.classList.add('border-[#039683]', 'bg-[#039683]/10');
-            const indicator = this.querySelector('.radio-indicator');
-            indicator?.classList.add('border-[#039683]');
-            indicator?.querySelector('div')?.classList.remove('hidden');
+            this.querySelector('.radio-indicator div')?.classList.remove('hidden');
         });
     });
 </script>
