@@ -19,11 +19,13 @@
     /* Fonts */
     --font-sans: 'Inter', sans-serif;
     --font-heading: 'Oswald', sans-serif;
+    --font-logo: 'Bree Serif', sans-serif;
   }
 
   body {
     font-family: var(--font-sans);
   }
+
 
   h1, h2, h3, h4, .font-heading, .font-oswald {
     font-family: var(--font-heading);
@@ -34,9 +36,19 @@
   /* Propiedades base (Mobile) */
   font-size: 1.875rem; /* text-3xl */
   line-height: 0.95;    /* leading-[0.95] */
+  font-weight: bold;    /* font-bold */
+  font-family: var(--font-heading); 
+  text-transform: uppercase; /* uppercase */
+  letter-spacing: -0.025em;  /* tracking-tight */
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); /* drop-shadow-2xl */
+}
+
+.title-section {
+  /* Propiedades base (Mobile) */
+  font-size: 1.8rem; /* text-3xl */
+  line-height: 0.95;    /* leading-[0.95] */
   font-weight: 700;    /* font-bold */
   font-family: var(--font-heading); /* font-heading (asegúrate de tener definida esta variable) */
-  /* margin-bottom: 0; */
   text-transform: uppercase; /* uppercase */
   letter-spacing: -0.025em;  /* tracking-tight */
   filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); /* drop-shadow-2xl */
@@ -58,6 +70,13 @@
   .font-inter { font-family: var(--font-sans); }
   .font-inter-black { font-family: var(--font-sans); font-weight: 900; }
   .emoji { font-family: 'system-ui'; }
+  .font-logo{
+    font-family: var(--font-logo);
+  }
+
+  .font-heading{
+    font-weight: 700;    /* font-bold */
+  }
 
   /* Font Sizes */
   .text-header { font-size: 15px; }

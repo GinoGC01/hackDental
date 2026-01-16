@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 ---
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +10,7 @@ import Header from '../components/Header.astro';
     <title>HackDental - Auditoría de Marketing Gratuita</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <meta name="description" content="Obtén una auditoría de marketing digital gratuita para tu clínica dental. Identifica oportunidades de crecimiento y mejora tu presencia en línea con HackDental.">
     <meta name="keywords" content="auditoría de marketing dental, marketing digital para clínicas dentales, crecimiento de clínicas dentales, presencia en línea dental, HackDental">
     <meta name="author" content="Jose Whittembury">
@@ -27,11 +26,20 @@ import Header from '../components/Header.astro';
     <Header />
     <slot />
     <!-- Footer -->
-    <footer class="text-center py-10 border-t border-white/10 mt-16">
-        <a href="#contacto" class="text-gray-400 text-sm hover:text-primary transition-colors duration-300">
-            Contacto 
-        </a>
+    <footer class="text-center pt-10 pb-[5px] border-t border-white/10">
+        <span class="font-logo text-3xl text-[#9da3af]">HackDental</span>
+        <p class="pt-[30px] pb-[5px] text-xs"><span id="copy"></span> HackDental LLC - <a href="#" class="text-[#45bdbb] underline">Aviso legal y politicas de privacidad</a></p>
     </footer>
 
 </body>
 </html>
+<script>
+    const copyright = document.getElementById('copy')
+    const date = new Date()
+    const year = date.getFullYear()
+
+    if(copyright) copyright.innerText = `${year}`
+
+    
+
+</script>

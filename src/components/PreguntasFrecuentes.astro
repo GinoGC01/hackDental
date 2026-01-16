@@ -1,0 +1,65 @@
+---
+import ArrowDown from "../Icons/ArrowDown.astro";
+import WhatsApp from "../Icons/WhatsApp.astro";
+---
+
+<section class="relative bg-[#0f1f2c]">
+    <div class="text-center md:py-20 md:max-w-3xl mx-auto px-[16px] md:px-4 py-10">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-3/5 pointer-events-none -z-10">
+            <div class="w-full h-full bg-[#213343] blur-[120px] rounded-full"></div>
+        </div>
+        <header>
+            <h3 class="title-section text-white/60">Tienes alguna duda?</h3>
+            <p class="title-section">No dudes en contratarme</p>
+        </header>
+        <span class="text-white/60 my-5 block">Respondo en menos de 24 horas.</span>
+        <a href="https://wa.me/tu_numero" class="group/wpp flex items-center justify-center gap-2 hover:scale-105 transition-scale duration-200
+        md:max-w-[60%] w-full m-auto bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-lg py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase cursor-pointer border-t border-white/20 active:translate-y-1 transition-all">
+                <span class="transition-transform duration-200 group-hover/wpp:translate-x-0.5">
+                    <WhatsApp />
+                </span>
+                <span>Consulta al WhatsApp</span>
+        </a>
+
+        <div class="mt-[40px]">
+            <div id="answer-1" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="0">
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start ">Para que tipo de consultorio son los servicios de HackDental?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+            </div>
+           <div id="answer-2" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="1">
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start">Me interesa la auditoria gratuita, como aplico?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+            </div>
+            <div id="answer-3" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="2">
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start">Que incluye la auditoria gratuita?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<script>
+    const answer1 = document.getElementById('answer-1') as HTMLElement
+    const answer2 = document.getElementById('answer-2') as HTMLElement
+    const answer3 = document.getElementById('answer-3') as HTMLElement
+    const arrows = document.querySelectorAll('.arrow') as NodeListOf<HTMLSpanElement>
+    const responses = document.querySelectorAll('.response') as NodeListOf<HTMLParagraphElement>
+
+
+
+    function openAnswer (element:HTMLElement){
+        if(element){
+            const arrowNumber = element.getAttribute('data-numberOfIndex')
+            arrows[Number(arrowNumber)].classList.toggle('rotate-[180deg]')
+            responses[Number(arrowNumber)].classList.toggle('hidden')
+        }
+    }
+
+    answer1.addEventListener('click', ()=>{openAnswer(answer1)})
+    answer2.addEventListener('click', ()=>{openAnswer(answer2)})
+    answer3.addEventListener('click', ()=>{openAnswer(answer3)})
+
+
+    
+</script>
