@@ -4,29 +4,38 @@ import Money from "../Icons/Money.astro";
 import Rocket from "../Icons/Rocket.astro";
 import RoundedSpain from "../Icons/RoundedSpain.astro";
 import Button from "./Ebook/Button.astro";
+
 ---
 
 <section class="w-full bg-[#f6f9fc] py-10">
     <div class="text-center md:pt-20 md:max-w-3xl mx-auto px-[16px] md:px-4">
         <header class="pb-5">
-            <h3 class="title-section text-[#253343]">Eres un odontologo profesional en españa</h3>
-            <p class="title-section text-[#2e6767]">Pero consigues nuevos pacientes?</p>
+            <h3 class="title-section text-[#213343] title-section-desk">Eres un odontologo profesional en españa</h3>
+            <p class="title-section text-[#2e6767] title-section-desk">Pero consigues nuevos pacientes?</p>
         </header>
-        <p class="text-[#253343] mb-10">
+        <p class="text-[#213343] mb-10 text-[21px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vitae laborum debitis consequuntur maiores veniam porro quod cum illo sint voluptatum eius dolorem, aliquid ullam itaque natus dicta possimus exercitationem!
             Dolores numquam ut sit quia molestiae veritatis ipsa facere, animi optio aut quos, voluptas similique quis alias officia illum cupiditate eius. Reiciendis quasi natus unde nesciunt optio iure praesentium eius.
 
         </p>
-        <Button width="w-full" mdWidth="w-full" useArrow={false}>
-            <span class="text-[0.5em] md:text-xl">Quiero una auditoria de marketing totalemente gratis</span>
-        </Button>
+        <span id="button-mobile">
+            <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="totalemente gratis">
+                <span class="text-[1rem]">Quiero una auditoria de marketing</span>
+            </Button>
+        </span>
+
+        <span id="button-desk">
+            <Button width="w-full" mdWidth="w-full" useArrow={false}>
+                <span class="md:text-[24px]">Quiero una auditoria de marketing Gratis</span>
+            </Button>
+        </span>
         <span class="flex flex-col md:flex-row items-center justify-center gap-2 text-[#D92027] mt-[20px] text-[0.5rem] md:text-sm uppercase font-medium "><AlertTriangle1 size="16" color="#D92027"/> Solo aplica a consultorios dentales que cumplan lo siguiente:</span>
-        <div class="flex flex-col md:flex-row gap-6 md:gap-2 items-center justify-center md:py-[60px] py-10">
+        <div class="flex flex-row gap-6 md:gap-2 items-center justify-center md:py-[60px] py-10">
             <div class="md:basis-1/3 md:min-h-[7em] border-b border-[#010101]/10">
                 <div class="p-2 md:p-5 bg-[#2e6767]/10 inline-block rounded-full">
                     <RoundedSpain size="24"/>
                 </div>
-                <p class="text-[#253343] md:text-sm text-xs">Ubicados en España.</p>
+                <p class="text-[#213343] md:text-sm text-xs">Ubicados en España.</p>
             </div>
             <div class="md:basis-1/3 md:min-h-[7em] border-b border-[#010101]/10">
                 <div class="p-2 md:p-5 bg-[#2e6767]/10 inline-block rounded-full">
@@ -44,3 +53,25 @@ import Button from "./Ebook/Button.astro";
         </div>
     </div>
 </section>
+
+<script>
+const buttonMobile = document.getElementById('button-mobile') as HTMLButtonElement
+const buttonDesktop = document.getElementById('button-desk') as HTMLButtonElement
+
+const widthOfWindow = window.innerWidth;
+
+const isMobile = widthOfWindow <= 780
+const isDektop = widthOfWindow >= 1024
+
+if(isMobile) {
+    buttonMobile.classList.remove('hidden')
+    buttonDesktop.classList.add('hidden')
+}
+
+if(isDektop){
+    buttonMobile.classList.add('hidden')
+    buttonDesktop.classList.remove('hidden')
+}
+
+
+</script>

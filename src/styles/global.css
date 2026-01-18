@@ -45,7 +45,7 @@
 
 .title-section {
   /* Propiedades base (Mobile) */
-  font-size: 1.8rem; /* text-3xl */
+  font-size: 28px;/* text-3xl */
   line-height: 0.95;    /* leading-[0.95] */
   font-weight: 700;    /* font-bold */
   font-family: var(--font-heading); /* font-heading (asegúrate de tener definida esta variable) */
@@ -54,12 +54,35 @@
   filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); /* drop-shadow-2xl */
 }
 
+.sub-title-section {
+  /* Propiedades base (Mobile) */
+  font-size: 18px;/* text-3xl */
+  line-height: 0.95;    /* leading-[0.95] */
+  font-weight: 700;    /* font-bold */
+  font-family: var(--font-heading); /* font-heading (asegúrate de tener definida esta variable) */
+  text-transform: uppercase; /* uppercase */
+  letter-spacing: -0.025em;  /* tracking-tight */
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); /* drop-shadow-2xl */
+}
+
+.title-section-desk{
+ font-size: 48px;
+ 
+}
+
 /* Desktop (Tablet en adelante) */
 @media (min-width: 768px) {
   .title-hero {
     font-size: 3.6rem;   /* md:text-6xl */
     /* margin-bottom: 1.5rem; */
   }
+  .title-section{
+    font-size: 48px;
+  }
+  .sub-title-section {
+  /* Propiedades base (Mobile) */
+  font-size: 28px;
+}
 }
 
 /* ============================================================

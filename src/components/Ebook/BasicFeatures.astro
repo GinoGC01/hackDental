@@ -1,36 +1,17 @@
 ---
 // src/components/Features.astro
-import Candado from '../../Icons/Candado.astro';
 import Button from './Button.astro';
 
 const beforeSlides = [
-  {
-    image: "../iamges/imagen x derecha.svg",
-    alt: "Posteos Genéricos"
-  },
-  {
-    image: "../iamges/imagen x derecha.svg",
-    alt: "Sillones Vacíos"
-  },
-  {
-    image: "../iamges/imagen x derecha.svg",
-    alt: "Estrés Constante"
-  }
+  { image: "../iamges/imagen x derecha.svg", alt: "Posteos Genéricos" },
+  { image: "../iamges/imagen x derecha.svg", alt: "Sillones Vacíos" },
+  { image: "../iamges/imagen x derecha.svg", alt: "Estrés Constante" }
 ];
 
 const afterSlides = [
-  {
-    image: "../iamges/imagen 2.svg",
-    alt: "Anuncios Virales"
-  },
-  {
-    image: "../iamges/imagen 2.svg",
-    alt: "Agenda Colapsada"
-  },
-  {
-    image: "../iamges/imagen-1.svg",
-    alt: "Libertad Real"
-  }
+  { image: "../iamges/imagen-1.svg", alt: "Anuncios Virales" },
+  { image: "../iamges/imagen-1.svg", alt: "Agenda Colapsada" },
+  { image: "../iamges/imagen-1.svg", alt: "Libertad Real" }
 ];
 ---
 
@@ -47,84 +28,64 @@ const afterSlides = [
         He transformado completamente <br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 italic pr-2">mi clínica dental.</span>
       </h2>
-      <p class="text-sm md:text-lg text-gray-600 font-medium max-w-2xl mx-auto mt-4">
-         De perseguir pacientes regateadores a tener lista de espera para tratamientos de alto valor. <br/>
-         <span class="text-brand-red font-bold">No fue suerte... tú también puedes hacerlo.</span>
-      </p>
     </div>
 
-    <div class="bg-gray-100 rounded-2xl md:rounded-[2rem] p-4 md:p-12 mb-16 border border-gray-200 shadow-inner relative overflow-hidden">
+    <div class="bg-gray-100 rounded-2xl md:rounded-[2rem] p-4 md:p-12 mb-16  shadow-inner relative overflow-hidden">
        
-       <div class="flex md:hidden justify-between mb-4 gap-2">
-          <span class="bg-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-300">
-             Haciendo esto 😭
-          </span>
-          <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full border border-green-200">
-             A esto 🚀
-          </span>
-       </div>
-
        <div class="grid md:grid-cols-12 gap-6 items-center">
           
-          <!-- BEFORE SLIDER -->
-          <div class="md:col-span-5 relative group">
-              <div class="hidden md:flex absolute -top-6 left-4 z-20 bg-gray-200 text-gray-600 text-xs font-bold px-4 py-2 rounded-full border border-gray-300 shadow-sm items-center gap-2 transform -rotate-2 group-hover:rotate-0 transition-transform">
-                 Literalmente hacía esto 😭
+          <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-md">
+              <div class="absolute top-2 left-2 z-20 bg-gray-200/90 backdrop-blur-sm text-gray-600 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-300">
+                  ANTES 😭
               </div>
 
-              <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden relative h-[320px] md:h-[380px] carousel-before">
-                 {beforeSlides.map((slide, index) => (
-                   <picture 
-                     class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                     data-slide={index}
-                   >
-                     <img 
-                       src={slide.image} 
-                       alt={slide.alt} 
-                       class="w-full h-full object-cover"
-                     />
-                   </picture>
-                 ))}
-                 
-                 <div class="absolute bottom-[4px] left-[50%] w-[95%] -translate-x-[50%] flex p-1 gap-1 z-20">
-                    {beforeSlides.map((_, idx) => (
-                       <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-red-500' : 'bg-gray-200'}`} data-index={idx} />
-                    ))}
+              <div class="h-[320px] md:h-[380px] w-full relative overflow-hidden">
+                 <div class="carousel-track-left flex w-[200%] h-full">
+                    <div class="flex w-1/2 h-full">
+                        {beforeSlides.map((slide) => (
+                          <div class="w-full flex-shrink-0">
+                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
+                          </div>
+                        ))}
+                    </div>
+                    <div class="flex w-1/2 h-full">
+                        {beforeSlides.map((slide) => (
+                          <div class="w-full flex-shrink-0">
+                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
+                          </div>
+                        ))}
+                    </div>
                  </div>
               </div>
           </div>
 
-          <!-- SEPARATOR -->
           <div class="md:col-span-2 text-center py-4 md:py-0">
-             <h3 class="text-2xl md:text-4xl font-black font-heading text-gray-400 uppercase tracking-widest animate-pulse">
+              <h3 class="text-2xl md:text-4xl font-black font-heading text-gray-400 uppercase tracking-widest">
                 HACIA...
-             </h3>
+              </h3>
           </div>
 
-          <!-- AFTER SLIDER -->
-          <div class="md:col-span-5 relative group">
-              <div class="hidden md:flex absolute -top-6 right-4 z-20 bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full border border-red-700 shadow-lg items-center gap-2 transform rotate-2 group-hover:rotate-0 transition-transform">
-                 A esto 💋
+          <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-2xl scale-105 z-10">
+              <div class="absolute top-2 right-2 z-20 bg-brand-red text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
+                  AHORA 🚀
               </div>
 
-              <div class="bg-white rounded-xl shadow-2xl border border-[#D92027]/60 overflow-hidden relative h-[320px] md:h-[380px] ring-4 ring-[#D92027]/20 transform scale-105 hover:scale-[1.07] transition-all duration-500 z-10 carousel-after">
-                 {afterSlides.map((slide, index) => (
-                   <picture 
-                     class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                     data-slide={index}
-                   >
-                     <img 
-                       src={slide.image} 
-                       alt={slide.alt} 
-                       class="w-full h-full object-contain"
-                     />
-                   </picture>
-                 ))}
-
-                 <div class="absolute bottom-[4px] left-[50%] w-[95%] -translate-x-[50%] flex p-1 gap-1 z-20">
-                    {afterSlides.map((_, idx) => (
-                       <div class={`carousel-indicator h-1 rounded-full flex-1 transition-all duration-300 ${idx === 0 ? 'bg-brand-red' : 'bg-gray-200'}`} data-index={idx} />
-                    ))}
+              <div class="h-[320px] md:h-[380px] w-full relative overflow-hidden">
+                 <div class="carousel-track-right flex w-[200%] h-full">
+                    <div class="flex w-1/2 h-full">
+                        {afterSlides.map((slide) => (
+                          <div class="w-full flex-shrink-0">
+                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
+                          </div>
+                        ))}
+                    </div>
+                    <div class="flex w-1/2 h-full">
+                        {afterSlides.map((slide) => (
+                          <div class="w-full flex-shrink-0">
+                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
+                          </div>
+                        ))}
+                    </div>
                  </div>
               </div>
           </div>
@@ -133,72 +94,41 @@ const afterSlides = [
     </div>
 
     <div class="mt-12 text-center">
-        <div class="inline-block relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-orange-600 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-200"></div>
-            <Button className="px-12 py-4 text-xl">
-               QUIERO ESTA TRANSFORMACIÓN GRATIS
-            </Button>
-        </div>
-        <p class="mt-4 text-xs text-gray-400 uppercase tracking-widest block flex items-center justify-center">
-           <Candado size="18" color="#949aa5" className="-translate-y-[1px]" /> Estrategia probada en +500 clínicas
-        </p>
+        <Button className="px-12 py-4 text-xl">QUIERO ESTA TRANSFORMACIÓN</Button>
     </div>
-
   </div>
 </section>
 
-<script>
-  let currentSlide = 0;
-  const slideCount = 3;
+<style>
+  /* Estrategia: 
+     El track mide 200% (dos bloques de imágenes).
+     Desplazamos -50% (un bloque entero). 
+     Al llegar al final del primer bloque, el segundo es idéntico, 
+     el navegador reinicia a 0% y el ojo no nota el salto.
+  */
 
-  function updateCarousels() {
-    const beforeSlides = document.querySelectorAll('.carousel-before .carousel-slide');
-    const afterSlides = document.querySelectorAll('.carousel-after .carousel-slide');
-    const beforeIndicators = document.querySelectorAll('.carousel-before .carousel-indicator');
-    const afterIndicators = document.querySelectorAll('.carousel-after .carousel-indicator');
-
-    beforeSlides.forEach((slide, idx) => {
-      if (idx === currentSlide) {
-        slide.classList.remove('opacity-0', 'z-0');
-        slide.classList.add('opacity-100', 'z-10');
-      } else {
-        slide.classList.remove('opacity-100', 'z-10');
-        slide.classList.add('opacity-0', 'z-0');
-      }
-    });
-
-    afterSlides.forEach((slide, idx) => {
-      if (idx === currentSlide) {
-        slide.classList.remove('opacity-0', 'z-0');
-        slide.classList.add('opacity-100', 'z-10');
-      } else {
-        slide.classList.remove('opacity-100', 'z-10');
-        slide.classList.add('opacity-0', 'z-0');
-      }
-    });
-
-    beforeIndicators.forEach((indicator, idx) => {
-      if (idx === currentSlide) {
-        indicator.classList.remove('bg-gray-200');
-        indicator.classList.add('bg-red-500');
-      } else {
-        indicator.classList.remove('bg-red-500');
-        indicator.classList.add('bg-gray-200');
-      }
-    });
-
-    afterIndicators.forEach((indicator, idx) => {
-      if (idx === currentSlide) {
-        indicator.classList.remove('bg-gray-200');
-        indicator.classList.add('bg-brand-red');
-      } else {
-        indicator.classList.remove('bg-brand-red');
-        indicator.classList.add('bg-gray-200');
-      }
-    });
-
-    currentSlide = (currentSlide + 1) % slideCount;
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
-  setInterval(updateCarousels, 3500);
-</script>
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .carousel-track-left {
+    /* 10s para 3 imágenes es una velocidad legible. Ajusta según necesites */
+    animation: scroll-left 2s linear infinite;
+  }
+
+  .carousel-track-right {
+    animation: scroll-right 2s linear infinite;
+  }
+
+  /* Pausa al hacer hover para mejorar UX */
+  .group:hover .carousel-track-left,
+  .group:hover .carousel-track-right {
+    animation-play-state: paused;
+  }
+</style>
