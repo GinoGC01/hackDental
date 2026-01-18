@@ -33,21 +33,24 @@ import Logo from "../assets/logo.svg";
         <div class="hidden lg:flex items-center gap-10">
             <a 
                 href="#educacion" 
-                class="group relative text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/5"
+                class="group relative text-[#8f969c] hover:text-white transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-lg text-[15px] "
             >
-                <span class="font-medium">Educación para Odontólogos</span>
-                <span class="group-hover:translate-y-1 transition-transform duration-300 text-primary/60 group-hover:text-primary">
-                    <ArrowDown />
+                <span class="font-medium relative">
+                    Educación para Odontólogos
+                    <span class="absolute -top-4 -right-10 bg-[#206767] text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Nuevo</span>
                 </span>
-                <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
+                <!-- <span class="absolute bottom-1 left-4 w-0 h-[2px] bg-[#206767] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span> -->
+                <span class="absolute bottom-1 left-4 w-0 h-[2px] bg-[#206767] w-[calc(100%-2rem)] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+
             </a>
             
             <a 
                 href="/contacto" 
-                class="group relative text-gray-300 hover:text-white transition-all duration-300 px-4 py-2 rounded-lg hover:bg-white/5 font-medium"
+                class="group relative text-[#8f969c] hover:text-white transition-all duration-300 px-4 py-2 rounded-lg font-medium text-[15px]"
             >
                 <span>Contacto</span>
-                <span class="absolute bottom-1 left-4 w-0 h-0.5 bg-gradient-to-r from-primary to-[#00ffc6] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span>
+                <span class="absolute bottom-1 left-4 w-0 h-[2px] bg-[#206767] w-[calc(100%-2rem)] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                <!-- <span class="absolute bottom-1 left-4 w-0 h-[2px] bg-[#206767] group-hover:w-[calc(100%-2rem)] transition-all duration-300"></span> -->
             </a>
         </div>
 
@@ -101,6 +104,11 @@ import Logo from "../assets/logo.svg";
                 >
                     <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 backdrop-blur-xl p-6 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <!-- Badge Nuevo en Mobile -->
+                        <div class="absolute top-4 right-4 bg-[#206767] text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                            Nuevo
+                        </div>
                         
                         <div class="relative flex items-center justify-between">
                             <div class="flex-1">
