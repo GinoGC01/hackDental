@@ -24,37 +24,37 @@ const afterSlides = [
   <div class="max-w-7xl mx-auto px-4 relative z-10">
 
     <div class="mb-10 md:mb-16 max-w-4xl mx-auto">
-      <h2 class="text-[30px] text-[#2b2b2a] text-center font-oswald font-bold">
-        ¿CONOCES LA DIFERENCIA ENTRE <span class="text-[42px] text-[#000000] block font-black">MARKETING GENERICO Y MARKETING DENTAL?</span>
+      <h2 class="title-section md:title-section-desk text-[#2b2b2a] text-center font-oswald font-bold leading-[1.2]">
+        ¿CONOCES LA DIFERENCIA ENTRE <span class="title-section md:title-section-desk text-[#000000] block font-black">MARKETING GENERICO Y MARKETING DENTAL?</span>
       </h2>
-      <p class="text-center mb-5 mt-5 text-[12px] md:text-[18px]">
+      <p class="text-center mb-5 mt-[24px] text-[18px] md:text-[21px]">
         No eres dueño de un restaurante o un ecommerce... <b>eres dueño de un consultorio dental.</b>
       </p>
-      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+      <p class="text-center mb-5 text-[18px] md:text-[21px]">
         La forma de hacer marketing no es la misma que en otras industrias, créeme.
       </p>
-      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+      <p class="text-center mb-5 text-[18px] md:text-[21px]">
         Por esta razón creé este ebook con estrategias muy especializadas
       </p>
-      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+      <p class="text-center mb-5 text-[18px] md:text-[21px]">
         Nada de teorías genéricas que encuentras en youtube o cualquier lado.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-12 gap-6 items-center">      
+    <div class="grid md:grid-cols-11 gap-4 items-center">      
         <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-md">
             <div class="p-2 bg-[#213343] text-center text-gray-200 font-oswald font-bold text-xl">MARKETING GENERICO ❌</div>
-            <div class="h-[320px] md:h-[380px] w-full overflow-hidden">
+            <div class="h-[200px] md:h-[250px] w-full overflow-hidden">
                 <div class="carousel-track-left flex h-full w-max group-hover:pause"> 
                   {[...beforeSlides, ...beforeSlides].map((image) => (
-                      <img src={image} alt="Marketing Genérico" class="w-[200px] md:w-[250px] h-full object-cover shadow-inner"/>
+                      <img src={image} alt="Marketing Genérico" class="w-[100px] md:w-[120px] h-full object-cover shadow-inner"/>
                   ))}
                 </div>
             </div>
         </div>
 
-        <div class="md:col-span-2 text-center py-4 md:py-0">
-            <span class="text-xl md:text-2xl font-black font-heading text-gray-400 uppercase tracking-widest p-2 rounded-full bg-gray-200">
+        <div class="md:col-span-1 text-center">
+            <span class="text-sm md:text-2xl font-black font-heading text-gray-400 uppercase tracking-widest p-2 rounded-full bg-gray-200">
               VS
             </span>
         </div>
@@ -63,10 +63,10 @@ const afterSlides = [
             
             <div class="p-2 bg-[#213343] text-center text-gray-200 font-oswald font-bold text-xl">MARKETING DENTAL 🦷</div>
 
-            <div class="h-[320px] md:h-[380px] w-full overflow-hidden">
+            <div class="h-[200px] md:h-[250px] w-full overflow-hidden">
                 <div class="carousel-track-right flex h-full w-max group-hover:pause">
                   {[...afterSlides, ...afterSlides].map((image, imgIdx) => (
-                      <img src={image} alt={`Marketing Dental ${imgIdx + 1}`} class="w-[200px] md:w-[250px] h-full object-cover shadow-inner"/>
+                      <img src={image} alt={`Marketing Dental ${imgIdx + 1}`} class="w-[100px] md:w-[120px] h-full object-cover shadow-inner"/>
                   ))}
                 </div>
             </div>
@@ -74,7 +74,7 @@ const afterSlides = [
     </div>
 
     <div class="mt-12 text-center">
-        <Button subtext='👇DESCARGAR EL EBOOK AHORA👇' className="px-12 py-4 text-xl">QUIERO APRENDER DE MARKETING DIGITAL</Button>
+        <Button subtext='👇DESCARGAR EL EBOOK AHORA👇' className="px-12 py-4 text-xl" useArrow={false} >QUIERO APRENDER DE MARKETING DIGITAL</Button>
     </div>
   </div>
 </section>
