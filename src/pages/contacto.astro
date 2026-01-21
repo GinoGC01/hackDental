@@ -3,22 +3,93 @@
 import RedLine from '../Icons/RedLine.astro';
 import Candado from '../Icons/Candado.astro';
 import Spain from '../Icons/Spain.astro';
-import Alert from '../components/Alerts/Alert.astro';
 import Sparkles from '../Icons/Ebook/Sparkles.astro';
 import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
 import EbookLayout from '../layouts/EbookLayout.astro';
 ---
 
 <EbookLayout>
+    <!-- Sistema de alertas mejorado -->
+    <div id="alert-container" class="fixed top-6 right-6 z-[9999] flex flex-col gap-3 pointer-events-none max-w-md">
+        
+        <!-- Alerta de Warning -->
+        <div id="warning1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-amber-500/95 to-orange-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">Email ya registrado</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Por favor, revisa tus datos e intenta nuevamente.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+
+        <!-- Alerta de Error -->
+        <div id="error1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-red-500/95 to-rose-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-red-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">Error al enviar</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Hubo un problema. Por favor, intenta de nuevo.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+
+        <!-- Alerta de Success -->
+        <div id="success1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-emerald-500/95 to-teal-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-emerald-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">¡Solicitud enviada!</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Te contactaremos pronto para agendar tu auditoría.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+    </div>
+
     <span class="font-logo text-white/80 text-center text-[2rem] block pt-10">HackDental</span>
 
     <main class="flex flex-col md:flex-row items-start md:items-center justify-center px-4 md:px-2 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] relative md:min-h-[100vh] py-12 md:py-0">
         
         <div class="md:basis-[55%] w-full relative">
-            <Alert id="warning1" color="#fdc700" widthMD="400px" width="120px" message="⚠ Email registrado! revise nuevamente sus datos." />
-            <Alert id="error1" color="#ff4d4f" widthMD="400px" width="120px" message="✖ Error al enviar el formulario." />
-            <Alert id="success1" color="#52c41a" widthMD="400px" width="120px" message="✔ Solicitud enviada con éxito!" />
-            
             <div class="max-w-2xl">
                 <div class="mb-12">
                     <h1 class="title-section">
@@ -49,9 +120,11 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                             <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#039683]/10 rounded-lg border border-[#039683]/30">
                                 <span class="text-white text-[14px] font-black w-[24px] h-[24px] bg-[#039683] flex items-center justify-center rounded-full">3</span>
                             </div>
-                            <p class="text-[17px] text-[#9ca3af]">El fundador de Hackdental se contactará contigo para
-                            agendar una reunión..</p>
+                            <p class="text-[17px] text-[#9ca3af]">El fundador de Hackdental se contactará contigo para agendar una reunión.</p>
                         </div>
+                    </div>
+                    <div class="pt-6">
+                        <p class="text-gray-500 text-sm font-medium">También aplicar por Whatsapp: <span class="text-[#039683] font-bold">+51 903300422</span></p>
                     </div>
                 </div>
             </div>
@@ -66,8 +139,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
 
             <div class="mb-8 text-center relative z-10">
                 <div id='currentSetpConainer' class="flex flex-col items-center gap-2 justify-center relative w-full m-auto">
-                    <span id="currentStep" class="font-black text-[22px] md:text-[32px] leading-tight uppercase tracking-tighter text-[#9ca3af]">ÚLTIMO PASO</span>
-                    <div class="w-40 " id="redLine"><RedLine /></div>
+                    <span id="currentStep" class="font-black text-[22px] md:text-[28px] leading-tight uppercase tracking-tighter text-[#9ca3af]">ÚLTIMO PASO</span>
+                    <div class="w-40" id="redLine"><RedLine /></div>
                 </div>
             </div>
 
@@ -77,22 +150,22 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                     <div class="space-y-6">
                         <div class="group/field">
                             <div class="flex justify-between items-end mb-2">
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest">Tu Email Profesional *</label>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest">Email *</label>
                                 <div class="text-[10px] font-bold text-[#039683] flex items-center gap-1 animate-pulse">
                                     Empieza aquí <CornerRightDown color="#039683" />
                                 </div>
                             </div>
                             <div class="relative">
                                 <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
-                                <input 
-                                    type="email" id="email" name="email" required placeholder="ejemplo@clinicadental.com"
-                                    class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-white/10 rounded-lg text-white focus:outline-none transition-all z-10"
-                                    data-order="1"
-                                >
+                                <input type="email" id="email" name="email" required placeholder="Ingresa un email válido" class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-white/10 rounded-lg text-white focus:outline-none transition-all z-10">
                             </div>
+                            <p class="text-[11px] text-gray-500 mt-2">Te enviaremos los detalles de la auditoría</p>
                         </div>
                     </div>
-                    <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-lg py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase tracking-widest cursor-pointer border-t border-white/20 active:translate-y-1 transition-all">Continuar</button>
+                    <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#086969] via-[#039683] to-[#086969] text-white font-black text-[21px] py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase active:translate-y-1 transition-all flex items-center justify-center flex-col">
+                        Continuar
+                        <span class="block bg-[#18625d]/30 px-7 py-1 text-[10px] font-medium text-[#dcfce7] rounded-lg tracking-widest uppercase mt-1">Espacios limitados este mes</span>
+                    </button>
                 </div>
 
                 <div id="step2" class="step-content hidden w-full animate-fadeIn">
@@ -101,58 +174,45 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nombre y Apellido *</label>
                             <div class="relative">
                                 <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
-                                <input type="text" id="nombre" name="nombre" required class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="2">
+                                <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre aquí" class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10">
                             </div>
+                            <p class="text-[11px] text-gray-500 mt-2">Te enviaremos los detalles de la auditoría</p>
                         </div>
                         <div class="group/field">
-                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Sitio Web (opcional)</label>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Sitio Web *</label>
                             <div class="relative">
                                 <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
-                                <input type="url" id="website" name="website" class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="3">
+                                <input type="url" id="website" name="website" required placeholder="URL del sitio web de tu consultorio." class="relative w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10">
                             </div>
+                            <p class="text-[11px] text-gray-500 mt-2">Nos ayudará a preparar tu auditoría</p>
                         </div>
                         <div class="group/field">
-                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Teléfono *</label>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Número de contacto *</label>
                             <div class="relative">
                                 <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 z-20 border-r border-white/10 pr-2">
                                     <Spain size="20" /><span class="text-white text-sm font-bold">+34</span>
                                 </div>
-                                <input type="tel" id="telefono" name="telefono" required class="relative w-full pl-24 pr-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10" data-order="4">
+                                <input type="tel" id="telefono" name="telefono" required class="relative w-full pl-24 pr-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white focus:outline-none z-10">
                             </div>
+                            <p class="text-[11px] text-gray-500 mt-2">Para coordinar la llamada estratégica</p>
                         </div>
                     </div>
                     <div class="flex gap-4 mt-8">
                         <button type="button" id="prevStep2" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
-                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase">Continuar</button>
+                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 2 DE 5</span></button>
                     </div>
                 </div>
 
                 <div id="step3" class="step-content hidden w-full animate-fadeIn">
-                    <div class="text-center">
-                        <span class="inline-flex items-center gap-1.5 bg-[#039683]/10 text-[#039683] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-[#039683]/20 mb-4">
-                            <Sparkles size="16" color="#039683"/> Facturación estimada
-                        </span>
-                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4 tracking-widest">Ingresos Anuales Aproximados (€) *</label>
-                        <div class="relative">
-                            <div class="input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500"></div>
-                            <input type="number" id="ingresos" name="ingresos" class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-gray-800 rounded-lg text-white text-center text-xl focus:outline-none z-10" data-order="5">
-                        </div>
-                    </div>
-                    <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
-                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase">Siguiente</button>
-                    </div>
-                </div>
-
-                <div id="step4" class="step-content hidden w-full animate-fadeIn">
+                    <p class="text-gray-400 text-sm mb-6 text-center">Número de sillas de tu consultorio</p>
                     <div class="space-y-3">
-                        {['mas-pacientes', 'alto-valor', 'presencia-marca'].map((val, i) => (
+                        {['Solo tengo 1 silla dental.', 'Tengo entre 2 y 4 sillas dentales.', 'Tengo 5 o más sillas dentales.'].map((label) => (
                             <label class="block cursor-pointer radio-option group">
-                                <input type="radio" name="objetivo" value={val} class="hidden"/>
+                                <input type="radio" name="sillas" value={label} class="hidden"/>
                                 <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
                                     <div class="flex items-center justify-between">
-                                        <span class="text-gray-300 font-medium">{i === 0 ? 'Conseguir más pacientes' : i === 1 ? 'Atraer pacientes de alto valor' : 'Mejorar marca'}</span>
+                                        <span class="text-gray-300 font-medium">{label}</span>
                                         <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center">
                                             <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
                                         </div>
@@ -161,14 +221,66 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                             </label>
                         ))}
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] mt-8 uppercase tracking-widest flex items-center justify-center gap-3">
-                        <span id="text_submitBtn">Si, quiero mi auditoría</span>
-                        <span id="loader" class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white hidden"></span>
-                    </button>
+                    <div class="flex gap-4 mt-8">
+                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
+                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 3 DE 5</span></button>
+                    </div>
+                </div>
+
+                <div id="step4" class="step-content hidden w-full animate-fadeIn">
+                    <p class="text-gray-400 text-sm mb-2 text-center font-bold">CONTEXTO ECONÓMICO DE TU CLÍNICA</p>
+                    <p class="text-gray-500 text-xs mb-6 text-center">¿Cuál es el rango aproximado de facturación mensual de tu clínica? (No busco números exactos)</p>
+                    <div class="space-y-3">
+                        {['Menos de 10.000 €', '10.000 € – 30.000 €', 'Más de 30.000 €'].map((label) => (
+                            <label class="block cursor-pointer radio-option group">
+                                <input type="radio" name="facturacion" value={label} class="hidden"/>
+                                <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-300 font-medium">{label}</span>
+                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        ))}
+                    </div>
+                    <div class="flex gap-4 mt-8">
+                        <button type="button" id="prevStep4" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
+                        <button type="button" id="nextStep4" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 4 DE 5</span></button>
+                    </div>
+                </div>
+
+                <div id="step5" class="step-content hidden w-full animate-fadeIn">
+                    <p class="text-gray-400 text-sm mb-6 text-center font-bold">¿CUÁL ES TU META?</p>
+                    <p class="text-gray-500 text-xs mb-6 text-center">¿Qué quieres lograr con esta auditoría?</p>
+                    <div class="space-y-3">
+                        {['Quiero más pacientes este 2026.', 'Quiero mejorar la rentabilidad de mi clínica.', 'Quiero mejorar la presencia online.'].map((text) => (
+                            <label class="block cursor-pointer radio-option group">
+                                <input type="radio" name="meta" value={text} class="hidden"/>
+                                <div class="radio-card border border-gray-800 rounded-xl p-4 bg-[#1a1a1a] group-hover:border-[#039683]/50 transition-all">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-300 font-medium">{text}</span>
+                                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-600 flex items-center justify-center">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#039683] hidden"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        ))}
+                    </div>
+                    <div class="flex flex-col gap-4 mt-8 w-full">
+                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] uppercase flex flex-col items-center justify-center">
+                            <span id="text_submitBtn">APLICAR A LA AUDITORÍA</span>
+                            <span class="text-[10px] font-medium opacity-80">REÚNETE CON JOSE WHITTEMBURY</span>
+                            <span id="loader" class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white hidden"></span>
+                        </button>
+                        <button type="button" id="prevStep5" class="text-gray-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors">Volver atrás</button>
+                    </div>
                 </div>
 
                 <p class="text-[10px] text-gray-600 text-center mt-8 uppercase font-bold tracking-widest flex items-center gap-2">
-                    <Candado size="14" color="#4B5563"/> Privacidad garantizada y encriptada
+                    <Candado size="14" color="#4B5563"/> Tus datos están seguros y protegidos
                 </p>
             </form>  
         </div>
@@ -177,92 +289,152 @@ import EbookLayout from '../layouts/EbookLayout.astro';
 
 <style>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInRight { 
+        from { 
+            opacity: 0; 
+            transform: translateX(100px) scale(0.95); 
+        } 
+        to { 
+            opacity: 1; 
+            transform: translateX(0) scale(1); 
+        } 
+    }
+    @keyframes slideOutRight { 
+        from { 
+            opacity: 1; 
+            transform: translateX(0) scale(1); 
+        } 
+        to { 
+            opacity: 0; 
+            transform: translateX(100px) scale(0.95); 
+        } 
+    }
+    @keyframes progressBar {
+        from { width: 100%; }
+        to { width: 0%; }
+    }
+    
     .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
     
-    /* Clases de utilidad para la lógica de sombras */
-    .glow-red { 
-        background-color: #831022 !important; 
-        opacity: 0.6 !important; 
-        filter: blur(10px) !important;
-        animation: pulseShadow 2s infinite;
+    .alert-toast {
+        animation: slideInRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
-    .glow-green { 
-        background-color: #039683 !important; 
-        opacity: 0.8 !important; 
-        filter: blur(14px) !important;
+    .alert-toast.hiding {
+        animation: slideOutRight 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
     }
-    .glow-none { opacity: 0 !important; }
 
-    @keyframes pulseShadow {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 0.7; }
+    .alert-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: progressBar 5s linear forwards;
     }
+
+    .glow-red { background-color: #831022 !important; opacity: 0.6 !important; filter: blur(10px) !important; }
+    .glow-green { background-color: #039683 !important; opacity: 0.8 !important; filter: blur(14px) !important; }
+    .glow-none { opacity: 0 !important; }
 </style>
 
 <script>
     import {ApiService} from '../api/service.js';
     let currentStep = 1;
+    let activeAlertTimeout: number | null = null;
+
+    // --- LÓGICA DE ALERTAS MEJORADA ---
+    function triggerAlert(id: string) {
+        const alert = document.getElementById(id);
+        if (!alert) return;
+
+        // Limpiar timeout anterior si existe
+        if (activeAlertTimeout) {
+            clearTimeout(activeAlertTimeout);
+        }
+
+        // Mostrar alerta
+        alert.classList.remove('hidden', 'hiding');
+        
+        // Reiniciar animación de progress bar
+        const progressBar = alert.querySelector('.alert-progress') as HTMLElement;
+        if (progressBar) {
+            progressBar.style.animation = 'none';
+            setTimeout(() => {
+                progressBar.style.animation = 'progressBar 5s linear forwards';
+            }, 10);
+        }
+        
+        // Auto-ocultar después de 5 segundos
+        activeAlertTimeout = window.setTimeout(() => {
+            closeAlert(id);
+        }, 5000);
+    }
+
+    function closeAlert(id: string) {
+        const alert = document.getElementById(id);
+        if (!alert) return;
+        
+        alert.classList.add('hiding');
+        setTimeout(() => {
+            alert.classList.add('hidden');
+            alert.classList.remove('hiding');
+        }, 400);
+    }
+
+    // Evento de cerrar alertas manualmente
+    document.querySelectorAll('.alert-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const alert = (e.target as HTMLElement).closest('.alert-toast');
+            if (alert) {
+                closeAlert(alert.id);
+            }
+        });
+    });
 
     // --- LÓGICA DE SOMBRAS SECUENCIALES ---
     function refreshShadows() {
         const step = document.getElementById(`step${currentStep}`);
-        if (!step || currentStep === 4) {
-            // Limpiar sombras en el paso de objetivos
+        if (!step || currentStep >= 3) {
             document.querySelectorAll('.input-shadow-logic').forEach(s => s.className = 'input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500');
             return;
         }
-
         const inputs = Array.from(step.querySelectorAll('input:not([type="radio"])')) as HTMLInputElement[];
         let foundFirstEmpty = false;
-
         inputs.forEach((input) => {
             const shadow = input.parentElement?.querySelector('.input-shadow-logic');
             if (!shadow) return;
-
             const isFocused = document.activeElement === input;
             const isEmpty = input.value.trim() === "";
-
-            // Reset inicial
             shadow.classList.remove('glow-red', 'glow-green', 'glow-none');
-
-            if (isFocused) {
-                shadow.classList.add('glow-green');
-                foundFirstEmpty = true; // Si está enfocado, bloqueamos la roja para los siguientes
-            } else if (!foundFirstEmpty && isEmpty) {
-                shadow.classList.add('glow-red');
-                foundFirstEmpty = true; // Solo el primer vacío del orden secuencial es rojo
-            } else {
-                shadow.classList.add('glow-none');
-            }
+            if (isFocused) { shadow.classList.add('glow-green'); foundFirstEmpty = true; }
+            else if (!foundFirstEmpty && isEmpty) { shadow.classList.add('glow-red'); foundFirstEmpty = true; }
+            else { shadow.classList.add('glow-none'); }
         });
     }
 
-    function setupShadowListeners() {
-        const allInputs = document.querySelectorAll('input:not([type="radio"])');
-        allInputs.forEach(input => {
-            input.addEventListener('focus', refreshShadows);
-            input.addEventListener('blur', refreshShadows);
-            input.addEventListener('input', refreshShadows);
-        });
-    }
-
-    // --- NAVEGACIÓN Y UI ---
+    // --- NAVEGACIÓN ---
     function updateProgress() {
         const currentStepText = document.getElementById('currentStep');
         const redLine = document.getElementById('redLine');
         if (currentStepText && redLine) {
-            if (currentStep === 1) { currentStepText.innerText = 'ÚLTIMO PASO'; redLine.classList.remove('hidden'); }
-            else { redLine.classList.add('hidden'); }
-            if (currentStep === 2) currentStepText.innerText = 'INGRESA TU INFORMACION AQUI PARA RECIBIR TU AUDITORIA';
-            if (currentStep === 3) currentStepText.innerText = 'TU CLÍNICA';
-            if (currentStep === 4) currentStepText.innerText = '¿LISTO PARA DISCUTIR EL FUTURO DE TU CONSULTORIO DENTAL?';
+            if (currentStep === 1) { 
+                currentStepText.innerText = 'ÚLTIMO PASO'; 
+                redLine.classList.remove('hidden'); 
+            } else { 
+                redLine.classList.add('hidden'); 
+                currentStepText.className = 'font-black text-[16px] md:text-[18px] leading-tight uppercase tracking-widest text-[#9ca3af] text-center'; 
+            }
+
+            if (currentStep === 2) currentStepText.innerText = 'INGRESA TU INFORMACIÓN AQUÍ PARA RECIBIR TU AUDITORÍA';
+            if (currentStep === 3) currentStepText.innerText = '¿DE QUÉ TAMAÑO ES TU CONSULTORIO?';
+            if (currentStep === 4) currentStepText.innerText = 'CONTEXTO ECONÓMICO DE TU CLÍNICA';
+            if (currentStep === 5) currentStepText.innerText = '¿CUÁL ES TU META?';
         }
         refreshShadows();
     }
 
     function showStep(step: number) {
         document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
-        document.getElementById(`step${step}`)?.classList.remove('hidden');
+        const nextStep = document.getElementById(`step${step}`);
+        if (nextStep) nextStep.classList.remove('hidden');
         currentStep = step;
         updateProgress();
     }
@@ -271,53 +443,57 @@ import EbookLayout from '../layouts/EbookLayout.astro';
     const validateStep1 = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((document.getElementById('email') as HTMLInputElement).value);
     const validateStep2 = () => {
         const n = (document.getElementById('nombre') as HTMLInputElement).value;
+        const w = (document.getElementById('website') as HTMLInputElement).value;
         const t = (document.getElementById('telefono') as HTMLInputElement).value;
-        return n.length > 2 && t.length > 7;
+        return n.length > 2 && w.length > 4 && t.length > 7;
     };
-    const validateStep3 = () => (document.getElementById('ingresos') as HTMLInputElement).value !== "";
+    const validateRadio = (name: string) => document.querySelector(`input[name="${name}"]:checked`) !== null;
 
-    // --- EVENT LISTENERS ---
-    document.getElementById('nextStep1')?.addEventListener('click', () => validateStep1() ? showStep(2) : alert("Email inválido"));
-    document.getElementById('nextStep2')?.addEventListener('click', () => validateStep2() ? showStep(3) : alert("Completa los datos"));
-    document.getElementById('nextStep3')?.addEventListener('click', () => validateStep3() ? showStep(4) : alert("Ingresa un valor"));
+    // --- EVENTOS NAVEGACIÓN ---
+    document.getElementById('nextStep1')?.addEventListener('click', () => validateStep1() ? showStep(2) : triggerAlert('warning1'));
+    document.getElementById('nextStep2')?.addEventListener('click', () => validateStep2() ? showStep(3) : triggerAlert('warning1'));
+    document.getElementById('nextStep3')?.addEventListener('click', () => validateRadio('sillas') ? showStep(4) : triggerAlert('warning1'));
+    document.getElementById('nextStep4')?.addEventListener('click', () => validateRadio('facturacion') ? showStep(5) : triggerAlert('warning1'));
+    
     document.getElementById('prevStep2')?.addEventListener('click', () => showStep(1));
     document.getElementById('prevStep3')?.addEventListener('click', () => showStep(2));
+    document.getElementById('prevStep4')?.addEventListener('click', () => showStep(3));
+    document.getElementById('prevStep5')?.addEventListener('click', () => showStep(4));
 
-    // --- FORM SUBMIT ---
+    // --- ENVÍO DE FORMULARIO ---
     document.getElementById("contactForm")?.addEventListener("submit", async (e) => {
         e.preventDefault();
+        if(!validateRadio('meta')) return triggerAlert('warning1');
+
         const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
         const loader = document.getElementById("loader");
         const textBtn = document.getElementById("text_submitBtn");
-        
-        const objetivo = (document.querySelector('input[name="objetivo"]:checked') as HTMLInputElement)?.value;
-        if(!objetivo) return alert("Selecciona un objetivo");
+
+        const formData = {
+            email: (document.getElementById("email") as HTMLInputElement).value,
+            nombre: (document.getElementById("nombre") as HTMLInputElement).value,
+            website: (document.getElementById("website") as HTMLInputElement).value,
+            telefono: "+34 " + (document.getElementById("telefono") as HTMLInputElement).value,
+            sillas: (document.querySelector('input[name="sillas"]:checked') as HTMLInputElement).value,
+            facturacion: (document.querySelector('input[name="facturacion"]:checked') as HTMLInputElement).value,
+            meta: (document.querySelector('input[name="meta"]:checked') as HTMLInputElement).value
+        };
 
         try {
             submitBtn.disabled = true;
             loader?.classList.remove("hidden");
             textBtn?.classList.add("hidden");
 
-            const formData = {
-                nombre: (document.getElementById("nombre") as HTMLInputElement).value,
-                email: (document.getElementById("email") as HTMLInputElement).value,
-                website: (document.getElementById("website") as HTMLInputElement).value,
-                telefono: "+34" + (document.getElementById("telefono") as HTMLInputElement).value,
-                ingresos: (document.getElementById("ingresos") as HTMLInputElement).value,
-                objetivo
-            };
-
             const res = await ApiService.sendData(formData);
             if(res && (res.success || res.warning === 'email-registered')) {
-                if(res.success) document.getElementById("success1")?.classList.remove("hidden");
-                if(res.warning) document.getElementById("warning1")?.classList.remove("hidden");
+                triggerAlert(res.success ? 'success1' : 'warning1');
                 (e.target as HTMLFormElement).reset();
                 showStep(1);
             } else {
-                document.getElementById("error1")?.classList.remove("hidden");
+                triggerAlert('error1');
             }
         } catch (err) {
-            document.getElementById("error1")?.classList.remove("hidden");
+            triggerAlert('error1');
         } finally {
             submitBtn.disabled = false;
             loader?.classList.add("hidden");
@@ -325,16 +501,22 @@ import EbookLayout from '../layouts/EbookLayout.astro';
         }
     });
 
-    // --- INICIALIZACIÓN ---
-    setupShadowListeners();
-    refreshShadows();
+    // --- LISTENERS DE INPUTS ---
+    document.querySelectorAll('input:not([type="radio"])').forEach(i => {
+        i.addEventListener('focus', refreshShadows);
+        i.addEventListener('blur', refreshShadows);
+        i.addEventListener('input', refreshShadows);
+    });
 
-    document.querySelectorAll('.radio-option').forEach(label => {
-        label.addEventListener('click', function(this: HTMLElement) {
-            document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
-            document.querySelectorAll('.radio-indicator div').forEach(d => d.classList.add('hidden'));
-            this.querySelector('.radio-card')?.classList.add('border-[#039683]', 'bg-[#039683]/10');
-            this.querySelector('.radio-indicator div')?.classList.remove('hidden');
-        });
+    // --- LÓGICA DE RADIOS ---
+    document.addEventListener('click', (e) => {
+        const label = (e.target as HTMLElement).closest('.radio-option');
+        if (label) {
+            const container = label.closest('.step-content');
+            container?.querySelectorAll('.radio-card').forEach(c => c.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
+            container?.querySelectorAll('.radio-indicator div').forEach(d => d.classList.add('hidden'));
+            label.querySelector('.radio-card')?.classList.add('border-[#039683]', 'bg-[#039683]/10');
+            label.querySelector('.radio-indicator div')?.classList.remove('hidden');
+        }
     });
 </script>

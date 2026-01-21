@@ -2,133 +2,111 @@
 // src/components/Features.astro
 import Button from './Button.astro';
 
+// Nota técnica: He mantenido tu ruta "iamges", pero verifica si no es un typo de "images"
 const beforeSlides = [
-  { image: "../iamges/imagen x derecha.svg", alt: "Posteos Genéricos" },
-  { image: "../iamges/imagen x derecha.svg", alt: "Sillones Vacíos" },
-  { image: "../iamges/imagen x derecha.svg", alt: "Estrés Constante" }
+  "../iamges/slider/imagen izquierda 1.svg",
+  "../iamges/slider/imagen izquierda 2.svg",
+  "../iamges/slider/imagen izquierda 3.svg",
+  "../iamges/slider/imagen izquierda 4.svg",
+  "../iamges/slider/imagen izquierda 5.svg",
 ];
 
 const afterSlides = [
-  { image: "../iamges/imagen-1.svg", alt: "Anuncios Virales" },
-  { image: "../iamges/imagen-1.svg", alt: "Agenda Colapsada" },
-  { image: "../iamges/imagen-1.svg", alt: "Libertad Real" }
+  "../iamges/slider/imagen derecha 1.svg",
+  "../iamges/slider/imagen derecha 2.svg",
+  "../iamges/slider/imagen derecha 3.svg",
+  "../iamges/slider/imagen derecha 4.svg",
+  "../iamges/slider/imagen derecha 5.svg",
 ];
 ---
 
-<section class="py-12 md:py-24 bg-white relative overflow-hidden">
-  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] opacity-5 pointer-events-none"></div>
-
+<section class="py-12 md:py-24 bg-[#eef5f4] relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 relative z-10">
-    
-    <div class="text-center mb-10 md:mb-16 max-w-4xl mx-auto">
-      <div class="inline-block bg-brand-red/10 text-brand-red px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3 border border-brand-red/20">
-        📖 Transformación Real
-      </div>
-      <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 uppercase leading-[0.9] mb-3">
-        He transformado completamente <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 italic pr-2">mi clínica dental.</span>
+
+    <div class="mb-10 md:mb-16 max-w-4xl mx-auto">
+      <h2 class="text-[30px] text-[#2b2b2a] text-center font-oswald font-bold">
+        ¿CONOCES LA DIFERENCIA ENTRE <span class="text-[42px] text-[#000000] block font-black">MARKETING GENERICO Y MARKETING DENTAL?</span>
       </h2>
+      <p class="text-center mb-5 mt-5 text-[12px] md:text-[18px]">
+        No eres dueño de un restaurante o un ecommerce... <b>eres dueño de un consultorio dental.</b>
+      </p>
+      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+        La forma de hacer marketing no es la misma que en otras industrias, créeme.
+      </p>
+      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+        Por esta razón creé este ebook con estrategias muy especializadas
+      </p>
+      <p class="text-center mb-5 text-[12px] md:text-[18px]">
+        Nada de teorías genéricas que encuentras en youtube o cualquier lado.
+      </p>
     </div>
 
-    <div class="bg-gray-100 rounded-2xl md:rounded-[2rem] p-4 md:p-12 mb-16  shadow-inner relative overflow-hidden">
-       
-       <div class="grid md:grid-cols-12 gap-6 items-center">
-          
-          <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-md">
-              <div class="absolute top-2 left-2 z-20 bg-gray-200/90 backdrop-blur-sm text-gray-600 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-300">
-                  ANTES 😭
-              </div>
+    <div class="grid md:grid-cols-12 gap-6 items-center">      
+        <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-md">
+            <div class="p-2 bg-[#213343] text-center text-gray-200 font-oswald font-bold text-xl">MARKETING GENERICO ❌</div>
+            <div class="h-[320px] md:h-[380px] w-full overflow-hidden">
+                <div class="carousel-track-left flex h-full w-max group-hover:pause"> 
+                  {[...beforeSlides, ...beforeSlides].map((image) => (
+                      <img src={image} alt="Marketing Genérico" class="w-[200px] md:w-[250px] h-full object-cover shadow-inner"/>
+                  ))}
+                </div>
+            </div>
+        </div>
 
-              <div class="h-[320px] md:h-[380px] w-full relative overflow-hidden">
-                 <div class="carousel-track-left flex w-[200%] h-full">
-                    <div class="flex w-1/2 h-full">
-                        {beforeSlides.map((slide) => (
-                          <div class="w-full flex-shrink-0">
-                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
-                          </div>
-                        ))}
-                    </div>
-                    <div class="flex w-1/2 h-full">
-                        {beforeSlides.map((slide) => (
-                          <div class="w-full flex-shrink-0">
-                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
-                          </div>
-                        ))}
-                    </div>
-                 </div>
-              </div>
-          </div>
+        <div class="md:col-span-2 text-center py-4 md:py-0">
+            <span class="text-xl md:text-2xl font-black font-heading text-gray-400 uppercase tracking-widest p-2 rounded-full bg-gray-200">
+              VS
+            </span>
+        </div>
 
-          <div class="md:col-span-2 text-center py-4 md:py-0">
-              <h3 class="text-2xl md:text-4xl font-black font-heading text-gray-400 uppercase tracking-widest">
-                HACIA...
-              </h3>
-          </div>
+        <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-md">
+            
+            <div class="p-2 bg-[#213343] text-center text-gray-200 font-oswald font-bold text-xl">MARKETING DENTAL 🦷</div>
 
-          <div class="md:col-span-5 relative group overflow-hidden rounded-xl bg-white shadow-2xl scale-105 z-10">
-              <div class="absolute top-2 right-2 z-20 bg-brand-red text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
-                  AHORA 🚀
-              </div>
-
-              <div class="h-[320px] md:h-[380px] w-full relative overflow-hidden">
-                 <div class="carousel-track-right flex w-[200%] h-full">
-                    <div class="flex w-1/2 h-full">
-                        {afterSlides.map((slide) => (
-                          <div class="w-full flex-shrink-0">
-                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
-                          </div>
-                        ))}
-                    </div>
-                    <div class="flex w-1/2 h-full">
-                        {afterSlides.map((slide) => (
-                          <div class="w-full flex-shrink-0">
-                            <img src={slide.image} alt={slide.alt} class="w-full h-full object-contain"/>
-                          </div>
-                        ))}
-                    </div>
-                 </div>
-              </div>
-          </div>
-
-       </div>
+            <div class="h-[320px] md:h-[380px] w-full overflow-hidden">
+                <div class="carousel-track-right flex h-full w-max group-hover:pause">
+                  {[...afterSlides, ...afterSlides].map((image, imgIdx) => (
+                      <img src={image} alt={`Marketing Dental ${imgIdx + 1}`} class="w-[200px] md:w-[250px] h-full object-cover shadow-inner"/>
+                  ))}
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="mt-12 text-center">
-        <Button className="px-12 py-4 text-xl">QUIERO ESTA TRANSFORMACIÓN</Button>
+        <Button subtext='👇DESCARGAR EL EBOOK AHORA👇' className="px-12 py-4 text-xl">QUIERO APRENDER DE MARKETING DIGITAL</Button>
     </div>
   </div>
 </section>
 
 <style>
-  /* Estrategia: 
-     El track mide 200% (dos bloques de imágenes).
-     Desplazamos -50% (un bloque entero). 
-     Al llegar al final del primer bloque, el segundo es idéntico, 
-     el navegador reinicia a 0% y el ojo no nota el salto.
-  */
-
-  @keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  @keyframes scroll-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
-  }
-
+  /* El secreto: El track debe ser display flex y tener un ancho de max-content */
   .carousel-track-left {
-    /* 10s para 3 imágenes es una velocidad legible. Ajusta según necesites */
-    animation: scroll-left 2s linear infinite;
+    animation: scroll-left 12s linear infinite;
   }
 
   .carousel-track-right {
-    animation: scroll-right 2s linear infinite;
+    /* Empezamos desde -50% para que el movimiento hacia la derecha sea fluido */
+    animation: scroll-right 12s linear infinite;
   }
 
-  /* Pausa al hacer hover para mejorar UX */
-  .group:hover .carousel-track-left,
-  .group:hover .carousel-track-right {
+  /* Pausar al hacer hover para mejorar UX */
+  .pause {
     animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se mueve hacia la izquierda */
+  }
+
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); } /* Inicia desplazado */
+    100% { transform: translateX(0); }    /* Vuelve al origen */
+  }
+
+  /* Ajuste de imagen para evitar saltos visuales si tienen diferentes aspect ratios */
+  img {
+    flex-shrink: 0;
   }
 </style>

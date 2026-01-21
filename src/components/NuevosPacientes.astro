@@ -7,97 +7,46 @@ import RoundedSpain from "../Icons/RoundedSpain.astro";
 import Button from "./Ebook/Button.astro";
 import ImagenSection from '../../public/iamges/image-section-calidad.svg'
 import Cancel from "../Icons/Cancel.astro";
+import Mountains from "./Decorations/Mountains.astro";
 ---
-
-<!-- <section class="w-full bg-[#f6f9fc] py-10">
+<section class="w-full bg-[#f6f9fc] py-10 relative">
+    <Mountains/>
     <div class="text-center md:pt-20 md:max-w-3xl mx-auto px-[16px] md:px-4">
         <header class="pb-5">
-            <h3 class="title-section text-[#213343] md:title-section-desk">Eres un odontologo profesional en españa</h3>
-            <p class="title-section text-[#2e6767] md:title-section-desk">Pero consigues nuevos pacientes?</p>
+            <h3 class="title-section text-[#213343] md:title-section-desk">ERES UN ODONTÓLOGO <br> PROFESIONAL EN ESPAÑA PERO....</h3>
+            <p class="title-section text-[#364b4b] md:title-section-desk">¿SABES CONSEGUIR <br> NUEVOS PACIENTES ONLINE?</p>
         </header>
-        <p class="text-[#213343] mb-10 md:text-[21px] text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vitae laborum debitis consequuntur maiores veniam porro quod cum illo sint voluptatum eius dolorem, aliquid ullam itaque natus dicta possimus exercitationem!
-            Dolores numquam ut sit quia molestiae veritatis ipsa facere, animi optio aut quos, voluptas similique quis alias officia illum cupiditate eius. Reiciendis quasi natus unde nesciunt optio iure praesentium eius.
-
-        </p>
-        <span id="button-mobile">
-            <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="totalemente gratis">
-                <span class="text-[1rem]">Quiero una auditoria de marketing</span>
-            </Button>
-        </span>
-
-        <span id="button-desk">
-            <Button width="w-full" mdWidth="w-full" useArrow={false}>
-                <span class="md:text-[24px]">Quiero una auditoria de marketing Gratis</span>
-            </Button>
-        </span>
-        <span class="flex flex-col md:flex-row items-center justify-center gap-2 text-[#D92027] mt-[20px] text-[0.5rem] md:text-sm uppercase font-medium "><AlertTriangle1 size="16" color="#D92027"/> Solo aplica a consultorios dentales que cumplan lo siguiente:</span>
-        <div class="flex flex-row gap-6 md:gap-2 items-center justify-center md:py-[60px] py-10">
-            <div class="md:basis-1/3 md:min-h-[7em] border-b border-[#010101]/10">
-                <div class="p-2 md:p-5 bg-[#2e6767]/10 inline-block rounded-full">
-                    <RoundedSpain size="24"/>
-                </div>
-                <p class="text-[#213343] md:text-sm text-xs">Ubicados en España.</p>
-            </div>
-            <div class="md:basis-1/3 md:min-h-[7em] border-b border-[#010101]/10">
-                <div class="p-2 md:p-5 bg-[#2e6767]/10 inline-block rounded-full">
-                    <Money size="24" color="#eab308"/>
-                </div>
-                <p class="text-[#253343] md:text-sm text-xs ">Facturan 10,000 Euros o mas al mes.</p>
-            </div>
-             <div class="md:basis-1/3 md:min-h-[7em] border-b border-[#010101]/10">
-                <div class="p-2 md:p-5 bg-[#2e6767]/10 inline-block rounded-full">
-                    <Rocket size="24" color="#ea580c"/>
-                </div>
-                <p class="text-[#253343] md:text-sm text-xs">Quieren crecer en el 2026.</p>
-            </div>
-             
-        </div>
-    </div>
-</section> -->
-
-<section class="w-full bg-[#f6f9fc] py-10">
-    <div class="text-center md:pt-20 md:max-w-3xl mx-auto px-[16px] md:px-4">
-        <header class="pb-5">
-            <h3 class="title-section text-[#213343] md:title-section-desk">Eres un odontologo profesional en españa</h3>
-            <p class="title-section text-[#2e6767] md:title-section-desk">Pero consigues nuevos pacientes?</p>
-        </header>
-        <p class="text-[#213343] mb-10 md:text-[21px] text-sm">
-            Quieres abrir tu segunda clínica...Pero tu primera apenas sobrevive.
-
-            Facturas 10,000€ al mes cuando deberías estar en 30,000€.
-
-            <br> <b>El problema no es tu clínica. Es tu marketing.</b> <br>
-
-            Tus tratamientos son de calidad y por eso recibes algunos
-
-            pacientes por recomendación.
-
-            Pero este metodo es lento. Impredecible. Dificil de escalar.
-
-          <br> <b>¿Cómo vas a abrir 3 clínicas si no sabes llenar una?</b>  <br> 
-
+        <p class="text-[#213343] md:text-[21px] text-[18px]">
+            <span class="block leading-[1.2] mb-6">Quieres abrir tu segunda clínica...Pero tu primera apenas sobrevive.</span>
+            <span class="block leading-[1.2] mb-6">Facturas 10,000€ al mes cuando deberías estar en 30,000€.</span>
+            <span class="block leading-[1.2] mb-6">Tus tratamientos son de calidad y por eso recibes algunos pacientes por recomendación.</span> 
+            <span class="block leading-[1.2] mb-6">Pero este metodo es lento. Impredecible. Dificil de escalar.</span> 
+            <b class="block leading-[1.2]">¿Cómo vas a abrir 3 clínicas si no sabes llenar una?</b>  <br> 
         </p>
         <picture class="w-full">
             <Image src={ImagenSection} alt={''}/>
         </picture>
 
-        <div class="py-6 text-[#213343] border-1 border-[#010101]/10 mt-[40px] rounded-lg">
-            <b>Tus problemas :</b>
-            <ul>
-                <li class="flex items-center justify-center gap-1"><span class="inline-block"><Cancel/></span> Tienes un sitio web generico</li>
-                <li class="flex items-center justify-center gap-1"><span class="inline-block"><Cancel/></span> Un Whatsapp generico</li>
-                <li class="flex items-center justify-center gap-1"><span class="inline-block"><Cancel/></span> Tu estrategia de marketing es copiar a tu competencia</li>
-                <li class="flex items-center justify-center gap-1"><span class="inline-block"><Cancel/></span> Crees que atraeras a pacientes jovenes con TikTok.</li>
+        <div class="py-5 text-[#213343] border-1 border-[#010101]/10 mt-[40px] rounded-lg">
+            <b class="md:text-[21px] text-[18px]">Tus problemas :</b>
+            <ul class="px-2">
+                <li class="flex text-start md:justify-center gap-2 text-[18px] md:text-[21px] mb-3 leading-[1.2]
+"><span class="inline-block"><Cancel size="16"/></span> Tienes un sitio web generico</li>
+                <li class="flex text-start md:justify-center gap-2 text-[18px] md:text-[21px] mb-3 leading-[1.2]
+"><span class="inline-block"><Cancel size="16"/></span> Un Whatsapp generico</li>
+                <li class="flex text-start md:justify-center gap-2 text-[18px] md:text-[21px] mb-3 leading-[1.2]
+"><span class="inline-block "><Cancel size="16"/></span> Tu estrategia de marketing es copiar a tu competencia</li>
+                <li class="flex text-start md:justify-center gap-2 text-[18px] md:text-[21px] mb-3 leading-[1.2]
+"><span class="inline-block"><Cancel size="16"/></span> Crees que atraeras a pacientes jovenes con TikTok.</li>
             </ul>
         </div>
 
         
 
         <div class="py-6 px-4 mt-4 bg-[#eff7f7] border-[#010101]/10 border-1 rounded-lg">
-            <div class="py-6 text-[#213343]">
+            <div class="py-6 text-[#213343] md:text-[21px] text-[18px]">
                 <strong>Mi propuesta para ti:</strong>
-                <p>Trabaja con un especialista en Marketing de Clinicas Dentales paradiagnosticar cualquier problema de marketing o ventas que tenga tu </p> <p>consultorio... <b>todo 100% gratis</b></p>
+                <p>Trabaja con un especialista en Marketing de Clinicas Dentales paradiagnosticar cualquier problema de marketing o ventas que tenga tu consultorio... <b>todo 100% gratis</b></p> 
             </div>
             <span id="button-mobile">
                 <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="totalemente gratis">
@@ -110,8 +59,8 @@ import Cancel from "../Icons/Cancel.astro";
                 </Button>
             </span>
 
-            <span class="flex flex-col md:flex-row items-center justify-center gap-2 text-[#D92027] mt-[20px] text-[0.5rem] md:text-sm uppercase font-medium "><AlertTriangle1 size="16" color="#D92027"/> Solo aplica a consultorios dentales que cumplan lo siguiente:</span>
-            <div class="flex flex-row gap-6 md:gap-2 items-center justify-center">
+            <span class="flex flex-col md:flex-row items-center justify-center gap-2 text-[#D92027] mt-[20px] text-xs md:text-sm uppercase font-medium "><span id="alertTriangle1"><AlertTriangle1 size="16" color="#D92027"/></span> Solo aplica a consultorios dentales que cumplan lo siguiente:</span>
+            <div class="flex md:flex-row flex-col pt-4 gap-6 md:gap-2 items-center justify-center">
                 <div class="md:basis-1/3 md:min-h-[7em]  flex gap-3 justify-center items-center">
                         <RoundedSpain size="24"/>
                     <p class="text-[#213343] md:text-sm text-xs text-start">Ubicados en España.</p>
@@ -133,6 +82,7 @@ import Cancel from "../Icons/Cancel.astro";
 <script>
 const buttonMobile = document.getElementById('button-mobile') as HTMLButtonElement
 const buttonDesktop = document.getElementById('button-desk') as HTMLButtonElement
+const alertTriangle = document.getElementById('alertTriangle1') as HTMLSpanElement
 
 const widthOfWindow = window.innerWidth;
 
@@ -142,11 +92,13 @@ const isDektop = widthOfWindow >= 1024
 if(isMobile) {
     buttonMobile.classList.remove('hidden')
     buttonDesktop.classList.add('hidden')
+    alertTriangle.classList.add('hidden')
 }
 
 if(isDektop){
     buttonMobile.classList.add('hidden')
     buttonDesktop.classList.remove('hidden')
+    alertTriangle.classList.remove('hidden')
 }
 
 
