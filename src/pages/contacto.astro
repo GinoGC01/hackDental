@@ -84,9 +84,9 @@ import EbookLayout from '../layouts/EbookLayout.astro';
         </div>
     </div>
 
-    <span class="font-logo text-white/80 text-center text-[2rem] block pt-10">HackDental</span>
+    <span class="font-logo text-white/80 text-center text-[2rem] block pt-10 mb-[16px]">HackDental</span>
 
-    <main class="flex flex-col md:flex-row items-start md:items-center justify-center px-4 md:px-2 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] relative md:min-h-[100vh] py-12 md:py-0">
+    <main class="flex flex-col md:flex-row items-start md:items-center justify-center px-4 md:px-2 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] relative md:min-h-[80vh] py-12 md:py-0">
         
         <div class="md:basis-[55%] w-full relative">
             <div class="max-w-2xl">
@@ -136,7 +136,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                 <p class="text-[10px] md:text-[12px] text-white font-medium uppercase tracking-wider">Solo aplica si tu consultorio está en España</p>
             </div>
 
-            <div class="mb-8 text-center relative z-10">
+            <div class="mb-4 text-center relative z-10">
                 <div id='currentSetpConainer' class="flex flex-col items-center gap-2 justify-center relative w-full m-auto">
                     <span id="currentStep" class="font-black text-[22px] md:text-[28px] leading-tight uppercase tracking-tighter text-[#9ca3af]">ÚLTIMO PASO</span>
                     <div class="w-40" id="redLine"><RedLine /></div>
@@ -227,8 +227,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                 </div>
 
                 <div id="step4" class="step-content hidden w-full animate-fadeIn">
-                    <p class="text-gray-400 text-sm mb-2 text-center font-bold">CONTEXTO ECONÓMICO DE TU CLÍNICA</p>
-                    <p class="text-gray-500 text-xs mb-6 text-center">¿Cuál es el rango aproximado de facturación mensual de tu clínica? (No busco números exactos)</p>
+                    <p class="text-gray-400 text-sm mb-6 text-center">¿Cuál es el rango aproximado de facturación mensual de tu clínica? (No busco números exactos)</p>
                     <div class="space-y-3">
                         {['Menos de 10.000 €', '10.000 € – 30.000 €', 'Más de 30.000 €'].map((label) => (
                             <label class="block cursor-pointer radio-option group">
@@ -251,8 +250,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                 </div>
 
                 <div id="step5" class="step-content hidden w-full animate-fadeIn">
-                    <p class="text-gray-400 text-sm mb-6 text-center font-bold">¿CUÁL ES TU META?</p>
-                    <p class="text-gray-500 text-xs mb-6 text-center">¿Qué quieres lograr con esta auditoría?</p>
+                    <p class="text-gray-400 text-sm mb-6 text-center">¿Qué quieres lograr con esta auditoría?</p>
                     <div class="space-y-3">
                         {['Quiero más pacientes este 2026.', 'Quiero mejorar la rentabilidad de mi clínica.', 'Quiero mejorar la presencia online.'].map((text) => (
                             <label class="block cursor-pointer radio-option group">
@@ -419,7 +417,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                 redLine.classList.remove('hidden'); 
             } else { 
                 redLine.classList.add('hidden'); 
-                currentStepText.className = 'font-black text-[16px] md:text-[18px] leading-tight uppercase tracking-widest text-[#9ca3af] text-center'; 
+                currentStepText.className = 'font-black text-[21px] md:text-[28px] uppercase tracking-[0] text-[#9ca3af] text-center leading-[1]'; 
             }
 
             if (currentStep === 2) currentStepText.innerText = 'INGRESA TU INFORMACIÓN AQUÍ PARA RECIBIR TU AUDITORÍA';
