@@ -3,7 +3,6 @@
 import RedLine from '../Icons/RedLine.astro';
 import Candado from '../Icons/Candado.astro';
 import Spain from '../Icons/Spain.astro';
-import Sparkles from '../Icons/Ebook/Sparkles.astro';
 import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
 import EbookLayout from '../layouts/EbookLayout.astro';
 ---
@@ -483,6 +482,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
             submitBtn.disabled = true;
             loader?.classList.remove("hidden");
             textBtn?.classList.add("hidden");
+            console.log(formData)
 
             const res = await ApiService.sendData(formData);
             if(res && (res.success || res.warning === 'email-registered')) {

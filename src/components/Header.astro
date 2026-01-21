@@ -1,30 +1,25 @@
 ---
-import CardHeaderNav from "./Cards/CardHeaderNav.astro";
+import WhatsApp from "../Icons/WhatsApp.astro";
 import ButtonWppHeader from "./Buttons/ButtonWppHeader.astro";
 import ButtonWppHeaderDK from "./Buttons/ButtonWppHeader_DK.astro";
-import { Image } from "astro:assets";
-import Logo from "../assets/logo.svg";
+
 ---
 
 <!-- Header Fixed -->
 <header 
     id="main-header"
-    class="py-4 w-full z-50 border-b border-white/5 transition-all duration-300"
+    class="py-2 md:py-5 w-full z-50 border-b border-white/5 transition-all duration-300"
 >
     <div class="absolute inset-0 bg-[#0a0a0a]/90 backdrop-blur-2xl"></div>
     
-    <nav class="relative max-w-7xl mx-auto px-5 flex items-center md:justify-around justify-between">
+    <nav class="relative w-full md:max-w-[70%] mx-auto px-5 flex items-center justify-between md:translate-x-[40px]">
         
         <div class="relative z-[60] group">
             <a 
                 href="/" 
-                class="font-oswald text-2xl md:text-3xl font-bold hover:scale-105 transition-transform duration-300 inline-block relative "
+                class="font-oswald text-[21px] md:text-3xl hover:scale-105 transition-transform duration-300 inline-block relative font-logo"
             >
-                    <Image 
-                        src={Logo}
-                        alt="HackDental Logo" 
-                        class="inline-block  object-contain w-32"
-                    />
+                    Hack<span class="text-[#9ca3af]">Dental</span>
             </a>
         </div>
 
@@ -65,9 +60,9 @@ import Logo from "../assets/logo.svg";
             aria-label="Abrir menú"
             aria-expanded="false"
         >
-            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
-            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
-            <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-[#9ca3af] transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-[#9ca3af] transition-all duration-300 group-hover:bg-primary rounded-full"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-[#9ca3af] transition-all duration-300 group-hover:bg-primary rounded-full"></span>
         </button>
     </nav>
 </header>
@@ -77,35 +72,30 @@ import Logo from "../assets/logo.svg";
     id="mobile-menu"
     class="lg:hidden fixed inset-0 translate-x-full transition-transform duration-500 ease-out z-[55] bg-black"
 >
-    <div class="relative h-full flex items-center justify-center overflow-y-auto px-6">
+    <div class="relative h-full flex  justify-center overflow-y-auto px-6">
         
         <!-- Close Button -->
         <button
             id="mobile-menu-close"
-            class="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 transition-all duration-300 group backdrop-blur-xl"
+            class="absolute top-6 right-6 z-10 w-9 h-9 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 transition-all duration-300 group backdrop-blur-xl"
             aria-label="Cerrar menú"
         >
-            <svg class="w-6 h-6 text-gray-400 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
 
-        <nav class="w-full flex flex-col gap-6 pb-24 pt-24">
+        <nav class="w-full flex flex-col gap-6 pb-24 pt-7  justify-start">
             <!-- <CardHeaderNav /> -->
-             <span class="block text-center pb-5 border-b-1 border-white/60">Menu</span>
+            <span class="block text-center pb-5 border-b-1 border-[#9ca3af]/50 text-[#9ca3af]">Menu</span>
             <div class="flex flex-col gap-3">
                 <a 
-                    href="#educacion" 
+                    href="/ebook" 
+                    target="_blank"
                     class="mobile-link opacity-0 translate-y-8 group relative"
                     style="transition-delay: 100ms;"
                 >
-                    <div class="relative overflow-hidden border-b-1 border-white/10 p-4 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <!-- Badge Nuevo en Mobile -->
-                        <div class="absolute top-0 right-4 bg-[#206767] text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                            Nuevo
-                        </div>
+                    <div class="relative overflow-hidden border-b-1 border-white/10 py-4 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
                         
                         <div class="relative flex items-center justify-between">
                             <div class="flex-1">
@@ -117,8 +107,8 @@ import Logo from "../assets/logo.svg";
                                 </p>
                             </div>
                             
-                            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-5 h-5 text-primary group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex items-center justify-end w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-[#9ca3af] group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
                                 </svg>
                             </div>
@@ -131,7 +121,7 @@ import Logo from "../assets/logo.svg";
                     class="mobile-link opacity-0 translate-y-8 group relative"
                     style="transition-delay: 200ms;"
                 >
-                    <div class="relative overflow-hidden border-b-1 border-white/10 p-4 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
+                    <div class="relative overflow-hidden border-b-1 border-white/10 py-4 group-hover:border-primary/30 transition-all duration-500 group-active:scale-[0.98]">
                         
                         <div class="relative flex items-center justify-between">
                             <div class="flex-1">
@@ -143,8 +133,8 @@ import Logo from "../assets/logo.svg";
                                 </p>
                             </div>
                             
-                            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-5 h-5 text-primary group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex items-center justify-end w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-5 h-5 text-[#9ca3af] group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
                                 </svg>
                             </div>
@@ -153,7 +143,13 @@ import Logo from "../assets/logo.svg";
                 </a>
             </div>
 
-            <ButtonWppHeader />
+            <!-- <ButtonWppHeader /> -->
+            <button type="button" id="nextStep3" class="w-full mt-6 bg-gradient-to-r from-[#086969] via-[#039683] to-[#086969] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center ">
+                 <span class="flex items-center justify-center gap-2 "><WhatsApp/> Pedir auditoria Gratis</span>
+                 <span class="text-[9px] opacity-60 block bg-[#18625d]/30 px-7 py-1 text-[10px] font-medium text-[#dcfce7] rounded-lg tracking-widest uppercase mt-1">Reunete con Jose whittembury</span>
+            </button>
+
+
             <div class="flex items-center justify-center gap-2">
                 <span class="text-[#f34624] text-lg">⚠</span>
                 <span class="text-[#f34624] text-xs font-bold inter uppercase block text-center"> <span class="text-lg">5</span> spots disponibles por febrero, 2026</span>
