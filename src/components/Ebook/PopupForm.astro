@@ -119,7 +119,7 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
             </div>
           </div>
           
-          <button type="button" data-next-step="3" class="btn-next w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer">
+          <button type="submit" data-next-step="3" class="w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer">
             DESCARGAR PDF AHORA
             <ArrowRight size="20" color="#000000" />
           </button>
@@ -165,8 +165,8 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     email: '',
     nombre: '',
     telefono: '',
+    from:'Ebook'
   };
-
 
   const popup = document.getElementById('popup-form');
   const closeBtn = document.getElementById('popup-close');
@@ -303,37 +303,7 @@ document.addEventListener('click', (e: MouseEvent) => {
     }
   });
 
-  // Validación en tiempo real para el paso 4 (radio buttons)
-  document.addEventListener('change', (e: Event) => {
-    const target = e.target;
 
-    if (!(target instanceof HTMLInputElement)) return;
-    if (target.name !== 'goal') return;
-
-    if (goalError) goalError.classList.add('hidden');
-
-    const options = document.querySelectorAll('.goal-option') as NodeListOf<HTMLLabelElement>;
-
-    options.forEach(option => {
-      const input = option.querySelector('input[type="radio"]') as HTMLInputElement | null;
-      const box = option.querySelector('.goal-box') as HTMLElement | null;
-      const circle = option.querySelector('.goal-circle') as HTMLElement | null;
-
-      if (!input || !box || !circle) return;
-
-      if (input.checked) {
-        box.classList.add('border-brand-red', 'bg-brand-red/10');
-        box.classList.remove('border-gray-700');
-        circle.classList.add('border-[#16a34a]', 'bg-[#16a34a]');
-        circle.classList.remove('border-gray-600');
-      } else {
-        box.classList.remove('border-brand-red', 'bg-brand-red/10');
-        box.classList.add('border-gray-700');
-        circle.classList.remove('border-[#16a34a]', 'bg-[#16a34a]');
-        circle.classList.add('border-gray-600');
-      }
-    });
-  });
 
 
   closeBtn?.addEventListener('click', closePopup);
@@ -347,11 +317,4 @@ document.addEventListener('click', (e: MouseEvent) => {
     if (e.target === popup) closePopup();
   });
 
-  // Evento para abrir el popup automáticamente después de un tiempo
-  setTimeout(() => {
-    if (!localStorage.getItem('popupShown')) {
-      openPopup();
-      localStorage.setItem('popupShown', 'true');
-    }
-  }, 3000); // Se abre después de 3 segundos
 </script>
