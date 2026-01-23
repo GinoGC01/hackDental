@@ -265,6 +265,46 @@ import EbookLayout from '../layouts/EbookLayout.astro';
   const nombre = document.getElementById("nombre") as HTMLInputElement;
   const website = document.getElementById("website") as HTMLInputElement;
   const telefono = document.getElementById("telefono") as HTMLInputElement;
+  type User ={
+        nombre: string;
+        email: string;
+        website: string;
+        telefono: string;
+    }
+
+  function checkData(): void {
+
+    const dataSaved = localStorage.getItem('user')
+    
+    let dataUser:User = {
+        nombre: '',
+        email: '',
+        website: '',
+        telefono: ''
+    }
+
+    if(dataSaved) dataUser = JSON.parse(dataSaved)
+    
+    if(dataUser && dataUser.nombre != '' ){
+        const savedName = dataUser.nombre
+        nombre.value = savedName
+    }
+    if(dataUser && dataUser.email != '' ){
+        const savedEmail = dataUser.email
+        email.value = savedEmail
+    }
+    if(dataUser && dataUser.telefono != '' ){
+        const savedTelefono = dataUser.telefono
+        telefono.value = savedTelefono
+    }
+    if(dataUser && dataUser.website != '' ){
+        const savedWebsite = dataUser.website
+        website.value = savedWebsite
+    }
+
+  }
+
+  checkData() //revisa los datos en ls
 
   // --- LÓGICA DE SOMBRAS SECUENCIALES ---
   function refreshShadows(): void {
@@ -406,6 +446,9 @@ import EbookLayout from '../layouts/EbookLayout.astro';
       meta: meta.value,
       from: 'auditoria'
     };
+    // Guarda en ls los datos pertinentes del usuario
+
+    localStorage.setItem('user', JSON.stringify(formData));
 
     try {
       submitBtn.disabled = true;
@@ -420,6 +463,10 @@ import EbookLayout from '../layouts/EbookLayout.astro';
       }
       if(res.success){
          window.location.href = "/gracias-auditoria";
+      }
+
+      if(!res.success && 'email-registered'){
+         window.location.href = "https://wa.me/34600000000?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20marketing%20dental";
       }
     } catch (error) {
       console.error(error);

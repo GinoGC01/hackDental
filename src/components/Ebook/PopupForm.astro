@@ -161,23 +161,68 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
 <script>
   import { ApiService } from '../../api/service.js';
 
+  interface User {
+    nombre: string;
+    email: string;
+    telefono: string;
+    from?: string;
+  }
+
   let currentStep = 1;
   const totalSteps = 2;
-  const formData = {
+  
+  // Estado inicial del formulario
+  const formData: User = {
     email: '',
     nombre: '',
     telefono: '',
-    from:'Ebook'
+    from: 'Ebook'
   };
 
+  // Selectores de UI
   const popup = document.getElementById('popup-form');
   const closeBtn = document.getElementById('popup-close');
   const closeFinalBtn = document.getElementById('popup-close-final');
   const progressBar = document.getElementById('progress-bar');
   const form = document.getElementById('multi-step-form') as HTMLFormElement;
-  const goalError = document.getElementById('goal-error');
+
+  // Selectores de Inputs específicos
+  const inputEmail = document.getElementById('input-email') as HTMLInputElement;
+  const inputNombre = document.getElementById('input-fullname') as HTMLInputElement;
+  const inputTelefono = document.getElementById('input-phone') as HTMLInputElement;
+
+  /**
+   * Carga datos del LocalStorage y los inyecta en el DOM y en el estado formData
+   */
+  function loadPersistedData() {
+    const savedData = localStorage.getItem('user');
+    if (savedData) {
+      try {
+        const parsed: User = JSON.parse(savedData);
+        
+        // Llenar objeto de estado
+        if (parsed.email) {
+            formData.email = parsed.email;
+            if (inputEmail) inputEmail.value = parsed.email;
+        }
+        if (parsed.nombre) {
+            formData.nombre = parsed.nombre;
+            if (inputNombre) inputNombre.value = parsed.nombre;
+        }
+        if (parsed.telefono) {
+            // Limpiamos el prefijo si ya existe para no duplicarlo en el input
+            const purePhone = parsed.telefono.replace('+34', '');
+            formData.telefono = purePhone;
+            if (inputTelefono) inputTelefono.value = purePhone;
+        }
+      } catch (e) {
+        console.error("Error parseando datos de LS", e);
+      }
+    }
+  }
 
   function openPopup() {
+    loadPersistedData(); // Autorrelleno al abrir
     popup?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
@@ -187,9 +232,6 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     document.body.style.overflow = '';
     currentStep = 1;
     updateUI();
-    form?.reset();
-    // Resetear error de radio buttons
-    if (goalError) goalError.classList.add('hidden');
   }
 
   function updateUI() {
@@ -203,120 +245,87 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
         step.classList.add('hidden');
       }
     });
-    
-    if (currentStep === totalSteps + 1) {
-      document.getElementById('step-success')?.classList.remove('hidden');
-    }
   }
 
   function validateCurrentStep() {
     const currentStepEl = document.getElementById(`step-${currentStep}`);
     if (!currentStepEl) return false;
 
-    const inputs = currentStepEl.querySelectorAll('input[required], select[required]') as NodeListOf<HTMLInputElement>;
+    const inputs = currentStepEl.querySelectorAll('input[required]') as NodeListOf<HTMLInputElement>;
     let isValid = true;
 
-    // Resetear errores
     inputs.forEach(input => {
-      input.classList.remove('border-red-500');
-    });
-    
-    if (goalError) goalError.classList.add('hidden');
-
-    inputs.forEach((input) => {
-      const inputEl = input;
-      if (inputEl.type === 'radio') {
-        const radioGroup = currentStepEl.querySelectorAll(`input[name="${inputEl.name}"]`) as NodeListOf<HTMLInputElement>;
-        const isChecked = Array.from(radioGroup).some((radio) => radio.checked);
-        if (!isChecked) {
-          isValid = false;
-          if (goalError) {
-            goalError.classList.remove('hidden');
-          }
-        }
-      } else if (!inputEl.value.trim()) {
+      if (!input.checkValidity()) {
+        input.classList.add('border-red-500', 'animate-shake'); // Feedback visual de error
         isValid = false;
-        inputEl.classList.add('border-red-500');
+      } else {
+        input.classList.remove('border-red-500');
       }
     });
 
     return isValid;
   }
 
-
-  function saveCurrentStepData() {
-    const currentStepEl = document.getElementById(`step-${currentStep}`);
-    if (!currentStepEl) return;
-
-    const inputs = currentStepEl.querySelectorAll(
-      'input, select'
-    ) as NodeListOf<HTMLInputElement | HTMLSelectElement>;
-
-    inputs.forEach(inputEl => {
-      const name = inputEl.name;
-
-      if (!name) return;
-      if (!(name in formData)) return;
-
-      const key = name as keyof typeof formData;
-
-      if (inputEl instanceof HTMLInputElement && inputEl.type === 'radio') {
-        if (inputEl.checked) {
-          formData[key] = inputEl.value;
-        }
-      } else {
-        formData[key] = inputEl.value;
-      }
-    });
+  /**
+   * Captura los valores de los inputs del paso actual y los guarda en el estado
+   */
+  function syncStateWithInputs() {
+    if (inputEmail?.value) formData.email = inputEmail.value;
+    if (inputNombre?.value) formData.nombre = inputNombre.value;
+    if (inputTelefono?.value) formData.telefono = inputTelefono.value;
   }
 
+  // Manejo de botones "Continuar"
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const btnNext = target.closest('.btn-next');
 
-document.addEventListener('click', (e: MouseEvent) => {
-  const target = e.target;
-
-  if (!(target instanceof HTMLElement)) return;
-
-  const btnNext = target.closest('.btn-next');
-
-  if (!btnNext) return;
-
-  e.preventDefault();
-
-  if (validateCurrentStep()) {
-    saveCurrentStepData();
-    currentStep++;
-    updateUI();
-  }
-});
-
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    try{
+    if (btnNext) {
+      e.preventDefault();
       if (validateCurrentStep()) {
-        saveCurrentStepData();
-        console.log('Form Data:', formData);
-        const bodyForm = {
-          ...formData,
-          telefono: `+34${formData.telefono}`,
-        };
-        const res = await ApiService.sendData(bodyForm)
-        if(res.success){
-          window.location.href = "/gracias-ebook";
-        }
-        
+        syncStateWithInputs();
         currentStep++;
         updateUI();
       }
-    }catch(err){
-      console.log(err)
     }
-    
   });
 
+  // Envío final del formulario
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    if (!validateCurrentStep()) return;
+    
+    syncStateWithInputs();
 
+    try {
+      // Preparamos el cuerpo para la API
+      const payload = {
+        ...formData,
+        telefono: formData.telefono.startsWith('+') ? formData.telefono : `+34${formData.telefono}`
+      };
 
+      // PERSISTENCIA: Guardamos en LocalStorage
+      localStorage.setItem('user', JSON.stringify(payload));
 
+      const res = await ApiService.sendData(payload);
+      
+      if (res.success) {
+        window.location.href = "/gracias-ebook";
+      }
+      else if(!res.success && 'email-registered'){
+         window.location.href = "https://wa.me/34600000000?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20marketing%20dental";
+      }
+       else {
+        currentStep = 3; 
+        updateUI();
+      }
+    } catch (err) {
+      console.error("Error en el envío:", err);
+    }
+  });
+
+  // Event Listeners standard
   closeBtn?.addEventListener('click', closePopup);
   closeFinalBtn?.addEventListener('click', closePopup);
 
@@ -327,5 +336,4 @@ document.addEventListener('click', (e: MouseEvent) => {
   popup?.addEventListener('click', (e) => {
     if (e.target === popup) closePopup();
   });
-
 </script>
