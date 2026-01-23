@@ -3,37 +3,103 @@ import Button from "../components/Ebook/Button.astro";
 import EbookLayout from "../layouts/EbookLayout.astro";
 import Imagen from '../../public/iamges/imagen 2.svg'
 ---
- <EbookLayout>
-    <span class="font-logo text-white/80 text-center text-[2rem] block pt-10 mb-[32px] md:mb-[64px]">HackDental</span>
-    <section class="">
-        <div class="block max-w-[100%] md:max-w-[70%] m-auto mb-[40px]">
-            <h1 class="sub-title-section text-[#9aa1ad] text-center ">Gracias por confiar en hackdental.com</h1>
-            <h2 class="title-section text-[#fefefe] text-center mb-[24px]">¡Tu ebook esta listo!</h2>
-            <p class="text-[#b7b7b7] text-center mb-[24px] text-[12px] md:text-[16px]">Accede a 'Secretos Millonarios del Marketing Dental' con el <br> botón de abajo en cualquier momento.</p>
 
-            <Button subtext="100% GRATIS" useArrow={false}>
-                  DESCARGA INSTANTANEA
-              </Button>
+<EbookLayout>
+  <span class="font-logo text-white/80 text-center text-[2rem] block pt-10 mb-[32px] md:mb-[64px]">
+    HackDental
+  </span>
+
+  <section>
+    <div class="block max-w-[100%] md:max-w-[70%] m-auto mb-[40px]">
+      <h1 class="sub-title-section text-[#9aa1ad] text-center">
+        Gracias por confiar en hackdental.com
+      </h1>
+      <h2 class="title-section text-[#fefefe] text-center mb-[24px]">
+        ¡Tu ebook esta listo!
+      </h2>
+      <p class="text-[#b7b7b7] text-center mb-[24px] text-[12px] md:text-[16px]">
+        Accede a "Secretos Millonarios del Marketing Dental" con el <br />
+        botón de abajo en cualquier momento.
+      </p>
+
+      <Button subtext="100% GRATIS" useArrow={false}>
+        DESCARGA INSTANTANEA
+      </Button>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-[300px] bg-[#d8e8e6] py-6 justify-center md:min-h-[50vh]">
+      <div class="p-2 md:p-0">
+        <h3 class="font-oswald font-black text-[14px] md:text-[20px]">
+          DUEÑO DE CONSULTORIO DENTAL
+          <span class="block text-[20px] md:text-[26px]">
+            ¿TE INTERESA UNA AUDITORÍA GRATUITA?
+          </span>
+        </h3>
+
+        <p class="text-[12px] md:text-[16px] mb-[40px] text-[#476464]">
+          Averigua si tu consultorio califica para nuestros servicios.
+        </p>
+
+        <Button useArrow={false}>
+          ver mas
+        </Button>
+
+        <!-- CONTADOR -->
+        <div
+          id="countdown"
+          class="py-4 px-6 bg-[#95c7bc] text-[#0b7161] text-center mt-[30px] font-bold text-[20px] rounded-lg tracking-wider"
+        >
+          00:00:00:00
         </div>
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-[300px] bg-[#d8e8e6] py-6 justify-center md:min-h-[50vh]">
-            <div class="p-2 md:p-0">
-                <h3 class="font-oswald font-black text-[14px] md:text-[20px]">DUEÑO DE CONSULTORIO DENTAL <span class="block text-[20px] md:text-[26px]">¿TE INTERESA UNA AUDITORÍA GRATUITA?</span></h3>
-                <p class="text-[12px] md:text-[16px] mb-[40px] text-[#476464]">Averigua si tu consultorio califica para nuestros servicios.</p>
+      </div>
 
-                <Button useArrow={false}>
-                  ver mas
-                </Button>
+      <div class="max-w-[300px]">
+        <picture>
+          <img src={Imagen.src} alt="" class="block w-full" />
+        </picture>
+      </div>
+    </div>
+  </section>
+</EbookLayout>
 
-                <div class="py-4 px-6 bg-[#95c7bc] text-[#0b7161] text-center mt-[30px] font-bold text-[20px] rounded-lg tracking-wider">03:09:10:01</div>
-            </div>
-            <div class="max-w-[300px]">
-                <picture class="">
-                    <img src={Imagen.src} alt={''} class="block w-full"/>
-                </picture>
-            </div>
-            
-        </div>
-    </section>
+<script>
+  type CountdownTime = {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
 
+  const countdownEl = document.getElementById("countdown") as HTMLDivElement;
 
- </EbookLayout>
+  let totalSeconds: number = 3 * 24 * 60 * 60 + 9 * 60 * 60 + 10 * 60 + 1;
+
+  const formatTime = (value: number): string =>
+    String(value).padStart(2, "0");
+
+  const getTimeParts = (seconds: number): CountdownTime => {
+    const days = Math.floor(seconds / 86400);
+    const hours = Math.floor((seconds % 86400) / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    return { days, hours, minutes, seconds: secs };
+  };
+
+  const updateCountdown = (): void => {
+    if (totalSeconds <= 0) {
+      countdownEl.textContent = "00:00:00:00";
+      clearInterval(interval);
+      return;
+    }
+
+    const { days, hours, minutes, seconds } = getTimeParts(totalSeconds);
+
+    countdownEl.textContent = `${formatTime(days)}:${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+
+    totalSeconds--;
+  };
+
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+</script>
