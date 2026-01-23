@@ -159,6 +159,8 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
 </div>
 
 <script>
+  import { ApiService } from '../../api/service.js';
+
   let currentStep = 1;
   const totalSteps = 2;
   const formData = {
@@ -288,19 +290,28 @@ document.addEventListener('click', (e: MouseEvent) => {
 });
 
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    if (validateCurrentStep()) {
-      saveCurrentStepData();
-      console.log('Form Data:', formData);
-      
-      // Aquí puedes agregar el envío del formulario a tu backend
-      // fetch('/tu-endpoint', { method: 'POST', body: JSON.stringify(formData) })
-      
-      currentStep++;
-      updateUI();
+    try{
+      if (validateCurrentStep()) {
+        saveCurrentStepData();
+        console.log('Form Data:', formData);
+        const bodyForm = {
+          ...formData,
+          telefono: `+34${formData.telefono}`,
+        };
+        const res = await ApiService.sendData(bodyForm)
+        if(res.success){
+          window.location.href = "/gracias-ebook";
+        }
+        
+        currentStep++;
+        updateUI();
+      }
+    }catch(err){
+      console.log(err)
     }
+    
   });
 
 

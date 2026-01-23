@@ -1,0 +1,75 @@
+---
+import Button from "../components/Ebook/Button.astro";
+import EbookLayout from "../layouts/EbookLayout.astro";
+import Cancel from "../Icons/Cancel.astro";
+import CheckCircle from "../Icons/Ebook/CheckCircle.astro";
+
+import Image1 from "../../public/iamges/imagen x derecha.svg";
+import Image2 from "../../public/iamges/imagen-1.svg";
+---
+
+<EbookLayout>
+  <span class="font-logo text-white/80 text-center text-[2rem] block pt-10 mb-[32px] md:mb-[64px]">
+    HackDental
+  </span>
+
+  <section class="p-2 md:p-0">
+    <div class="block max-w-[100%] md:max-w-[70%] m-auto mb-[40px]">
+      
+      <h1 class="sub-title-section text-[#9aa1ad] text-center">
+        GRACIAS POR CONFIAR EN HACKDENTAL.COM
+      </h1>
+
+      <h2 class="title-section text-[#fefefe] text-center mb-[24px]">
+        NOS PONDREMOS EN CONTACTO EN <br /> MENOS DE 24 HORAS.
+      </h2>
+
+      <p class="text-[#b7b7b7] text-center mb-[24px] text-[12px] md:text-[16px]">
+        Un representante se contactará contigo por WhatsApp
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-[40px] w-full max-w-4xl mx-auto px-4">
+        
+        <!-- BLOQUE IZQUIERDA -->
+        <div class="flex flex-col items-center w-full md:flex-1">
+          <span class="flex items-center justify-center mb-2 h-8">
+            <Cancel />
+          </span>
+
+          <div class="relative w-[400px] max-w-full aspect-[4/3]">
+            <img
+              src={Image1.src}
+              alt="Ejemplo incorrecto"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <!-- BLOQUE DERECHA -->
+        <div class="flex flex-col items-center w-full md:flex-1">
+          <span class="flex items-center justify-center mb-2 h-8">
+            <CheckCircle color="#168d42" />
+          </span>
+
+          <div class="relative w-[400px] max-w-full aspect-[4/3]">
+            <img
+              src={Image2.src}
+              alt="Ejemplo correcto"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-[#b7b7b7] text-center mb-[24px] text-[12px] md:text-[16px]">
+        Si tienes alguna duda extra, acá te dejo mi número personal.
+      </p>
+
+      <Button subtext="100% GRATIS" useArrow={false}>
+        DESCARGA INSTANTANEA
+      </Button>
+
+    </div>
+  </section>
+</EbookLayout>

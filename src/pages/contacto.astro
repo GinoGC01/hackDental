@@ -85,7 +85,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                             <p class="text-[11px] text-gray-500 mt-2">Te enviaremos los detalles de la auditoría</p>
                         </div>
                     </div>
-                    <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#086969] via-[#039683] to-[#086969] text-white font-black text-[21px] py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase active:translate-y-1 transition-all flex items-center justify-center flex-col">
+                    <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#086969] via-[#039683] to-[#086969] text-white font-black text-[21px] py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase active:translate-y-1 transition-all flex items-center justify-center flex-col cursor-pointer">
                         Continuar
                         <span class="block bg-[#18625d]/30 px-7 py-1 text-[10px] font-medium text-[#dcfce7] rounded-lg tracking-widest uppercase mt-1">Espacios limitados este mes</span>
                     </button>
@@ -122,8 +122,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                         </div>
                     </div>
                     <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep2" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
-                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 2 DE 5</span></button>
+                        <button type="button" id="prevStep2" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg cursor-pointer">Atrás</button>
+                        <button type="button" id="nextStep2" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center cursor-pointer">Continuar <span class="text-[9px] opacity-60">PASO 2 DE 5</span></button>
                     </div>
                 </div>
 
@@ -145,8 +145,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                         ))}
                     </div>
                     <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
-                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 3 DE 5</span></button>
+                        <button type="button" id="prevStep3" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg cursor-pointer">Atrás</button>
+                        <button type="button" id="nextStep3" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center cursor-pointer">Continuar <span class="text-[9px] opacity-60">PASO 3 DE 5</span></button>
                     </div>
                 </div>
 
@@ -168,8 +168,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                         ))}
                     </div>
                     <div class="flex gap-4 mt-8">
-                        <button type="button" id="prevStep4" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg">Atrás</button>
-                        <button type="button" id="nextStep4" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center">Continuar <span class="text-[9px] opacity-60">PASO 4 DE 5</span></button>
+                        <button type="button" id="prevStep4" class="w-1/3 bg-white/5 text-gray-400 font-bold py-4 rounded-lg cursor-pointer">Atrás</button>
+                        <button type="button" id="nextStep4" class="w-2/3 bg-[#039683] text-white font-black py-4 rounded-lg shadow-[0_4px_0_#064e3b] uppercase flex flex-col items-center cursor-pointer">Continuar <span class="text-[9px] opacity-60">PASO 4 DE 5</span></button>
                     </div>
                 </div>
 
@@ -191,7 +191,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                         ))}
                     </div>
                     <div class="flex flex-col gap-4 mt-8 w-full">
-                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] uppercase flex flex-col items-center justify-center">
+                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#039683] via-emerald-500 to-[#039683] text-white font-black text-xl py-5 rounded-lg shadow-[0_5px_0_#064e3b] uppercase flex flex-col items-center justify-center cursor-pointer">
                             <span id="text_submitBtn">APLICAR A LA AUDITORÍA</span>
                             <span class="text-[10px] font-medium opacity-80">REÚNETE CON JOSE WHITTEMBURY</span>
                             <span id="loader" class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white hidden"></span>
@@ -256,147 +256,203 @@ import EbookLayout from '../layouts/EbookLayout.astro';
     .glow-none { opacity: 0 !important; }
 </style>
 
-<script>
-    import {ApiService} from '../api/service.js';
-    let currentStep = 1;
-    const email = document.getElementById("email") as HTMLInputElement
-    const nombre = document.getElementById("nombre") as HTMLInputElement
-    const website = document.getElementById("website") as HTMLInputElement
-    const telefono = document.getElementById("telefono") as HTMLInputElement
-    const sillas = document.querySelector('input[name="sillas"]:checked') as HTMLInputElement
-    const facturacion = document.querySelector('input[name="facturacion"]:checked') as HTMLInputElement
-    const meta = document.querySelector('input[name="meta"]:checked') as HTMLInputElement
+<script >
+  import { ApiService } from '../api/service.js';
 
+  let currentStep: number = 1;
 
-    // --- LÓGICA DE SOMBRAS SECUENCIALES ---
-    function refreshShadows() {
-        const step = document.getElementById(`step${currentStep}`);
-        if (!step || currentStep >= 3) {
-            document.querySelectorAll('.input-shadow-logic').forEach(s => s.className = 'input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500');
-            return;
-        }
-        const inputs = Array.from(step.querySelectorAll('input:not([type="radio"])')) as HTMLInputElement[];
-        let foundFirstEmpty = false;
-        inputs.forEach((input) => {
-            const shadow = input.parentElement?.querySelector('.input-shadow-logic');
-            if (!shadow) return;
-            const isFocused = document.activeElement === input;
-            const isEmpty = input.value.trim() === "";
-            shadow.classList.remove('glow-red', 'glow-green', 'glow-none');
-            if (isFocused) { shadow.classList.add('glow-green'); foundFirstEmpty = true; }
-            else if (!foundFirstEmpty && isEmpty) { shadow.classList.add('glow-red'); foundFirstEmpty = true; }
-            else { shadow.classList.add('glow-none'); }
-        });
+  const email = document.getElementById("email") as HTMLInputElement;
+  const nombre = document.getElementById("nombre") as HTMLInputElement;
+  const website = document.getElementById("website") as HTMLInputElement;
+  const telefono = document.getElementById("telefono") as HTMLInputElement;
+
+  // --- LÓGICA DE SOMBRAS SECUENCIALES ---
+  function refreshShadows(): void {
+    const step = document.getElementById(`step${currentStep}`);
+    if (!step || currentStep >= 3) {
+      document.querySelectorAll('.input-shadow-logic').forEach(s => {
+        s.className =
+          'input-shadow-logic absolute -inset-1 rounded-lg blur-md opacity-0 transition-all duration-500';
+      });
+      return;
     }
 
-    // --- NAVEGACIÓN ---
-    function updateProgress() {
-        const currentStepText = document.getElementById('currentStep');
-        const redLine = document.getElementById('redLine');
-        if (currentStepText && redLine) {
-            if (currentStep === 1) { 
-                currentStepText.innerText = 'ÚLTIMO PASO'; 
-                redLine.classList.remove('hidden'); 
-            } else { 
-                redLine.classList.add('hidden'); 
-                currentStepText.className = 'font-black text-[21px] md:text-[28px] uppercase tracking-[0] text-[#9ca3af] text-center leading-[1]'; 
-            }
+    const inputs = Array.from(
+      step.querySelectorAll<HTMLInputElement>('input:not([type="radio"])')
+    );
 
-            if (currentStep === 2) currentStepText.innerText = 'INGRESA TU INFORMACIÓN AQUÍ PARA RECIBIR TU AUDITORÍA';
-            if (currentStep === 3) currentStepText.innerText = '¿DE QUÉ TAMAÑO ES TU CONSULTORIO?';
-            if (currentStep === 4) currentStepText.innerText = 'CONTEXTO ECONÓMICO DE TU CLÍNICA';
-            if (currentStep === 5) currentStepText.innerText = '¿CUÁL ES TU META?';
-        }
-        refreshShadows();
+    let foundFirstEmpty = false;
+
+    inputs.forEach((input) => {
+      const shadow = input.parentElement?.querySelector<HTMLDivElement>('.input-shadow-logic');
+      if (!shadow) return;
+
+      const isFocused = document.activeElement === input;
+      const isEmpty = input.value.trim() === "";
+
+      shadow.classList.remove('glow-red', 'glow-green', 'glow-none');
+
+      if (isFocused) {
+        shadow.classList.add('glow-green');
+        foundFirstEmpty = true;
+      } else if (!foundFirstEmpty && isEmpty) {
+        shadow.classList.add('glow-red');
+        foundFirstEmpty = true;
+      } else {
+        shadow.classList.add('glow-none');
+      }
+    });
+  }
+
+  // --- PROGRESO ---
+  function updateProgress(): void {
+    const currentStepText = document.getElementById('currentStep') as HTMLSpanElement | null;
+    const redLine = document.getElementById('redLine') as HTMLDivElement | null;
+
+    if (!currentStepText || !redLine) return;
+
+    if (currentStep === 1) {
+      currentStepText.innerText = 'ÚLTIMO PASO';
+      redLine.classList.remove('hidden');
+    } else {
+      redLine.classList.add('hidden');
+      currentStepText.className =
+        'font-black text-[21px] md:text-[28px] uppercase tracking-[0] text-[#9ca3af] text-center leading-[1]';
     }
 
-    function showStep(step: number) {
-        document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
-        const nextStep = document.getElementById(`step${step}`);
-        if (nextStep) nextStep.classList.remove('hidden');
-        currentStep = step;
-        updateProgress();
+    if (currentStep === 2)
+      currentStepText.innerText = 'INGRESA TU INFORMACIÓN AQUÍ PARA RECIBIR TU AUDITORÍA';
+    if (currentStep === 3)
+      currentStepText.innerText = '¿DE QUÉ TAMAÑO ES TU CONSULTORIO?';
+    if (currentStep === 4)
+      currentStepText.innerText = 'CONTEXTO ECONÓMICO DE TU CLÍNICA';
+    if (currentStep === 5)
+      currentStepText.innerText = '¿CUÁL ES TU META?';
+
+    refreshShadows();
+  }
+
+  function showStep(step: number): void {
+    document.querySelectorAll<HTMLElement>('.step-content')
+      .forEach(el => el.classList.add('hidden'));
+
+    const nextStep = document.getElementById(`step${step}`) as HTMLElement | null;
+    if (nextStep) nextStep.classList.remove('hidden');
+
+    currentStep = step;
+    updateProgress();
+  }
+
+  // --- VALIDACIONES ---
+  const validateStep1 = (): boolean =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+
+  const validateStep2 = (): boolean =>
+    nombre.value.length > 2 &&
+    website.value.length > 4 &&
+    telefono.value.length > 7;
+
+  const validateRadio = (name: string): boolean =>
+    document.querySelector(`input[name="${name}"]:checked`) !== null;
+
+  // --- NAVEGACIÓN ---
+  document.getElementById('nextStep1')?.addEventListener('click', () => {
+    if (validateStep1()) showStep(2);
+  });
+
+  document.getElementById('nextStep2')?.addEventListener('click', () => {
+    if (validateStep2()) showStep(3);
+  });
+
+  document.getElementById('nextStep3')?.addEventListener('click', () => {
+    if (validateRadio('sillas')) showStep(4);
+  });
+
+  document.getElementById('nextStep4')?.addEventListener('click', () => {
+    if (validateRadio('facturacion')) showStep(5);
+  });
+
+  document.getElementById('prevStep2')?.addEventListener('click', () => showStep(1));
+  document.getElementById('prevStep3')?.addEventListener('click', () => showStep(2));
+  document.getElementById('prevStep4')?.addEventListener('click', () => showStep(3));
+  document.getElementById('prevStep5')?.addEventListener('click', () => showStep(4));
+
+  // --- SUBMIT ---
+  document.getElementById("contactForm")?.addEventListener("submit", async (e: Event) => {
+    e.preventDefault();
+
+    const form = e.target as HTMLFormElement;
+
+    const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
+    const loader = document.getElementById("loader") as HTMLElement;
+    const textBtn = document.getElementById("text_submitBtn") as HTMLElement;
+
+    const sillas = document.querySelector<HTMLInputElement>('input[name="sillas"]:checked');
+    const facturacion = document.querySelector<HTMLInputElement>('input[name="facturacion"]:checked');
+    const meta = document.querySelector<HTMLInputElement>('input[name="meta"]:checked');
+
+    if (!sillas || !facturacion || !meta) {
+      console.warn('Formulario incompleto');
+      return;
     }
 
-    // --- VALIDACIONES ---
-    const validateStep1 = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((document.getElementById('email') as HTMLInputElement).value);
-    const validateStep2 = () => {
-        const n = (document.getElementById('nombre') as HTMLInputElement).value;
-        const w = (document.getElementById('website') as HTMLInputElement).value;
-        const t = (document.getElementById('telefono') as HTMLInputElement).value;
-        return n.length > 2 && w.length > 4 && t.length > 7;
+    const formData = {
+      email: email.value,
+      nombre: nombre.value,
+      website: website.value,
+      telefono: `+34 ${telefono.value}`,
+      sillas: sillas.value,
+      facturacion: facturacion.value,
+      meta: meta.value,
+      from: 'auditoria'
     };
-    const validateRadio = (name: string) => document.querySelector(`input[name="${name}"]:checked`) !== null;
 
-    // --- EVENTOS NAVEGACIÓN ---
-    document.getElementById('nextStep1')?.addEventListener('click', () => validateStep1() && showStep(2));
-    document.getElementById('nextStep2')?.addEventListener('click', () => validateStep2() && showStep(3));
-    document.getElementById('nextStep3')?.addEventListener('click', () => validateRadio('sillas') && showStep(4));
-    document.getElementById('nextStep4')?.addEventListener('click', () => validateRadio('facturacion') && showStep(5));
-    
-    document.getElementById('prevStep2')?.addEventListener('click', () => showStep(1));
-    document.getElementById('prevStep3')?.addEventListener('click', () => showStep(2));
-    document.getElementById('prevStep4')?.addEventListener('click', () => showStep(3));
-    document.getElementById('prevStep5')?.addEventListener('click', () => showStep(4));
+    try {
+      submitBtn.disabled = true;
+      loader.classList.remove("hidden");
+      textBtn.classList.add("hidden");
 
-    // --- ENVÍO DE FORMULARIO ---
-    document.getElementById("contactForm")?.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      const res = await ApiService.sendData(formData);
+      console.log(res)
+      if (res && (res.success || res.warning === 'email-registered')) {
+        form.reset();
+        showStep(1);
+      }
+      if(res.success){
+         window.location.href = "/gracias-auditoria";
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      submitBtn.disabled = false;
+      loader.classList.add("hidden");
+      textBtn.classList.remove("hidden");
+    }
+  });
 
-        const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
-        const loader = document.getElementById("loader");
-        const textBtn = document.getElementById("text_submitBtn");
-
-        const formData = {
-            email: email.value,
-            nombre: nombre.value,
-            website: website.value,
-            telefono: "+34 " + telefono.value,
-            sillas: sillas.value,
-            facturacion: facturacion.value,
-            meta: meta.value,
-            from:'auditoria'
-        };
-
-        try {
-            submitBtn.disabled = true;
-            loader?.classList.remove("hidden");
-            textBtn?.classList.add("hidden");
-            console.log(formData)
-
-            const res = await ApiService.sendData(formData);
-            if(res && (res.success || res.warning === 'email-registered')) {
-                // triggerAlert(res.success ? 'success1' : 'warning1');
-                (e.target as HTMLFormElement).reset();
-                showStep(1);
-            } else {
-                // triggerAlert('error1');
-            }
-        } catch (err) {
-            // triggerAlert('error1');
-        } finally {
-            submitBtn.disabled = false;
-            loader?.classList.add("hidden");
-            textBtn?.classList.remove("hidden");
-        }
+  // --- INPUT LISTENERS ---
+  document.querySelectorAll<HTMLInputElement>('input:not([type="radio"])')
+    .forEach(input => {
+      input.addEventListener('focus', refreshShadows);
+      input.addEventListener('blur', refreshShadows);
+      input.addEventListener('input', refreshShadows);
     });
 
-    // --- LISTENERS DE INPUTS ---
-    document.querySelectorAll('input:not([type="radio"])').forEach(i => {
-        i.addEventListener('focus', refreshShadows);
-        i.addEventListener('blur', refreshShadows);
-        i.addEventListener('input', refreshShadows);
-    });
+  // --- RADIOS UI ---
+  document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const label = target.closest('.radio-option') as HTMLElement | null;
+    if (!label) return;
 
-    // --- LÓGICA DE RADIOS ---
-    document.addEventListener('click', (e) => {
-        const label = (e.target as HTMLElement).closest('.radio-option');
-        if (label) {
-            const container = label.closest('.step-content');
-            container?.querySelectorAll('.radio-card').forEach(c => c.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
-            container?.querySelectorAll('.radio-indicator div').forEach(d => d.classList.add('hidden'));
-            label.querySelector('.radio-card')?.classList.add('border-[#039683]', 'bg-[#039683]/10');
-            label.querySelector('.radio-indicator div')?.classList.remove('hidden');
-        }
-    });
+    const container = label.closest('.step-content');
+
+    container?.querySelectorAll<HTMLElement>('.radio-card')
+      .forEach(c => c.classList.remove('border-[#039683]', 'bg-[#039683]/10'));
+
+    container?.querySelectorAll<HTMLElement>('.radio-indicator div')
+      .forEach(d => d.classList.add('hidden'));
+
+    label.querySelector('.radio-card')?.classList.add('border-[#039683]', 'bg-[#039683]/10');
+    label.querySelector('.radio-indicator div')?.classList.remove('hidden');
+  });
 </script>
