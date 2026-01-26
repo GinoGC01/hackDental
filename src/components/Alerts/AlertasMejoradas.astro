@@ -1,0 +1,126 @@
+    <!-- Sistema de alertas mejorado -->
+    <div id="alert-container" class="fixed top-6 right-6 z-[9999] flex flex-col gap-3 pointer-events-none max-w-md">
+        
+        <!-- Alerta de Warning -->
+        <div id="warning1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-amber-500/95 to-orange-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">Email ya registrado</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Por favor, revisa tus datos e intenta nuevamente.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+
+        <!-- Alerta de Error -->
+        <div id="error1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-red-500/95 to-rose-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-red-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">Error al enviar</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Hubo un problema. Por favor, intenta de nuevo.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+
+        <!-- Alerta de Success -->
+        <div id="success1" class="alert-toast hidden pointer-events-auto">
+            <div class="relative overflow-hidden bg-gradient-to-br from-emerald-500/95 to-teal-600/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-emerald-400/30">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+                <div class="relative p-4 flex items-start gap-3">
+                    <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 pt-0.5">
+                        <h4 class="font-bold text-white text-sm mb-0.5">¡Solicitud enviada!</h4>
+                        <p class="text-white/90 text-xs leading-relaxed">Te contactaremos pronto para agendar tu auditoría.</p>
+                    </div>
+                    <button class="alert-close flex-shrink-0 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="alert-progress h-1 bg-white/30"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+            // --- LÓGICA DE ALERTAS MEJORADA ---
+    function triggerAlert(id: string) {
+        const alert = document.getElementById(id);
+        if (!alert) return;
+
+        // Limpiar timeout anterior si existe
+        if (activeAlertTimeout) {
+            clearTimeout(activeAlertTimeout);
+        }
+
+        // Mostrar alerta
+        alert.classList.remove('hidden', 'hiding');
+        
+        // Reiniciar animación de progress bar
+        const progressBar = alert.querySelector('.alert-progress') as HTMLElement;
+        if (progressBar) {
+            progressBar.style.animation = 'none';
+            setTimeout(() => {
+                progressBar.style.animation = 'progressBar 5s linear forwards';
+            }, 10);
+        }
+        
+        // Auto-ocultar después de 5 segundos
+        activeAlertTimeout = window.setTimeout(() => {
+            closeAlert(id);
+        }, 5000);
+    }
+
+    function closeAlert(id: string) {
+        const alert = document.getElementById(id);
+        if (!alert) return;
+        
+        alert.classList.add('hiding');
+        setTimeout(() => {
+            alert.classList.add('hidden');
+            alert.classList.remove('hiding');
+        }, 400);
+    }
+
+    // Evento de cerrar alertas manualmente
+    document.querySelectorAll('.alert-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const alert = (e.target as HTMLElement).closest('.alert-toast');
+            if (alert) {
+                closeAlert(alert.id);
+            }
+        });
+    });
+    </script> -->

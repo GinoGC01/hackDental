@@ -23,7 +23,6 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     
     <div class="p-6 relative z-10">
       <form id="multi-step-form"  novalidate>
-        <!-- STEP 1: Email -->
         <div id="step-1" class="form-step">
           <div class="text-center mb-6">
             <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
@@ -79,7 +78,6 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
           </p>
         </div>
         
-        <!-- STEP 2: Datos Personales -->
         <div id="step-2" class="form-step hidden">
           <div class="text-center mb-6">
             <span class="inline-flex items-center gap-1.5 bg-[#d4af37]/10 text-[#d4af37] text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-[#d4af37]/20">
@@ -119,16 +117,21 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
             </div>
           </div>
           
-          <button type="submit" data-next-step="3" class="w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer">
-            DESCARGAR PDF AHORA
-            <ArrowRight size="20" color="#000000" />
+          <button id="submit-btn" type="submit" data-next-step="3" class="w-full bg-gradient-to-r from-[#16a34a] via-[#fbbf24] to-[#16a34a] bg-[length:200%_auto] animate-gradient-xy text-black font-black text-lg py-3.5 rounded-lg shadow-[0_4px_0_#14532d] hover:shadow-[0_6px_0_#14532d] hover:scale-[1.02] active:shadow-none active:translate-y-[4px] transition-all flex items-center justify-center gap-2 mt-6 uppercase tracking-wide border-t border-white/40 cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed">
+            <span id="submit-text" class="flex items-center gap-2">
+                DESCARGAR PDF AHORA
+                <ArrowRight size="20" color="#000000" />
+            </span>
+            <svg id="submit-loader" class="hidden animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
           </button>
 
           <p class="py-3 text-xs text-gray-600 mt-5">Tu privacidad es importante para nosotros. HackDental utiliza la información que proporcionas para ponerse en contacto contigo en relación con contenido, productos y servicios relevantes para ti. Puedes darte de baja para dejar de recibir este tipo de comunicaciones en cualquier momento. Si deseas obtener más información sobre la protección de tus datos en HackDental, consulta nuestra <a href="/politicas" class="text-blue-500 underline">Política de Privacidad.</a></p>
 
         </div>
         
-        <!-- SUCCESS STEP -->
         <div id="step-success" class="form-step hidden text-center py-6 animate-fadeIn">
           <div class="w-20 h-20 bg-[#16a34a]/20 border-2 border-[#16a34a] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(22,163,74,0.3)]">
             <CheckCircle size="55" color="#16a34a" />
@@ -190,6 +193,11 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
   const inputEmail = document.getElementById('input-email') as HTMLInputElement;
   const inputNombre = document.getElementById('input-fullname') as HTMLInputElement;
   const inputTelefono = document.getElementById('input-phone') as HTMLInputElement;
+
+  // Selectores para el botón de envío y loader
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitText = document.getElementById('submit-text');
+  const submitLoader = document.getElementById('submit-loader');
 
   /**
    * Carga datos del LocalStorage y los inyecta en el DOM y en el estado formData
@@ -298,6 +306,11 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     
     syncStateWithInputs();
 
+    // ACTIVAR LOADER
+    if(submitBtn) submitBtn.disabled = true;
+    if(submitText) submitText.classList.add('hidden');
+    if(submitLoader) submitLoader.classList.remove('hidden');
+
     try {
       // Preparamos el cuerpo para la API
       const payload = {
@@ -313,15 +326,23 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
       if (res.success) {
         window.location.href = "/gracias-ebook";
       }
-      else if(!res.success && 'email-registered'){
-         window.location.href = "https://wa.me/34600000000?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20marketing%20dental";
+      else if(!res.success && 'ebook-solicited'){
+          // Si hay alerta, restauramos el botón para que pueda reintentar o cerrar
+          if(submitBtn) submitBtn.disabled = false;
+          if(submitText) submitText.classList.remove('hidden');
+          if(submitLoader) submitLoader.classList.add('hidden');
+          alert("Ebook solicitado! revisa tu email, previamente habias solicitado tu Ebook")
       }
-       else {
+      else {
         currentStep = 3; 
         updateUI();
       }
     } catch (err) {
       console.error("Error en el envío:", err);
+      // Restaurar botón en caso de error
+      if(submitBtn) submitBtn.disabled = false;
+      if(submitText) submitText.classList.remove('hidden');
+      if(submitLoader) submitLoader.classList.add('hidden');
     }
   });
 

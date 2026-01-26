@@ -6,11 +6,13 @@ import Footer from '../components/Ebook/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  bg?:string
 }
 
 const { 
   title = 'Ebook Gratis - Marketing Dental',
-  description = 'Descarga tu ebook gratuito sobre estrategias de marketing dental'
+  description = 'Descarga tu ebook gratuito sobre estrategias de marketing dental',
+  bg = '#080808'
 } = Astro.props;
 
 
@@ -26,13 +28,29 @@ const {
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <meta name="description" content={description}>
   <title>{title}</title>
+  <!-- Meta Pixel Code -->
+  <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1940026369882958');
+      fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1940026369882958&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
-<body class="min-h-screen bg-[#080808]">
+<body class={`min-h-screen bg-[${bg}]`}>
   <slot />
-   <footer class="text-center pt-[16px] pb-[20px] relative bg-[#0b0c0d]">
-        <div class="absolute -top-[15px] md:-top-[22px] left-0 w-full h-4 md:h-6 bg-[#0b0c0d]" style="clip-path: polygon(0% 100%, 5% 0%, 10% 100%, 15% 0%, 20% 100%, 25% 0%, 30% 100%, 35% 0%, 40% 100%, 45% 0%, 50% 100%, 55% 0%, 60% 100%, 65% 0%, 70% 100%, 75% 0%, 80% 100%, 85% 0%, 90% 100%, 95% 0%, 100% 100%, 0% 100%)"></div>
-        <span class="font-logo text-[24px] text-[#9da3af]">HackDental</span>
-        <p class="text-xs pt-[8px] text-[#9da3af]"><span id="copy"></span> HackDental LLC - <a href="/politicas" class="text-[#45bdbb] underline">Aviso legal y politicas de privacidad</a></p>
-    </footer>
+  <footer class={`text-center pt-[16px] pb-[20px] relative bg-[#0b0c0d]`}>
+      <div class="absolute -top-[15px] md:-top-[22px] left-0 w-full h-4 md:h-6 bg-[#0b0c0d]" style="clip-path: polygon(0% 100%, 5% 0%, 10% 100%, 15% 0%, 20% 100%, 25% 0%, 30% 100%, 35% 0%, 40% 100%, 45% 0%, 50% 100%, 55% 0%, 60% 100%, 65% 0%, 70% 100%, 75% 0%, 80% 100%, 85% 0%, 90% 100%, 95% 0%, 100% 100%, 0% 100%)"></div>
+      <span class="font-logo text-[24px] text-[#9da3af]">HackDental</span>
+      <p class="text-xs pt-[8px]"><span id="copy"></span> HackDental LLC - <a href="/politicas" class="text-[#45bdbb] underline">Aviso legal y politicas de privacidad</a></p>
+  </footer>
 </body>
 </html>

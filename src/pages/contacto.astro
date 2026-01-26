@@ -7,10 +7,10 @@ import CornerRightDown from '../Icons/Ebook/CornerRightDown.astro';
 import EbookLayout from '../layouts/EbookLayout.astro';
 ---
 
-<EbookLayout>
+<EbookLayout bg='#080808'>
     <span class="font-logo text-white/80 text-center text-[2rem] block pt-10 mb-[16px]">HackDental</span>
 
-    <main class="flex flex-col md:flex-row items-start md:items-center justify-center px-4 md:px-2 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] relative md:min-h-[80vh] py-12 md:py-0">
+    <main class="flex flex-col md:flex-row items-start md:items-center justify-center px-4 md:px-2 lg:px-16 m-auto pt-12 md:pt-0 max-w-[1400px] relative md:min-h-[80vh] py-12 md:py-0 bg-[#080808]">
         
         <div class="md:basis-[55%] w-full relative">
             <div class="max-w-2xl">
@@ -265,7 +265,7 @@ import EbookLayout from '../layouts/EbookLayout.astro';
   const nombre = document.getElementById("nombre") as HTMLInputElement;
   const website = document.getElementById("website") as HTMLInputElement;
   const telefono = document.getElementById("telefono") as HTMLInputElement;
-  type User ={
+  interface User  {
         nombre: string;
         email: string;
         website: string;
@@ -295,9 +295,9 @@ import EbookLayout from '../layouts/EbookLayout.astro';
     }
     if(dataUser && dataUser.telefono != '' ){
         const savedTelefono = dataUser.telefono
-        telefono.value = savedTelefono
+        telefono.value = savedTelefono.replace(/\s+/g, "").replace("+34", "")
     }
-    if(dataUser && dataUser.website != '' ){
+    if(dataUser && dataUser.website != '' && dataUser.website != undefined ){
         const savedWebsite = dataUser.website
         website.value = savedWebsite
     }
@@ -465,8 +465,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
          window.location.href = "/gracias-auditoria";
       }
 
-      if(!res.success && 'email-registered'){
-         window.location.href = "https://wa.me/34600000000?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20marketing%20dental";
+      if(!res.success && 'audit-solicited'){
+         alert('Auditoria solicitada previamente! en breves me contactare contigo')
       }
     } catch (error) {
       console.error(error);
