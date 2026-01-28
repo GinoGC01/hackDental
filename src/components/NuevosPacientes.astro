@@ -40,19 +40,22 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                 <span class="block leading-[1.2] mb-6">Una publicidad nueva en facebook no llamara la atencion de nadie</span>
                 <span class="block leading-[1.2] mb-6"><b>Necesitas convertir tu consultorio Dental en un negocio viable digital</b></span>
             </p>
-            <div class="flex items-center gap-4 justify-center">
+            <div class="flex md:flex-row flex-col items-center gap-4 justify-center">
                 <picture class="">
                     <img src="../iamges/imagen x derecha.svg" alt="" class="block w-[250px] h-[350px]" loading="lazy"/>
                 </picture>
-                <ArrowRight size="32" color="#e3eaf1"/>
+                <span class="rotate-[90deg] md:rotate-[0deg]">
+                    <ArrowRight size="32" color="#213343"/>
+                </span>
                 <picture class="">
                     <img src="../iamges/imagen-odo-2026-izquierda-2.svg" alt="" class="block w-full h-[450px]" loading="lazy" />
                 </picture>
             </div>
  
             <span class="font-inter font-semibold text-[21px] text-[#213343] my-[30px] block">te identificas con esto?</span>
-            <div class="flex felx-col md:flex-row items-center text-[#213343] justify-center mb-[20px]">
-                <div class="flex gap-3  items-center px-3 py-6">
+
+            <div class="flex flex-col md:flex-row items-center text-[#213343] md:justify-center mb-[20px]">
+                <div class="flex gap-3 items-center px-3 py-6">
                     <div>
                         <span class="block font-inter font-medium text-[18px] text-start">Sitio web</span>
                         <span class="block font-oswald font-bold text-[28px] text-start leading-[0.8]">Generico</span>
@@ -61,7 +64,7 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                         <Cursor size="16"/>
                     </div>
                 </div>
-                <div class=" flex gap-3 items-center border-x-1 border-gray-500/40 px-3 py-6">
+                <div class=" flex gap-3 items-center md:border-x-1 md:border-y-0 border-x-0 border-y-1 border-gray-500/40 px-3 py-6">
                     <div>
                         <span class="block font-inter font-medium text-[18px] text-start">WhatsApp con</span>
                         <span class="block font-oswald font-bold text-[28px] text-start leading-[0.8]"><b>Respuestas lentas</b></span>
@@ -76,8 +79,9 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                     <StatsLoose size="40" color="#b11111"/>
                 </div>
             </div>
-            <Button subtext="recibe una auditoria de marketing gratuita" width="full" mdWidth="full" useArrow={false}>
-                Si, quiero resolver esos problemas este 2026
+
+            <Button width="w-full" mdWidth="md:w-[85%]" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
+                <span class="text-[.7rem] md:text-[1rem]">Si, quiero resolver esos problemas este 2026</span>
             </Button>
         </div>
 
@@ -87,14 +91,16 @@ import StatsLoose from "../Icons/StatsLoose.astro"
             <p class="text-[#213343] md:text-[21px] text-[18px] font-inter font-light leading-[1.2] mb-6">Seria para mi un honor que me permitas diagnosticar los problemas de marketing y ventas que pueda tener tu consultorio.</p>
             <p class="text-[#213343] md:text-[21px] text-[18px] font-inter font-light leading-[1.2] mb-6">Solo acepto 5 clinicas cada mes, si te interesa, aplica hoy mismo.</p>
 
-            <div class="flex items-center gap-4 justify-between mb-[40px]">
+            <div class="flex md:flex-row flex-col items-center gap-4 justify-between mb-[40px]">
                 <div class="p-6 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
                     <span class="font-oswald text-[28px] font-bold text-[#2c3642]">ANTES</span>
                     <picture class="">
                         <img src="../iamges/imagen x derecha.svg" alt="" class="block w-[230px] h-[230px]" loading="lazy"/>
                     </picture>
                 </div>
-                <ArrowRight size="42" color="#213343"/>
+                <span class="rotate-[90deg] md:rotate-[0deg]">
+                    <ArrowRight size="32" color="#213343"/>
+                </span>
                 <div class="p-6 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
                     <span class="font-oswald text-[28px] font-bold text-[#2c3642]">DESPUES</span>
                     <picture class="">
@@ -102,21 +108,13 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                     </picture>
                 </div>
             </div>
-
-            <span id="button-mobile">
-                <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
-                    <span class="text-[1rem]">QUIERO UNA AUDITORIA DE MARKETING</span>
-                </Button>
-            </span>
-            <span id="button-desk">
-                <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
-                    <span class="md:text-[24px]">QUIERO UNA AUDITORIA DE MARKETING</span>
-                </Button>
-            </span>
+            <Button width="w-full" mdWidth="md:w-[85%]" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
+                <span class="text-[1rem]">QUIERO UNA AUDITORIA DE MARKETING</span>
+            </Button>
 
             <span class="font-inter font-semibold md:text-[21px] text-[18px] my-[30px] text-[#213343] block"> Aplica ahora si tu consultorio dental cumple lo siguiente:</span>
 
-            <div class="flex felx-col md:flex-row items-center text-[#213343] justify-between mb-[20px] bg-[#086969]/10 rounded-xl">
+            <div class="flex flex-col md:flex-row items-center text-[#213343] justify-between mb-[20px] bg-[#086969]/10 rounded-xl">
                 <div class="flex gap-3  items-center px-3 py-6">
                     <div>
                         <span class="block font-inter font-medium text-[18px] text-start">Ubicados en</span>
@@ -124,7 +122,7 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                     </div>
                         <RoundedSpain size="40"/>
                 </div>
-                <div class=" flex gap-3 items-center border-x-1 border-gray-500/40 px-3 py-6">
+                <div class=" flex gap-3 items-center md:border-x-1 md:border-y-0 border-x-0 border-y-1 border-gray-500/40 px-3 py-6">
                     <div>
                         <span class="block font-inter font-medium text-[18px] text-start">Facturan mas de</span>
                         <span class="block font-oswald font-bold text-[28px] text-start leading-[0.8]"><b>10,000 euros</b></span>
@@ -148,7 +146,6 @@ import StatsLoose from "../Icons/StatsLoose.astro"
 <script>
 const buttonMobile = document.getElementById('button-mobile') as HTMLButtonElement
 const buttonDesktop = document.getElementById('button-desk') as HTMLButtonElement
-const alertTriangle = document.getElementById('alertTriangle1') as HTMLSpanElement
 
 const widthOfWindow = window.innerWidth;
 
@@ -158,13 +155,11 @@ const isDektop = widthOfWindow >= 1024
 if(isMobile) {
     buttonMobile.classList.remove('hidden')
     buttonDesktop.classList.add('hidden')
-    alertTriangle.classList.add('hidden')
 }
 
 if(isDektop){
     buttonMobile.classList.add('hidden')
     buttonDesktop.classList.remove('hidden')
-    alertTriangle.classList.remove('hidden')
 }
 
 
