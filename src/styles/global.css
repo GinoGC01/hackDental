@@ -34,7 +34,7 @@
 
 .title-hero {
   /* Propiedades base (Mobile) */
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 1.9rem; /* text-3xl */
   line-height: 0.95;    /* leading-[0.95] */
   font-weight: bold;    /* font-bold */
   font-family: var(--font-heading); 
@@ -72,7 +72,7 @@
 /* Desktop (Tablet en adelante) */
 @media (min-width: 768px) {
   .title-hero {
-    font-size: 3.6rem;   /* md:text-6xl */
+    font-size: 3rem;   /* md:text-6xl */
     /* margin-bottom: 1.5rem; */
   }
   .title-section{

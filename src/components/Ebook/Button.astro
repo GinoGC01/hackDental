@@ -71,7 +71,7 @@ const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
 
   <div class="shine-element"></div>
 
-  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none font-heading tracking-wide">
+  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-sm md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none font-heading tracking-wide">
     <slot />
     {useArrow && (
       <div class="transition-transform duration-300 group-hover:translate-x-1.5 flex items-center">
@@ -80,7 +80,7 @@ const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
     )}
   </div>
   {subtext && (
-    <span class="px-2 relative z-30 text-[12px] bg-[#18625d]/30 py-1 font-medium text-[#dcfce7] rounded-lg traking-[0.5] mt-0.5 md:mt-1 block uppercase text-center pointer-events-none flex items-center justify-center gap-2">
+    <span class="px-2 relative z-30 md:text-[12px] text-[9px] bg-[#18625d]/30 py-1 font-medium text-[#dcfce7] rounded-lg traking-[0.5] mt-0.5 md:mt-1 block uppercase text-center pointer-events-none flex items-center justify-center gap-2">
       {subtext} {image && <span class="w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full overflow-hidden"><Image src={ProfileImage} alt={'Imagen de perfil CEO HackDental'} /></span> }
     </span>
   )}
