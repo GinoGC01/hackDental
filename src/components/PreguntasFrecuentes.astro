@@ -1,38 +1,40 @@
 ---
 import ArrowDown from "../Icons/ArrowDown.astro";
 import WhatsApp from "../Icons/WhatsApp.astro";
+import Button from "./Ebook/Button.astro";
 ---
 
-<section class="relative bg-[#0f1f2c]">
+<section class="relative bg-all">
     <div class="text-center md:py-20 md:max-w-3xl mx-auto px-[16px] md:px-4 py-10">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-3/5 pointer-events-none -z-10">
             <div class="w-full h-full bg-[#213343] blur-[120px] rounded-full"></div>
         </div>
         <header>
-            <h3 class="title-section text-white/60">Tienes alguna duda?</h3>
-            <p class="title-section">No dudes en contratarme</p>
+            <h3 class="title-section text-gray">Tienes alguna duda?</h3>
+            <p class="title-section text-white">No dudes en contratarme</p>
         </header>
-        <span class="text-white/60 my-5 block text-[18px] md:text-[21px]">Respondo en menos de 24 horas.</span>
-        <a href="https://wa.me/tu_numero" class="group/wpp flex items-center justify-center gap-2 hover:scale-105 transition-scale duration-200
-        md:max-w-[60%] w-full m-auto bg-gradient-to-r from-[#009193] via-[#086969] to-[#009193] text-white font-black text-lg py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase cursor-pointer border-t border-white/20 active:translate-y-1 transition-all">
+        <span class="text-gray my-5 block text-[18px] md:text-[21px]">Respondo en menos de 24 horas.</span>
+
+
+        <Button button={false} useArrow={false}>
                 <span class="transition-transform duration-200 group-hover/wpp:translate-x-0.5">
                     <WhatsApp />
                 </span>
                 <span>Consulta al WhatsApp</span>
-        </a>
+        </Button>
 
         <div class="mt-[40px]">
             <div id="answer-1" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="0">
-                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start ">Para que tipo de consultorio son los servicios de HackDental?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
-                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-gray text-start ">Para que tipo de consultorio son los servicios de HackDental?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
             </div>
            <div id="answer-2" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="1">
-                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start">Me interesa la auditoria gratuita, como aplico?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
-                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-gray text-start">Me interesa la auditoria gratuita, como aplico?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
             </div>
             <div id="answer-3" class="answer border-b-[2px] border-white/20 mb-[20px] cursor-pointer" data-numberOfIndex="2">
-                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-white/50 text-start">Que incluye la auditoria gratuita?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
-                <p class="response text-start hidden py-3 md:text-lg text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
+                <p class="flex items-center justify-between gap-2 py-3"><span class=" text-sm md:text-lg font-medium text-gray text-start">Que incluye la auditoria gratuita?</span> <span class="arrow transition-all duration-200"><ArrowDown color="#878d8f" size="28"/></span> </p>
+                <p class="response text-start hidden py-3 md:text-lg text-sm text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam quam dolorum eius iure non voluptates sapiente et odio! Consectetur laborum quo dicta velit nam aspernatur, ipsam rerum hic impedit reiciendis?</p>
             </div>
         </div>
     </div>

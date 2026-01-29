@@ -194,3 +194,16 @@
   0%, 100% { background-position: 0% 50%; box-shadow: 0 0 40px rgba(1, 219, 176, 0.3); }
   50% { background-position: 100% 50%; box-shadow: 0 0 60px rgba(1, 219, 176, 0.5); }
 }
+
+
+.text-white{
+  color: #ebf1f5;
+}
+
+.text-gray{
+  color: #9ba9b4;
+}
+
+.bg-all{
+  background-color: #151719;
+}

@@ -71,11 +71,11 @@ const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
 
   <div class="shine-element"></div>
 
-  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-sm md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none font-heading tracking-wide">
+  <div class="relative z-30 flex items-center gap-2 md:gap-3 text-lg md:text-2xl uppercase text-shadow-sm whitespace-nowrap pointer-events-none font-heading tracking-wide">
     <slot />
     {useArrow && (
       <div class="transition-transform duration-300 group-hover:translate-x-1.5 flex items-center">
-        <ArrowRight color={colorArrow} /> 
+        <ArrowRight color={colorArrow} />
       </div>
     )}
   </div>
