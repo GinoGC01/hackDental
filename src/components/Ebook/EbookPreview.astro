@@ -1,43 +1,55 @@
 ---
 import ChevronLeft from "../../Icons/Ebook/ChevronLeft.astro";
 import ChevronRight from "../../Icons/Ebook/ChevronRight.astro";
+import Button from "./Button.astro";
 
 const pages = [
   {
     id: 1,
-    image: "../iamges/imagen x derecha.svg",
-    alt: "El 'Funnel' Anti-Curiosos - Página 12"
+    image: "../iamges/sliderEbook/1.svg",
+    alt: "El 'Funnel' Anti-Curiosos - Página 12",
+    borde: "border-4 border-[#d4af37]"
   },
   {
     id: 2,
-    image: "../iamges/imagen x derecha.svg",
-    alt: "Scripts de WhatsApp - Página 24"
+    image: "../iamges/sliderEbook/2.svg",
+    alt: "Scripts de WhatsApp - Página 24",
+    borde: "border-4 border-[#d4af37]"
+
   },
   {
     id: 3,
-    image: "../iamges/imagen x derecha.svg",
-    alt: "Anatomía del Anuncio - Página 08"
+    image: "../iamges/sliderEbook/3.svg",
+    alt: "Anatomía del Anuncio - Página 08",
+    borde: "border-4 border-[#d4af37]"
+
   },
   {
     id: 4,
-    image: "../iamges/imagen 2.svg",
-    alt: "Oferta Irresistible - Página 18"
+    image: "../iamges/sliderEbook/4.svg",
+    alt: "Oferta Irresistible - Página 18",
+    borde: "border-4 border-[#d4af37]"
+
   }
 ];
 ---
 
-<section class="py-16 md:py-24 relative overflow-hidden">
+<section class="py-8 md:py-24 relative overflow-hidden">
   <div class="absolute inset-0 bg-[#0a0a0a] z-0"></div>
   <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30 z-0"></div>
 
   <div class="max-w-6xl mx-auto px-4 relative z-10">
     
-    <div class="text-center mb-12 md:mb-16">
+    <div class="text-center mb-2 md:mb-4">
+      <p class="hero-subtitle uppercase flex items-center justify-center text-sm gap-2 mb-3 text-brand-red font-bold">
+            SOLO PARA DUEÑOS DE CLÍNICA DENTALES
+      </p>
       <h2 class="text-3xl md:text-5xl font-bold font-heading text-white mb-4 uppercase tracking-tight">
-        Lo que encontrarás <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D92027] to-pink-500">dentro</span> 📖
+        LO QUE ENCONTRARAS <br> DENTRO DE ESTE EBOOK
       </h2>
       <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
-        Sin relleno. Sin teoría aburrida. Solo tácticas probadas para copiar y pegar en tu clínica mañana mismo.
+        Descubre paso a paso como transformar el <br>
+        marketing de tu consultorio dental.
       </p>
     </div>
 
@@ -81,7 +93,7 @@ const pages = [
                 <img 
                   src={page.image} 
                   alt={page.alt} 
-                  class="w-full h-full object-cover rounded-lg shadow-2xl"
+                  class={`w-full h-full object-cover rounded-[7px] shadow-2xl ${page.borde}`}
                 />
              </picture>
            );
@@ -98,8 +110,13 @@ const pages = [
           />
        ))}
     </div>
-
+  <div class="mt-6 md:w-[60%] m-auto">   
+    <Button subtext="👇DESCARGAR EL EBOOK AHORA👇" useArrow={false} width='w-full' mdWidth='w-full'>
+      DESCARGAR EL EBOOK GRATIS
+    </Button>
   </div>
+  </div>
+
 </section>
 
 <script>
