@@ -5,32 +5,33 @@ import Button from "./Button.astro";
 
 const pages = [
   {
+    id: 4,
+    image: "../iamges/sliderEbook/4.svg",
+    alt: "Oferta Irresistible - Página 18",
+    borde: "border-2 border-[#d4af37]"
+
+  },
+  {
     id: 1,
     image: "../iamges/sliderEbook/1.svg",
     alt: "El 'Funnel' Anti-Curiosos - Página 12",
-    borde: "border-4 border-[#d4af37]"
+    borde: ""
   },
   {
     id: 2,
     image: "../iamges/sliderEbook/2.svg",
     alt: "Scripts de WhatsApp - Página 24",
-    borde: "border-4 border-[#d4af37]"
+    borde: ""
 
   },
   {
     id: 3,
     image: "../iamges/sliderEbook/3.svg",
     alt: "Anatomía del Anuncio - Página 08",
-    borde: "border-4 border-[#d4af37]"
+    borde: ""
 
   },
-  {
-    id: 4,
-    image: "../iamges/sliderEbook/4.svg",
-    alt: "Oferta Irresistible - Página 18",
-    borde: "border-4 border-[#d4af37]"
-
-  }
+  
 ];
 ---
 
@@ -87,7 +88,7 @@ const pages = [
 
            return (
              <picture
-                class={`ebook-card absolute transition-all duration-500 ease-out w-[280px] md:w-[320px] aspect-[3/4] ${positionClass}`}
+                class={`ebook-card absolute transition-all duration-500 ease-out w-[280px] md:w-[320px] aspect-[3/4] ${positionClass} ${page.borde != "" && "shadow-[0_0_10px_rgba(212,175,55,0.7)]"} rounded-[7px]`}
                 data-index={index}
              >
                 <img 
