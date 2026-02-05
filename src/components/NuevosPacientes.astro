@@ -1,6 +1,4 @@
 ---
-import Image from "astro/components/Image.astro";
-import AlertTriangle1 from "../Icons/Ebook/AlertTriangle1.astro";
 import Money from "../Icons/Money.astro";
 import Rocket from "../Icons/Rocket.astro";
 import RoundedSpain from "../Icons/RoundedSpain.astro";
@@ -8,76 +6,80 @@ import Button from "./Ebook/Button.astro";
 import ImagenSection from '../../public/iamges/image-section-calidad.svg';
 import Mountains from "./Decorations/Mountains.astro";
 import ArrowRight from "../Icons/Ebook/ArrowRight.astro";
-import Cursor from "../Icons/Cursor.astro"
-import WhatsAppBg from "../Icons/WhatsAppBg.astro"
-import StatsLoose from "../Icons/StatsLoose.astro"
+import { Image } from "astro:assets";
+import Arrow from "../assets/flecha.svg"
 
 
 
 ---
 <section class="w-full bg-[#f6f9fc] py-10 relative">
     <Mountains/>
-    <div class="text-center md:pt-20 md:max-w-3xl mx-auto px-[16px] md:px-4">
+    <div class="text-center md:pt-20 md:max-w-3xl mx-auto px-[16px] md:px-4 flex flex-col justify-center items-center">
         <header class="pb-5">
-            <h3 class="title-section text-[#213343] md:title-section-desk">ERES UN ODONTÓLOGO <br> PROFESIONAL EN ESPAÑA PERO....</h3>
-            <p class="title-section text-[#364b4b] md:title-section-desk">¿SABES CONSEGUIR <br> NUEVOS PACIENTES ONLINE?</p>
+            <h3 class="title-section text-[#213343] md:title-section-desk">ERES <span class="bg-[#C6DBEC] inline-block font-bold">DUEÑO DE UN CONSULTORIO DENTAL</span></h3>
+            <p class="title-section text-[#364b4b] md:title-section-desk">PERO TU CLÍNICA NO GANA LO QUE DEBERÍA</p>
         </header>
-        <p class="text-[#213343] md:text-[21px] text-[18px]">
-            <span class="block leading-[1.2] mb-6">Quieres abrir tu segunda clínica...Pero tu primera apenas sobrevive.</span>
-            <span class="block leading-[1.2] mb-6">Facturas 10,000€ al mes cuando deberías estar en 30,000€.</span>
-            <span class="block leading-[1.2] mb-6">Tus tratamientos son de calidad y por eso recibes algunos pacientes por recomendación.</span> 
-            <span class="block leading-[1.2] mb-6">Pero este metodo es lento. Impredecible. Dificil de escalar.</span> 
-            <b class="block leading-[1.2]">¿Cómo vas a abrir 3 clínicas si no sabes llenar una?</b>  <br> 
+        <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">No es porque tus tratamientos sean malos.</span>
+        </p>
+        <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">👉Es porque no sabes conseguir  <span class="bg-[#C6DBEC] inline-block font-bold">pacientes online.</span></span>
+        </p>
+        <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">Quieres abrir tu <span class="bg-[#C6DBEC] inline-block font-bold">segunda clínica,</span></span>
+            <span class="block leading-[1.2] mb-1">pero la primera <span class="bg-[#C6DBEC] inline-block font-bold"> apenas es rentable.</span></span>
+        </p>
+        <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">Facturas <span class="bg-[#C6DBEC] inline-block font-bold"> 10.000€ al mes,</span></span>
+            <span class="block leading-[1.2] mb-1">cuando una clínica como la tuya <span class="bg-[#C6DBEC] inline-block font-bold">  debería estar en 30.000€+.</span></span>
+        </p>
+        <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">✅Tus tratamientos son buenos. ✅Tu equipo es bueno.</span>
+            <span class="block leading-[1.2]"> <span class="bg-[#C6DBEC] inline-block font-bold"> Pero eso no es suficiente en el 2026</span></span>
+        </p>
+            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <span class="block leading-[1.2] mb-1">Hazte la siguiente pregunta:</span>
+            <span class="block leading-[1.2]">👉¿Cómo vas a abrir 3 clínicas si <span class="bg-[#C6DBEC] inline-block font-bold"> no sabes llenar una?</span></span>
         </p>
         <picture class="w-full">
             <Image src={ImagenSection} alt={''}/>
         </picture>
 
-        <div class="px-8 py-10  border-1 border-gray-500/10 bg-[#9ca3af]/10 rounded-sm">
+        <div class="px-8 py-10 border-1 border-[#9ca3af] bg-[#ffffff] rounded-lg w-[120%]">
             <h3 class="font-oswald font-bold uppercase text-[28px] text-[#213343] mb-6" >El problema de ser un odontologo en el 2026:</h3>
-            <p class="text-[#213343] md:text-[21px] text-[18px]">
-                <span class="block leading-[1.2] mb-6">Ya no basta con hacer un buen servicio para atraer nuevos clientes</span>
-                <span class="block leading-[1.2] mb-6">Una publicidad nueva en facebook no llamara la atencion de nadie</span>
-                <span class="block leading-[1.2] mb-6"><b>Necesitas convertir tu consultorio Dental en un negocio viable digital</b></span>
-            </p>
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">Hoy <span class="bg-[#C6DBEC] inline-block font-bold">ya no basta con ser buen odontólogo</span>.</span>
+                    <span class="block leading-[1.2] ">Eso <span class="bg-[#C6DBEC] inline-block font-bold">ya no te diferencia.</span> </span>
+                </p>
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">Hacer bien tu trabajo <span class="bg-[#C6DBEC] inline-block font-bold">no garantiza pacientes nuevos.</span></span>
+                    <span class="block leading-[1.2]">Y mucho menos crecimiento.</span>
+                </p>
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">La mayoría de clínicas hacen lo mismo:</span>
+                    <span class="block leading-[1.2]">❌ Publicidad genérica ❌ Mensajes sin estrategia ❌ Venden Precio en lugar de calidad</span>
+                </p>
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">En el 2026 <span class="bg-[#C6DBEC] inline-block font-bold">no gana la mejor clínica</span>,</span>
+                    <span class="block leading-[1.2]">gana la que tiene una <span class="bg-[#C6DBEC] inline-block font-bold">estrategia de marketing rentable.</span></span>
+                </p>
+
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1"><span class="bg-[#C6DBEC] inline-block font-bold"> El marketing genérico NO funciona </span> en clínicas dentales</span>
+                </p>
+                <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] font-bold">👉 Necesitas marketing dental hecho por expertos.</span>
+                </p>
             <div class="flex md:flex-row flex-col items-center gap-4 justify-center">
                 <picture class="">
                     <img src="../iamges/imagen x derecha.svg" alt="" class="block w-[250px] h-[350px]" loading="lazy"/>
                 </picture>
                 <span class="rotate-[90deg] md:rotate-[0deg]">
-                    <ArrowRight size="32" color="#213343"/>
+                    <Image src={Arrow} alt="" class="w-15"/>
                 </span>
                 <picture class="">
-                    <img src="../iamges/imagen-odo-2026-izquierda-2.svg" alt="" class="block w-full h-[450px]" loading="lazy" />
+                    <img src="../iamges/imagen-odo-2026-izquierda-2.svg" alt="" class="block w-full h-[390px]" loading="lazy" />
                 </picture>
-            </div>
- 
-            <span class="font-inter font-semibold text-[21px] text-[#213343] mt-[30px] mb-[20px] block">te identificas con esto?</span>
-
-            <div class="flex flex-col md:flex-row items-center text-[#213343] md:justify-center mb-[20px] bg-[#e3eaf1] rounded-lg">
-                <div class="flex gap-3 items-center px-3 py-6">
-                    <div>
-                        <span class="block font-inter font-medium text-[17px] text-start">Sitio web</span>
-                        <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]">Generico</span>
-                    </div>
-                    <div class="grid place-items-center bg-[#455a64] w-[40px] h-[40px] rounded-full">
-                        <Cursor size="16"/>
-                    </div>
-                </div>
-                <div class=" flex gap-3 items-center md:border-x-1 md:border-y-0 border-x-0 border-y-1 border-gray-500/40 px-3 py-6">
-                    <div>
-                        <span class="block font-inter font-medium text-[17px] text-start">WhatsApp con</span>
-                        <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]"><b>Respuestas lentas</b></span>
-                    </div>
-                    <WhatsAppBg size="40" color="#158740"/>
-                </div>
-                <div class=" flex gap-3 items-center px-3 py-6">
-                    <div>
-                        <span class="block font-inter font-medium text-[17px] text-start">Publicidad que</span>
-                        <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]"><b>Pierde Dinero</b></span>
-                    </div>
-                    <StatsLoose size="40" color="#b11111"/>
-                </div>
             </div>
 
             <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
@@ -85,11 +87,24 @@ import StatsLoose from "../Icons/StatsLoose.astro"
             </Button>
         </div>
 
-        <div class="py-10 px-4 mt-4 bg-[#eff7f7] border-[#010101]/10 border-1 rounded-lg ">
+        <div class="py-10 px-4 mt-4 border-[#9ca3af] bg-[#ffffff] border-1 rounded-lg w-[120%]">
             <h3 class="font-oswald font-bold uppercase text-[28px] text-[#213343] mb-6">Mi propuesta para ti:</h3>
-            <p class="text-[#213343] md:text-[21px] text-[18px] font-inter font-medium leading-[1.2] mb-6" >Trabaja con un especialista en Marketing de Clinicas Dentales...  Conmigo, el fundador de HackDental</p> 
-            <p class="text-[#213343] md:text-[21px] text-[18px] font-inter font-light leading-[1.2] mb-6">Seria para mi un honor que me permitas diagnosticar los problemas de marketing y ventas que pueda tener tu consultorio.</p>
-            <p class="text-[#213343] md:text-[21px] text-[18px] font-inter font-light leading-[1.2] mb-6">Solo acepto 5 clinicas cada mes, si te interesa, aplica hoy mismo.</p>
+            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">Trabaja con un <span class="bg-[#C6DBEC] inline-block font-bold">especialista en marketing dental.</span></span>
+                    <span class="block leading-[1.2]">No con una agencia genérica.</span>
+                    <span class="block leading-[1.2] mb-1"><span class="bg-[#C6DBEC] inline-block font-bold">Conmigo</span>, fundador de <span class="bg-[#C6DBEC] inline-block font-bold">HackDental.</span></span>
+
+            </p> 
+            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">Mi trabajo es <span class="bg-[#C6DBEC] inline-block font-bold">diagnosticar exactamente</span></span>
+                    <span class="block leading-[1.2]">por qué tu clínica <span class="bg-[#C6DBEC] inline-block font-bold"> no está creciendo</span></span>
+                    <span class="block leading-[1.2]">y qué está bloqueando tus ventas hoy.</span>
+            </p> 
+             <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+                    <span class="block leading-[1.2] mb-1">No es una llamada comercial.</span>
+                    <span class="block leading-[1.2]">Es un <span class="bg-[#C6DBEC] inline-block font-bold">Es un análisis estratégico </span> de tu marketing y tu captación.</span>
+            </p> 
+
 
             <div class="flex md:flex-row flex-col items-center gap-4 justify-center mb-[40px]">
                 <div class="px-8 py-4 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
@@ -99,7 +114,7 @@ import StatsLoose from "../Icons/StatsLoose.astro"
                     </picture>
                 </div>
                 <span class="rotate-[90deg] md:rotate-[0deg]">
-                    <ArrowRight size="32" color="#213343"/>
+                    <Image src={Arrow} alt="" class="w-15"/>
                 </span>
                 <div class="px-8 py-4 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
                     <span class="font-oswald text-[21px] font-bold text-[#2c3642]">DESPUES</span>
