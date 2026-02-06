@@ -17,7 +17,8 @@ interface Props {
   width?: string;
   mdWidth?: string;
   button?: boolean;
-  image?:boolean
+  image?:boolean;
+  href?:string
 }
 
 const { 
@@ -33,7 +34,8 @@ const {
   width = 'w-full max-w-[22em]',
   mdWidth = 'md:max-w-[27em]',
   button = true,
-  image = false
+  image = false,
+  href = "/contacto"
 } = Astro.props;
 
 const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
@@ -85,7 +87,7 @@ const pureShadowColor = shadowColor.match(/\[(.*?)\]/)?.[1] || "#064e3b";
     </span>
   )}
 </button>:
-<a href="/contacto"
+<a href={href}
   target="_blank"
   class={`group relative overflow-hidden
     ${width} ${mdWidth}
