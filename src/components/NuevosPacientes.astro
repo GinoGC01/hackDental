@@ -44,7 +44,7 @@ import Arrow from "../assets/flecha.svg"
             <Image src={ImagenSection} alt={''}/>
         </picture>
 
-        <div class="px-8 py-10 border-1 border-[#9ca3af] bg-[#9ca3af]/10 rounded-lg md:w-[120%]">
+        <div class="px-8 py-10 border-1 border-[#9ca3af] bg-[#9ca3af]/10 rounded-lg md:w-[120%] w-[100%]">
             <h3 class="font-oswald font-bold uppercase text-[28px] text-[#213343] mb-6" >El problema de ser un odontologo en el 2026:</h3>
                 <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
                     <span class="block leading-[1.2] mb-1">Hoy <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]">ya no basta con ser buen odontólogo</span>.</span>
@@ -86,64 +86,67 @@ import Arrow from "../assets/flecha.svg"
             </Button>
         </div>
 
-        <div class="py-10 px-8 mt-4 border-[#9ca3af] bg-[#9ca3af]/10 border-1 rounded-lg md:w-[120%] w-full">
-            <h3 class="font-oswald font-bold uppercase text-[28px] text-[#213343] mb-6">Mi propuesta para ti:</h3>
-            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+        <div class="py-10 md:px-8 px-0 mt-4 border-[#9ca3af] bg-[#9ca3af]/10 border-1 rounded-lg md:w-[120%] w-[100%]">
+            <h3 class="font-oswald font-bold uppercase text-[28px] text-[#213343] mb-6 px-4 md:px-0">Mi propuesta para ti:</h3>
+            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px] px-4 md:px-0">
                     <span class="block leading-[1.2] mb-1">Trabaja con un <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]">especialista en marketing dental.</span></span>
                     <span class="block leading-[1.2]">No con una agencia genérica.</span>
                     <span class="block leading-[1.2] mb-1"><span class="bg-[#C6DBEC] inline-block font-bold">Conmigo</span>, fundador de <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]">HackDental.</span></span>
 
             </p> 
-            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+            <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px] px-4 md:px-0">
                     <span class="block leading-[1.2] mb-1">Mi trabajo es <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]">diagnosticar exactamente</span></span>
                     <span class="block leading-[1.2]">por qué tu clínica <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]"> no está creciendo</span></span>
                     <span class="block leading-[1.2]">y qué está bloqueando tus ventas hoy.</span>
             </p> 
-             <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px]">
+             <p class="text-[#213343] md:text-[21px] text-[18px] mb-[18px] px-4 md:px-0">
                     <span class="block leading-[1.2] mb-1">No es una llamada comercial.</span>
                     <span class="block leading-[1.2]">Es un <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]">Es un análisis estratégico </span> de tu marketing y tu captación.</span>
             </p> 
 
 
-            <div class="flex md:flex-row flex-col items-center gap-4 justify-center mb-[40px]">
-                <div class="px-8 py-4 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
-                    <span class="font-oswald text-[21px] font-bold text-[#2c3642]">ANTES</span>
+            <div class="flex md:flex-row flex-col items-center md:gap-4  justify-center mb-[40px] px-4 md:px-0">
+                <div class="px-8 md:py-4 pt-2 pb-4 rounded-[25px] bg-[#d2ebeb] flex flex-col w-full flex items-center justify-center">
+                    <span class="font-oswald md:text-[21px] text-[12px] font-bold text-[#2c3642]">ANTES</span>
                     <picture>
-                        <img src="../iamges/imagen x derecha.svg" alt="" class="block w-[230px] h-[230px]" loading="lazy"/>
+                        <img src="../iamges/imagen x derecha.svg" alt="" class="block md:w-[230px] md:h-[230px] w-[130px] h-[130px]" loading="lazy"/>
                     </picture>
                 </div>
-                <span class="rotate-[90deg] md:rotate-[0deg]">
-                    <Image src={Arrow} alt="" class="w-15"/>
+                <span class="rotate-[90deg] md:rotate-[0deg] -my-[5px] md:my-[auto]">
+                    <Image src={Arrow} alt="" class="md:w-15 w-10"/>
                 </span>
-                <div class="px-8 py-4 rounded-[60px] bg-[#d2ebeb] flex flex-col ">
-                    <span class="font-oswald text-[21px] font-bold text-[#2c3642]">DESPUES</span>
+                <div class="px-8 md:py-4 pb-2 pt-4 rounded-[25px] bg-[#d2ebeb] flex flex-col w-full flex items-center justify-center">
+                    <span class="font-oswald md:text-[21px] text-[12px] font-bold text-[#2c3642]">DESPUES</span>
                     <picture>
-                        <img src="../iamges/imagen-odo-2026-derecha.svg" alt="" class="block w-[250px] h-[250px]" loading="lazy"/>
+                        <img src="../iamges/imagen-odo-2026-derecha.svg" alt="" class="block md:w-[230px] md:h-[230px] w-[200px] h-[200px]" loading="lazy"/>
                     </picture>
                 </div>
             </div>
+            <div class="px-4 md:px-0">
             <Button width="w-full" mdWidth="w-full" useArrow={false} subtext="ES 100% GRATIS DURANTE FEBRERO">
                 <span class="text-[.7rem] md:text-[24px]">QUIERO UNA AUDITORIA DE MARKETING</span>
             </Button>
 
-            <span class="font-inter font-semibold md:text-[21px] text-[18px] mt-[32px] mb-[20px] text-[#213343] block"> Aplica ahora <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]"> si tu consultorio dental cumple lo siguiente:</span> </span>
+            </div>
 
-            <div class="flex flex-col md:flex-row items-center text-[#213343] justify-center gap-4 mb-[20px] bg-[#086969]/10 rounded-xl">
-                <div class="flex gap-3  items-center px-3 py-6">
+            <span class="font-inter font-semibold md:text-[21px] text-[18px] mt-[32px] mb-[20px] text-[#213343] block px-4 md:px-0"> Aplica ahora <span class="bg-[#C6DBEC] inline-block font-bold text-[#000000]"> si tu consultorio dental cumple lo siguiente:</span> </span>
+
+            <div class="flex flex-col md:flex-row items-center text-[#213343] justify-center gap-4 mb-[20px] bg-[#086969]/10 rounded-xl p-4">
+                <div class="flex gap-3 items-center md:px-3 md:py-6 w-full justify-between md:justify-center px-4 py-3">
                     <div>
                         <span class="block font-inter font-medium text-[17px] text-start">Ubicados en</span>
                         <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]">España</span>
                     </div>
                         <RoundedSpain size="40"/>
                 </div>
-                <div class=" flex gap-3 items-center md:border-x-1 md:border-y-0 border-x-0 border-y-1 border-gray-500/40 px-6 py-6">
+                <div class="flex gap-3 items-center md:px-3 md:py-6 w-full justify-between md:justify-center px-4 py-6 md:border-x-1 md:border-y-0 border-x-0 border-y-1 border-gray-500/40">
                     <div>
                         <span class="block font-inter font-medium text-[17px] text-start">Facturan mas de</span>
                         <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]"><b>10,000 euros</b></span>
                     </div>
                     <Money size="40" color="#eab308"/>
                 </div>
-                <div class=" flex gap-3 items-center px-3 py-6">
+                <div class=" flex gap-3 items-center px-4 py-6 w-full justify-between ">
                     <div>
                         <span class="block font-inter font-medium text-[17px] text-start">Busca crecer en</span>
                         <span class="block font-oswald font-bold text-[24px] text-start leading-[0.8]"><b>2026</b></span>
