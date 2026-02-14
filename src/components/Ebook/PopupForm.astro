@@ -326,12 +326,14 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
       if (res.success) {
         window.location.href = "/gracias-ebook";
       }
+
       else if(!res.success && 'ebook-solicited'){
           // Si hay alerta, restauramos el botón para que pueda reintentar o cerrar
           if(submitBtn) submitBtn.disabled = false;
           if(submitText) submitText.classList.remove('hidden');
           if(submitLoader) submitLoader.classList.add('hidden');
-          alert("Ebook solicitado! revisa tu email, previamente habias solicitado tu Ebook")
+          window.location.href = "/gracias-ebook";
+
       }
       else {
         currentStep = 3; 
