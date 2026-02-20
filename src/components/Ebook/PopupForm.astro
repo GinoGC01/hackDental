@@ -6,6 +6,7 @@ import X from "../../Icons/X.astro"
 import CheckCircle from "../../Icons/Ebook/CheckCircle.astro"
 import CornerRightDown from "../../Icons/Ebook/CornerRightDown.astro"
 import Sparkles from "../../Icons/Ebook/Sparkles.astro"
+import Spain from "../../Icons/Spain.astro"
 ---
 
 <div id="popup-form" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fadeIn">
@@ -64,6 +65,8 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
                   class="relative w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-brand-red text-white placeholder-gray-500 focus:outline-none focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/50 shadow-[0_0_20px_rgba(217,32,39,0.2)] focus:shadow-[0_0_25px_rgba(22,163,74,0.3)] transition-all duration-300 z-10"
                 />
               </div>
+              <!-- Contenedor de errores de API para el campo email -->
+              <div id="api-errors-container" class="hidden mt-3 space-y-1.5"></div>
             </div>
           </div>
           
@@ -105,15 +108,22 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Teléfono (WhatsApp)</label>
-              <input 
-                required 
-                type="tel" 
-                name="telefono" 
-                id="input-phone" 
-                placeholder="+34 600 000 000"
-                class="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700 text-white placeholder-gray-600 focus:border-brand-red focus:ring-1 focus:ring-brand-red/50 outline-none transition-all"
-              />
+              <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+                Teléfono (WhatsApp)
+              </label>
+              <div class="relative">
+                 <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 z-20 border-r border-white/10 pr-2">
+                    <Spain size="20" /><span class="text-white text-sm font-bold">+34</span>
+                 </div>
+                 <input 
+                    required 
+                    type="tel" 
+                    name="telefono" 
+                    id="input-phone" 
+                    placeholder="600 000 000"
+                    class="w-full pr-4 pl-24 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700 text-white placeholder-gray-600 focus:border-brand-red focus:ring-1 focus:ring-brand-red/50 outline-none transition-all"
+                  />
+              </div>
             </div>
           </div>
           
@@ -199,6 +209,85 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
   const submitText = document.getElementById('submit-text');
   const submitLoader = document.getElementById('submit-loader');
 
+  // Contenedor de errores de API en step-1
+  const apiErrorsContainer = document.getElementById('api-errors-container');
+
+  /**
+   * Limpia todos los errores de API mostrados en el step-1
+   */
+  function clearApiErrors() {
+    if (apiErrorsContainer) {
+      apiErrorsContainer.innerHTML = '';
+      apiErrorsContainer.classList.add('hidden');
+    }
+    inputEmail?.classList.remove('border-red-500');
+  }
+
+  /**
+   * Muestra los errores de la API en el step-1 y retrocede al paso 1.
+   * Acepta: string, string[], { field: string; message: string }[], o cualquier objeto con mensaje.
+   */
+  function showApiErrors(errors: unknown) {
+    if (!apiErrorsContainer) return;
+
+    // Normalizar los errores a un array de strings
+    const errorMessages: string[] = [];
+
+    if (typeof errors === 'string') {
+      errorMessages.push(errors);
+    } else if (Array.isArray(errors)) {
+      errors.forEach((err) => {
+        if (typeof err === 'string') {
+          errorMessages.push(err);
+        } else if (typeof err === 'object' && err !== null) {
+          // Soporta { message }, { msg }, { field, message }, etc
+          const errObj = err as Record<string, unknown>;
+          const msg =
+            (errObj.message as string) ||
+            (errObj.msg as string) ||
+            (errObj.error as string) ||
+            JSON.stringify(err);
+          const field = errObj.field ? `[${errObj.field}] ` : '';
+          errorMessages.push(`${field}${msg}`);
+        }
+      });
+    } else if (typeof errors === 'object' && errors !== null) {
+      // Puede ser un objeto con claves siendo nombres de campo
+      const errObj = errors as Record<string, unknown>;
+      for (const key in errObj) {
+        const val = errObj[key];
+        const msg = typeof val === 'string' ? val : JSON.stringify(val);
+        errorMessages.push(`[${key}] ${msg}`);
+      }
+    }
+
+    if (errorMessages.length === 0) {
+      errorMessages.push('Ocurrió un error inesperado. Por favor, inténtalo de nuevo.');
+    }
+
+    // Renderizar cada error como un <span> independiente
+    apiErrorsContainer.innerHTML = errorMessages
+      .map(
+        (msg) => `
+        <span class="flex items-start gap-2 text-xs text-red-400 bg-red-950/40 border border-red-700/40 rounded-md px-3 py-2 leading-snug">
+          <svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+          ${msg === "[telefono] Teléfono inválido (+34XXXXXXXXX)" ? "[teléfono] El campo Teléfono tiene el +34 incluido, por favor escriba los siguientes 9 digítos (111222333)" : msg}
+        </span>`
+      )
+      .join('');
+
+    apiErrorsContainer.classList.remove('hidden');
+
+    // Marcar el input de email con borde rojo como indicación visual
+    inputEmail?.classList.add('border-red-500');
+
+    // Retroceder al step 1 para que el usuario corrija
+    currentStep = 1;
+    updateUI();
+  }
+
   /**
    * Carga datos del LocalStorage y los inyecta en el DOM y en el estado formData
    */
@@ -239,6 +328,7 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     popup?.classList.add('hidden');
     document.body.style.overflow = '';
     currentStep = 1;
+    clearApiErrors();
     updateUI();
   }
 
@@ -283,6 +373,11 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
     if (inputTelefono?.value) formData.telefono = inputTelefono.value;
   }
 
+  // Limpiar errores de API cuando el usuario empiece a escribir en el email
+  inputEmail?.addEventListener('input', () => {
+    clearApiErrors();
+  });
+
   // Manejo de botones "Continuar"
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
@@ -290,6 +385,7 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
 
     if (btnNext) {
       e.preventDefault();
+      clearApiErrors(); // Limpiar errores previos al avanzar
       if (validateCurrentStep()) {
         syncStateWithInputs();
         currentStep++;
@@ -318,33 +414,46 @@ import Sparkles from "../../Icons/Ebook/Sparkles.astro"
         telefono: formData.telefono.startsWith('+') ? formData.telefono : `+34${formData.telefono}`
       };
 
-      // PERSISTENCIA: Guardamos en LocalStorage
       localStorage.setItem('user', JSON.stringify(payload));
 
       const res = await ApiService.sendData(payload);
       
-      if (res.success) {
+      if (res.success && !res.errors) {
+        // Caso exitoso: redirigir a la página de gracias
         window.location.href = "/gracias-ebook";
-      }
 
-      else if(!res.success && 'ebook-solicited'){
-          // Si hay alerta, restauramos el botón para que pueda reintentar o cerrar
-          if(submitBtn) submitBtn.disabled = false;
-          if(submitText) submitText.classList.remove('hidden');
-          if(submitLoader) submitLoader.classList.add('hidden');
-          window.location.href = "/gracias-ebook";
+      } else if (!res.success && res.solicited) {
+        // El usuario ya solicitó el ebook previamente
+        
+        if(submitBtn) submitBtn.disabled = false;
+        if(submitText) submitText.classList.remove('hidden');
+        if(submitLoader) submitLoader.classList.add('hidden');
+        alert('Ebook Solicitado previamente! Revise su email.')
 
-      }
-      else {
+      } else if (res.errors) {
+        // Restaurar el botón antes de mostrar errores
+        if(submitBtn) submitBtn.disabled = false;
+        if(submitText) submitText.classList.remove('hidden');
+        if(submitLoader) submitLoader.classList.add('hidden');
+
+        // Mapear y mostrar todos los errores en el step-1
+        showApiErrors(res.errors);
+
+      } else {
+        // Fallback: mostrar step de éxito local si no hay redirección ni error claro
         currentStep = 3; 
         updateUI();
       }
+
     } catch (err) {
       console.error("Error en el envío:", err);
-      // Restaurar botón en caso de error
+      // Restaurar botón en caso de error de red u otro error inesperado
       if(submitBtn) submitBtn.disabled = false;
       if(submitText) submitText.classList.remove('hidden');
       if(submitLoader) submitLoader.classList.add('hidden');
+
+      // Mostrar error genérico en step-1
+      showApiErrors('No se pudo conectar con el servidor. Por favor, inténtalo de nuevo.');
     }
   });
 

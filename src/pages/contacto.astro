@@ -95,6 +95,8 @@ import EbookLayout from '../layouts/EbookLayout.astro';
                                 <input type="email" id="email" name="email" required placeholder="Ingresa un email válido" class="relative w-full px-4 py-4 bg-[#1a1a1a] border border-white/10 rounded-lg text-white focus:outline-none transition-all z-10">
                             </div>
                             <p class="text-[11px] text-gray-500 mt-2">Te enviaremos los detalles de la auditoría</p>
+                            <!-- Contenedor de errores de API -->
+                            <div id="api-errors-container" class="hidden mt-3 space-y-1.5"></div>
                         </div>
                     </div>
                     <button type="button" id="nextStep1" class="w-full bg-gradient-to-r from-[#086969] via-[#039683] to-[#086969] text-white font-black text-[21px] py-4 rounded-lg shadow-[0_4px_0_#064e3b] mt-8 uppercase active:translate-y-1 transition-all flex items-center justify-center flex-col cursor-pointer">
@@ -277,12 +279,77 @@ import EbookLayout from '../layouts/EbookLayout.astro';
   const nombre = document.getElementById("nombre") as HTMLInputElement;
   const website = document.getElementById("website") as HTMLInputElement;
   const telefono = document.getElementById("telefono") as HTMLInputElement;
+  const apiErrorsContainer = document.getElementById("api-errors-container");
+
   interface User  {
         nombre: string;
         email: string;
         website: string;
         telefono: string;
     }
+
+  // --- MANEJO DE ERRORES DE API ---
+  function clearApiErrors(): void {
+    if (apiErrorsContainer) {
+      apiErrorsContainer.innerHTML = '';
+      apiErrorsContainer.classList.add('hidden');
+    }
+    email?.classList.remove('border-red-500');
+  }
+
+  function showApiErrors(errors: unknown): void {
+    if (!apiErrorsContainer) return;
+
+    const errorMessages: string[] = [];
+
+    if (typeof errors === 'string') {
+      errorMessages.push(errors);
+    } else if (Array.isArray(errors)) {
+      errors.forEach((err) => {
+        if (typeof err === 'string') {
+          errorMessages.push(err);
+        } else if (typeof err === 'object' && err !== null) {
+          const errObj = err as Record<string, unknown>;
+          const msg =
+            (errObj.message as string) ||
+            (errObj.msg as string) ||
+            (errObj.error as string) ||
+            JSON.stringify(err);
+          const field = errObj.field ? `[${errObj.field}] ` : '';
+          errorMessages.push(`${field}${msg}`);
+        }
+      });
+    } else if (typeof errors === 'object' && errors !== null) {
+      const errObj = errors as Record<string, unknown>;
+      for (const key in errObj) {
+        const val = errObj[key];
+        const msg = typeof val === 'string' ? val : JSON.stringify(val);
+        errorMessages.push(`[${key}] ${msg}`);
+      }
+    }
+
+    if (errorMessages.length === 0) {
+      errorMessages.push('Ocurrió un error inesperado. Por favor, inténtalo de nuevo.');
+    }
+
+    apiErrorsContainer.innerHTML = errorMessages
+      .map(
+        (msg) => `
+        <span class="flex items-start gap-2 text-xs text-red-400 bg-red-950/40 border border-red-700/40 rounded-md px-3 py-2 leading-snug">
+          <svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+          ${msg === "[telefono] Teléfono inválido (+34XXXXXXXXX)" ? "[teléfono] El campo Teléfono tiene el +34 incluido, por favor escriba los siguientes 9 digítos (111222333)" : msg}
+        </span>`
+      )
+      .join('');
+
+    apiErrorsContainer.classList.remove('hidden');
+    email?.classList.add('border-red-500');
+
+    // Retroceder al step 1 para que el usuario corrija el email
+    showStep(1);
+  }
 
   function checkData(): void {
 
@@ -317,6 +384,9 @@ import EbookLayout from '../layouts/EbookLayout.astro';
   }
 
   checkData() //revisa los datos en ls
+
+  // Limpiar errores cuando el usuario empiece a corregir el email
+  email?.addEventListener('input', clearApiErrors);
 
   // --- LÓGICA DE SOMBRAS SECUENCIALES ---
   function refreshShadows(): void {
@@ -459,7 +529,6 @@ import EbookLayout from '../layouts/EbookLayout.astro';
       from: 'auditoria'
     };
     // Guarda en ls los datos pertinentes del usuario
-
     localStorage.setItem('user', JSON.stringify(formData));
 
     try {
@@ -468,20 +537,27 @@ import EbookLayout from '../layouts/EbookLayout.astro';
       textBtn.classList.add("hidden");
 
       const res = await ApiService.sendData(formData);
-      console.log(res)
-      if (res && (res.success || res.warning === 'email-registered')) {
+      console.log(res);
+
+      if (res.errors) {
+        // Mapear y mostrar todos los errores en el step-1 junto al campo email
+        showApiErrors(res.errors);
+      } else if (res.success) {
+        form.reset();
+        window.location.href = "/gracias-auditoria";
+      } else if (!res.succes && res.solicited) {
+        alert('¡Auditoría solicitada previamente! En breve me contactaré contigo.');
         form.reset();
         showStep(1);
-      }
-      if(res.success){
-         window.location.href = "/gracias-auditoria";
+      } else {
+        // Fallback genérico: error no identificado
+        showApiErrors('No se pudo procesar tu solicitud. Por favor, inténtalo de nuevo.');
       }
 
-      if(!res.success && 'audit-solicited'){
-         alert('Auditoria solicitada previamente! en breves me contactare contigo')
-      }
     } catch (error) {
       console.error(error);
+      // Error de red u otro error inesperado
+      showApiErrors('No se pudo conectar con el servidor. Por favor, inténtalo de nuevo.');
     } finally {
       submitBtn.disabled = false;
       loader.classList.add("hidden");
